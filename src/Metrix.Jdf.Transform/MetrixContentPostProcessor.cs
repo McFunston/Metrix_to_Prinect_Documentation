@@ -116,6 +116,7 @@ public static class MetrixContentPostProcessor
                     {
                         var paperRect = FormatPaperRect(paperOffset.X, paperOffset.Y, paperSize.Value.Width, paperSize.Value.Height);
                         surfaceElement.SetAttributeValue(hdm + "PaperRect", paperRect);
+                        EnsureTransferCurvePoolRef(surfaceElement, ns, transferCurvePoolId);
                     }
 
                     var paperDim = SetMediaDimension(paperMedia, ns, signature.Name, sheet.Name, paperSize.Value.Width, paperSize.Value.Height);
