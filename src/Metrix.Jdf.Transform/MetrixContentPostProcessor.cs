@@ -153,20 +153,44 @@ public static class MetrixContentPostProcessor
                         sideNode.Elements(ns + "MarkObject").Remove();
                         sideNode.Elements(ns + "ContentObject").Remove();
 
-                        if (applyMarkGeometry)
+                        if (applyMarkGeometry && applyContentGeometry)
                         {
-                            foreach (var mark in surface.MarkObjects)
+                            // Preserve Metrix ordering (mark, content, mark) to avoid preview crashes.
+                            var markIndex = 0;
+                            if (surface.MarkObjects.Count > 0)
                             {
-                                sideNode.Add(BuildMarkObject(ns, mark));
+                                sideNode.Add(BuildMarkObject(ns, surface.MarkObjects[0]));
+                                markIndex = 1;
                             }
-                        }
 
-                        if (applyContentGeometry)
-                        {
                             var originOffset = (X: 0m, Y: 0m);
                             foreach (var content in surface.ContentObjects)
                             {
                                 sideNode.Add(BuildContentObject(ns, hdm, ssi, surface.Side, content, originOffset, includeAssemblyFace: true));
+                            }
+
+                            for (var i = markIndex; i < surface.MarkObjects.Count; i++)
+                            {
+                                sideNode.Add(BuildMarkObject(ns, surface.MarkObjects[i]));
+                            }
+                        }
+                        else
+                        {
+                            if (applyMarkGeometry)
+                            {
+                                foreach (var mark in surface.MarkObjects)
+                                {
+                                    sideNode.Add(BuildMarkObject(ns, mark));
+                                }
+                            }
+
+                            if (applyContentGeometry)
+                            {
+                                var originOffset = (X: 0m, Y: 0m);
+                                foreach (var content in surface.ContentObjects)
+                                {
+                                    sideNode.Add(BuildContentObject(ns, hdm, ssi, surface.Side, content, originOffset, includeAssemblyFace: true));
+                                }
                             }
                         }
                     }
