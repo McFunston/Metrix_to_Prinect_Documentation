@@ -224,7 +224,7 @@ public static class MetrixContentPostProcessor
         {
             NormalizeTransferCurvePoolBySignature(resourcePool, ns, paperOffsets);
         }
-        var applyPaperMetadata = false;
+        var applyPaperMetadata = metrixMxml is not null;
         if (applyPaperMetadata)
         {
             ApplyPaperMetadata(metrixMxml, paperMedia, ns, metrixLayout);
