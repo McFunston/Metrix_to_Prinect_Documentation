@@ -131,7 +131,7 @@ public static class MetrixContentPostProcessor
                     }
                 }
 
-            var applyContentGeometry = false;
+            var applyContentGeometry = true;
             var applyMarkGeometry = true;
                 if (!useMetrixLayout && (applyContentGeometry || applyMarkGeometry))
                 {
