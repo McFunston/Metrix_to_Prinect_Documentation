@@ -23,6 +23,9 @@ public static class MetrixContentPostProcessor
             .FirstOrDefault(element => string.Equals(Attr(element, "MediaType"), "Paper", StringComparison.OrdinalIgnoreCase));
         var plateMedia = resourcePool?.Elements(ns + "Media")
             .FirstOrDefault(element => string.Equals(Attr(element, "MediaType"), "Plate", StringComparison.OrdinalIgnoreCase));
+        var transferCurvePoolId = resourcePool?.Elements(ns + "TransferCurvePool")
+            .Select(element => Attr(element, "ID"))
+            .FirstOrDefault(id => !string.IsNullOrWhiteSpace(id));
         var paperMediaId = paperMedia?.Attribute("ID")?.Value;
         var plateMediaId = plateMedia?.Attribute("ID")?.Value;
         var metrixLayout = metrixDocument.Layout;
@@ -70,6 +73,7 @@ public static class MetrixContentPostProcessor
                     continue;
                 }
 
+                EnsureTransferCurvePoolRef(sheetNode, ns, transferCurvePoolId);
                 var firstSurface = sheet.Surfaces.FirstOrDefault();
                 var plateSize = ResolvePlateSize(sheet, firstSurface);
                 if (plateSize is not null)
@@ -570,6 +574,21 @@ public static class MetrixContentPostProcessor
         if (!exists)
         {
             signatureNode.Add(new XElement(ns + "MediaRef", new XAttribute("rRef", mediaId)));
+        }
+    }
+
+    private static void EnsureTransferCurvePoolRef(XElement layoutNode, XNamespace ns, string? transferCurvePoolId)
+    {
+        if (string.IsNullOrWhiteSpace(transferCurvePoolId))
+        {
+            return;
+        }
+
+        var exists = layoutNode.Elements(ns + "TransferCurvePoolRef")
+            .Any(element => string.Equals(Attr(element, "rRef"), transferCurvePoolId, StringComparison.OrdinalIgnoreCase));
+        if (!exists)
+        {
+            layoutNode.Add(new XElement(ns + "TransferCurvePoolRef", new XAttribute("rRef", transferCurvePoolId)));
         }
     }
 
