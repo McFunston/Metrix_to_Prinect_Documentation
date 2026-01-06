@@ -729,7 +729,7 @@ public static class MetrixContentPostProcessor
             .FirstOrDefault(element => element.Elements(ns + "SeparationSpec").Any())
             ?? marksRunList.Element(ns + "LayoutElement");
 
-        var flattenMarksRunList = true;
+        var flattenMarksRunList = false;
         if (flattenMarksRunList)
         {
             foreach (var child in marksRunList.Elements(ns + "RunList").ToList())
