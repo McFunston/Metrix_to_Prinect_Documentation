@@ -23,6 +23,9 @@ public static class MetrixContentPostProcessor
             .FirstOrDefault(element => string.Equals(Attr(element, "MediaType"), "Paper", StringComparison.OrdinalIgnoreCase));
         var plateMedia = resourcePool?.Elements(ns + "Media")
             .FirstOrDefault(element => string.Equals(Attr(element, "MediaType"), "Plate", StringComparison.OrdinalIgnoreCase));
+        var transferCurvePoolId = resourcePool?.Elements(ns + "TransferCurvePool")
+            .Select(element => Attr(element, "ID"))
+            .FirstOrDefault(id => !string.IsNullOrWhiteSpace(id));
         var paperMediaId = paperMedia?.Attribute("ID")?.Value;
         var plateMediaId = plateMedia?.Attribute("ID")?.Value;
         var metrixLayout = metrixDocument.Layout;
@@ -37,6 +40,8 @@ public static class MetrixContentPostProcessor
             layoutRoot = ReplaceLayoutWithMetrixLayout(resourcePool, layoutRoot, metrixDocument, metrixLayout);
         }
 
+        var normalizeTransferCurvePool = false;
+        var normalizeTransferCurvePoolBySignature = true;
         var paperDimensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var plateDimensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var paperOffsets = new Dictionary<(string Signature, string Sheet), (decimal X, decimal Y)>();
@@ -57,6 +62,10 @@ public static class MetrixContentPostProcessor
 
             EnsureMediaRef(signatureNode, ns, paperMediaId);
             EnsureMediaRef(signatureNode, ns, plateMediaId);
+            if (normalizeTransferCurvePoolBySignature)
+            {
+                EnsureTransferCurvePoolRef(signatureNode, ns, transferCurvePoolId);
+            }
 
             foreach (var sheet in signature.Sheets)
             {
@@ -207,10 +216,13 @@ public static class MetrixContentPostProcessor
             ClearTopLevelDimensionIfMixed(plateMedia, plateDimensions);
         }
 
-        var normalizeTransferCurvePool = false;
         if (normalizeTransferCurvePool)
         {
             NormalizeTransferCurvePool(resourcePool, ns, paperOffsets);
+        }
+        else if (normalizeTransferCurvePoolBySignature)
+        {
+            NormalizeTransferCurvePoolBySignature(resourcePool, ns, paperOffsets);
         }
         var applyPaperMetadata = false;
         if (applyPaperMetadata)
@@ -573,6 +585,21 @@ public static class MetrixContentPostProcessor
         }
     }
 
+    private static void EnsureTransferCurvePoolRef(XElement layoutNode, XNamespace ns, string? transferCurvePoolId)
+    {
+        if (string.IsNullOrWhiteSpace(transferCurvePoolId))
+        {
+            return;
+        }
+
+        var exists = layoutNode.Elements(ns + "TransferCurvePoolRef")
+            .Any(element => string.Equals(Attr(element, "rRef"), transferCurvePoolId, StringComparison.OrdinalIgnoreCase));
+        if (!exists)
+        {
+            layoutNode.Add(new XElement(ns + "TransferCurvePoolRef", new XAttribute("rRef", transferCurvePoolId)));
+        }
+    }
+
     private static void NormalizeMediaPartitions(XElement? media, XNamespace ns)
     {
         if (media is null)
@@ -671,6 +698,55 @@ public static class MetrixContentPostProcessor
                 new XAttribute("CTM", "1 0 0 1 0 0")));
 
             sigPart.Add(sheetPart);
+        }
+
+        transferPool.ReplaceWith(normalized);
+    }
+
+    private static void NormalizeTransferCurvePoolBySignature(
+        XElement? resourcePool,
+        XNamespace ns,
+        Dictionary<(string Signature, string Sheet), (decimal X, decimal Y)> offsets)
+    {
+        if (resourcePool is null || offsets.Count == 0)
+        {
+            return;
+        }
+
+        var transferPool = resourcePool.Elements(ns + "TransferCurvePool").FirstOrDefault();
+        if (transferPool is null)
+        {
+            return;
+        }
+
+        var normalized = new XElement(ns + "TransferCurvePool");
+        foreach (var attribute in transferPool.Attributes())
+        {
+            normalized.SetAttributeValue(attribute.Name, attribute.Value);
+        }
+
+        normalized.SetAttributeValue("PartIDKeys", "SignatureName");
+
+        foreach (var signatureGroup in offsets
+                     .GroupBy(entry => entry.Key.Signature, StringComparer.OrdinalIgnoreCase)
+                     .OrderBy(group => group.Key))
+        {
+            var firstOffset = signatureGroup
+                .OrderBy(entry => entry.Key.Sheet)
+                .Select(entry => entry.Value)
+                .FirstOrDefault();
+
+            var sigPart = new XElement(ns + "TransferCurvePool",
+                new XAttribute("SignatureName", signatureGroup.Key));
+
+            sigPart.Add(new XElement(ns + "TransferCurveSet",
+                new XAttribute("Name", "Paper"),
+                new XAttribute("CTM", $"1 0 0 1 {(-firstOffset.X).ToString(CultureInfo.InvariantCulture)} {(-firstOffset.Y).ToString(CultureInfo.InvariantCulture)}")));
+            sigPart.Add(new XElement(ns + "TransferCurveSet",
+                new XAttribute("Name", "Plate"),
+                new XAttribute("CTM", "1 0 0 1 0 0")));
+
+            normalized.Add(sigPart);
         }
 
         transferPool.ReplaceWith(normalized);
