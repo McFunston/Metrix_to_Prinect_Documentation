@@ -324,11 +324,19 @@ Observed in Cockpit with normalized S2328 bundle (current state):
 - Import succeeds without errors.
 - Sheet and plate sizes are correct.
 - Layout previews appear centered and reasonable across cover + text sheets.
+- Layout Preview does not crash Acrobat.
 - Page list appears correct.
 - WorkStyle is correct per sheet (SS for cover, PE for text), with simplex back suppression.
 - "Allow spot colors for BCMY" is enabled.
+- Paper attributes (Description/Brand/ProductID/Weight/Thickness/Grade/Manufacturer/GrainDirection) are populated.
 
 Stability: **Advisory** (single sample run; needs cross-check against Metrix preview).
+
+### Layout Preview crash notes
+Observed behaviors so far:
+
+- Crashes when CuttingParams/StrippingParams preview helpers are injected (iteration 19).
+- Does not crash with current normalization that includes MXML-derived paper metadata.
 
 ### Normalization changes that enabled the current wins
 These map specific normalization steps to the observed Cockpit outcomes for S2328.
@@ -343,6 +351,7 @@ These map specific normalization steps to the observed Cockpit outcomes for S232
 | Remove `HDM:SignaBLOB` URL; keep Signa metadata otherwise | Avoid “Can’t copy the Signa Station data file.” | Iteration 2 (missing Signa Station error resolved). |
 | Normalize marks RunList structure + `SeparationSpec` placeholders | "Allow spot colors for BCMY" enabled. | Iteration 2 onward (BCMY enabled). |
 | Page labels from Metrix `Ord` + MXML `PagePool` | Page list appears correct. | Iteration 13 (page list correct). |
+| Apply MXML paper metadata to Paper `Media` | Paper attributes show in Cockpit; Layout Preview remains stable. | Current state (paper attributes populated). |
 
 Suspected causes (to validate):
 
