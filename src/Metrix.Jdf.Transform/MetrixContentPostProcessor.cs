@@ -190,7 +190,7 @@ public static class MetrixContentPostProcessor
         {
             StripPaperMetadata(paperMedia, ns);
         }
-        // NormalizeMarksRunList(signaDocument, metrixDocument, metrixLayout, hdm);
+        NormalizeMarksRunList(signaDocument, metrixDocument, metrixLayout, hdm);
         RemoveCuttingAndStripping(resourcePool, resourceLinkPool, ns);
         // AlignResourcesToPythonStyle(signaDocument);
         // Use the main layout until we confirm a preview layout is required.
