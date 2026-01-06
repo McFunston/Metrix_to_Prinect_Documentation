@@ -338,6 +338,15 @@ Observed behaviors so far:
 - Crashes when CuttingParams/StrippingParams preview helpers are injected (iteration 19).
 - Does not crash with current normalization that includes MXML-derived paper metadata.
 
+Crash/No-crash checklist (layout preview):
+
+- Verify `Layout`/`StrippingParams`/`CuttingParams` helper nodes are absent unless needed (crash observed when added).
+- Confirm `HDM:PaperRect` exists per side and aligns with `TransferCurvePool` Paper CTM (preview placement).
+- Confirm `TransferCurvePoolRef` is present at signature-level `Layout` for mixed sheet sizes (preview anchoring).
+- Confirm `Media` (Paper/Plate) partitions exist with valid `Dimension` values per sheet.
+- Confirm `ContentObject` CTM/TrimCTM are not double-shifted by `MediaOrigin`.
+- If crash persists, diff against the Python output and check for unexpected attributes or malformed numbers.
+
 ### Normalization changes that enabled the current wins
 These map specific normalization steps to the observed Cockpit outcomes for S2328.
 
