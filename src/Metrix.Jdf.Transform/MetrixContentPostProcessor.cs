@@ -43,6 +43,7 @@ public static class MetrixContentPostProcessor
         var paperDimensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var plateDimensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var paperOffsets = new Dictionary<(string Signature, string Sheet), (decimal X, decimal Y)>();
+        var sheetSides = new Dictionary<(string Signature, string Sheet), HashSet<string>>();
         var paperPositions = new Dictionary<(string Signature, string Sheet), SheetPosition>();
         var ssi = metrixDocument.SsiNamespace;
 
@@ -75,6 +76,8 @@ public static class MetrixContentPostProcessor
 
                 EnsureTransferCurvePoolRef(sheetNode, ns, transferCurvePoolId);
                 var firstSurface = sheet.Surfaces.FirstOrDefault();
+                var sides = ResolveSheetSides(sheet);
+                sheetSides[(signature.Name ?? string.Empty, sheet.Name ?? string.Empty)] = sides;
                 var plateSize = ResolvePlateSize(sheet, firstSurface);
                 if (plateSize is not null)
                 {
@@ -214,7 +217,7 @@ public static class MetrixContentPostProcessor
         var normalizeTransferCurvePool = true;
         if (normalizeTransferCurvePool)
         {
-            NormalizeTransferCurvePool(resourcePool, ns, paperOffsets);
+            NormalizeTransferCurvePool(resourcePool, ns, paperOffsets, sheetSides);
         }
         var applyPaperMetadata = false;
         if (applyPaperMetadata)
@@ -649,7 +652,8 @@ public static class MetrixContentPostProcessor
     private static void NormalizeTransferCurvePool(
         XElement? resourcePool,
         XNamespace ns,
-        Dictionary<(string Signature, string Sheet), (decimal X, decimal Y)> offsets)
+        Dictionary<(string Signature, string Sheet), (decimal X, decimal Y)> offsets,
+        Dictionary<(string Signature, string Sheet), HashSet<string>> sheetSides)
     {
         if (resourcePool is null || offsets.Count == 0)
         {
@@ -668,6 +672,8 @@ public static class MetrixContentPostProcessor
             normalized.SetAttributeValue(attribute.Name, attribute.Value);
         }
 
+        normalized.SetAttributeValue("PartIDKeys", "SignatureName SheetName Side");
+
         var signatureParts = new Dictionary<string, XElement>(StringComparer.OrdinalIgnoreCase);
         foreach (var entry in offsets.OrderBy(item => item.Key.Signature).ThenBy(item => item.Key.Sheet))
         {
@@ -682,17 +688,57 @@ public static class MetrixContentPostProcessor
             var sheetPart = new XElement(ns + "TransferCurvePool",
                 new XAttribute("SheetName", entry.Key.Sheet));
 
-            sheetPart.Add(new XElement(ns + "TransferCurveSet",
-                new XAttribute("Name", "Paper"),
-                new XAttribute("CTM", $"1 0 0 1 {(-entry.Value.X).ToString(CultureInfo.InvariantCulture)} {(-entry.Value.Y).ToString(CultureInfo.InvariantCulture)}")));
-            sheetPart.Add(new XElement(ns + "TransferCurveSet",
-                new XAttribute("Name", "Plate"),
-                new XAttribute("CTM", "1 0 0 1 0 0")));
+            var sides = sheetSides.TryGetValue(entry.Key, out var sheetSideSet)
+                ? sheetSideSet
+                : new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "Front" };
+
+            foreach (var side in sides.OrderBy(value => value))
+            {
+                var sidePart = new XElement(ns + "TransferCurvePool",
+                    new XAttribute("Side", side));
+
+                sidePart.Add(new XElement(ns + "TransferCurveSet",
+                    new XAttribute("Name", "Paper"),
+                    new XAttribute("CTM", $"1 0 0 1 {(-entry.Value.X).ToString(CultureInfo.InvariantCulture)} {(-entry.Value.Y).ToString(CultureInfo.InvariantCulture)}")));
+                sidePart.Add(new XElement(ns + "TransferCurveSet",
+                    new XAttribute("Name", "Plate"),
+                    new XAttribute("CTM", "1 0 0 1 0 0")));
+
+                sheetPart.Add(sidePart);
+            }
 
             sigPart.Add(sheetPart);
         }
 
         transferPool.ReplaceWith(normalized);
+    }
+
+    private static HashSet<string> ResolveSheetSides(MetrixSheet sheet)
+    {
+        var sides = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var surface in sheet.Surfaces)
+        {
+            if (!string.IsNullOrWhiteSpace(surface.Side))
+            {
+                sides.Add(surface.Side);
+            }
+        }
+
+        if (sides.Count == 0)
+        {
+            sides.Add("Front");
+        }
+
+        if (IsSimplex(sheet.WorkStyle))
+        {
+            sides.RemoveWhere(side => string.Equals(side, "Back", StringComparison.OrdinalIgnoreCase));
+            if (sides.Count == 0)
+            {
+                sides.Add("Front");
+            }
+        }
+
+        return sides;
     }
 
     private static void ApplyPaperMetadata(
