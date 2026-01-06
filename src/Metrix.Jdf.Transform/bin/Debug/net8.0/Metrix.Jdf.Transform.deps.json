@@ -1,0 +1,53 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Metrix.Jdf.Transform/1.0.0": {
+        "dependencies": {
+          "Metrix.Jdf": "1.0.0",
+          "Signa.Jdf": "1.0.0"
+        },
+        "runtime": {
+          "Metrix.Jdf.Transform.dll": {}
+        }
+      },
+      "Metrix.Jdf/1.0.0": {
+        "runtime": {
+          "Metrix.Jdf.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Signa.Jdf/1.0.0": {
+        "runtime": {
+          "Signa.Jdf.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Metrix.Jdf.Transform/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Metrix.Jdf/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Signa.Jdf/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

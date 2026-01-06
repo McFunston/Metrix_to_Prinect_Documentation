@@ -1,0 +1,11 @@
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/bin/Release/net8.0/Signa.Jdf.deps.json
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/bin/Release/net8.0/Signa.Jdf.dll
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/bin/Release/net8.0/Signa.Jdf.pdb
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/obj/Release/net8.0/Signa.Jdf.GeneratedMSBuildEditorConfig.editorconfig
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/obj/Release/net8.0/Signa.Jdf.AssemblyInfoInputs.cache
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/obj/Release/net8.0/Signa.Jdf.AssemblyInfo.cs
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/obj/Release/net8.0/Signa.Jdf.csproj.CoreCompileInputs.cache
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/obj/Release/net8.0/Signa.Jdf.dll
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/obj/Release/net8.0/refint/Signa.Jdf.dll
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/obj/Release/net8.0/Signa.Jdf.pdb
+/Users/micafunston/Projects/SignaSchemaProject/src/Signa.Jdf/obj/Release/net8.0/ref/Signa.Jdf.dll

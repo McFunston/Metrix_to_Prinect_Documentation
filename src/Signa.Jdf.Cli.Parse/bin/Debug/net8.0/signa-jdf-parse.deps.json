@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "signa-jdf-parse/1.0.0": {
+        "dependencies": {
+          "Signa.Jdf": "1.0.0"
+        },
+        "runtime": {
+          "signa-jdf-parse.dll": {}
+        }
+      },
+      "Signa.Jdf/1.0.0": {
+        "runtime": {
+          "Signa.Jdf.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "signa-jdf-parse/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Signa.Jdf/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
