@@ -323,7 +323,7 @@ Observed in Cockpit with normalized S2328 bundle (current state):
 
 - Import succeeds without errors.
 - Sheet and plate sizes are correct.
-- Layout previews appear centered and reasonable.
+- Layout previews appear centered and reasonable across cover + text sheets.
 - Page list appears correct.
 - WorkStyle is correct per sheet (SS for cover, PE for text), with simplex back suppression.
 - "Allow spot colors for BCMY" is enabled.
@@ -337,6 +337,7 @@ These map specific normalization steps to the observed Cockpit outcomes for S232
 | --- | --- | --- |
 | Add `Media` (Paper/Plate) with per-sheet `Dimension` + `SignatureName/SheetName` partitions; add signature-level `MediaRef`; clear top-level `Dimension` when mixed | Sheet and plate sizes now correct. | Iteration 14 (sizes correct). |
 | Add per-sheet `HDM:PaperRect` using `SSi:MediaOrigin` (or centered fallback) + per-sheet `TransferCurveSet` Paper CTM | Layout previews centered and reasonable. | Iteration 10 and iteration 15 (previews correct). |
+| Normalize `TransferCurvePool` per signature + `TransferCurvePoolRef` at signature-level `Layout` | Mixed sheet sizes (cover vs text) center correctly; avoids text sheets anchoring to cover offset. | Iteration 22 (signature-level transfer curves). |
 | Use Metrix `ContentObject` geometry (CTM/TrimCTM/ClipBox/TrimBox1) without applying `MediaOrigin` shift | Page blocks align on sheets; no offset to the right/top. | Iteration 15 (page blocks no longer offset). |
 | Map `SSi:WorkStyle` to Signa WorkStyle + suppress back side for simplex sheets | WorkStyle correct per sheet; cover is single-sided. | Iteration 12 (simplex back suppression works). |
 | Remove `HDM:SignaBLOB` URL; keep Signa metadata otherwise | Avoid “Can’t copy the Signa Station data file.” | Iteration 2 (missing Signa Station error resolved). |
@@ -357,6 +358,7 @@ Validation checklist (testable items):
 | --- | --- | --- | --- |
 | Add `ConventionalPrintingParams` with `WorkStyle` partitions | Failed | WorkStyle appears and is editable in Cockpit. | Use `Metrix_Samples/jdf/S2328.jdf` (mixed SS/PE) for coverage. |
 | Add `Media` resources + `HDM:PaperRect` alignment | Partial | Previews are centered and match sheet dimensions. | Use `Metrix_Samples/jdf/S2271.jdf` (standard saddle stitch) for baseline. |
+| Normalize `TransferCurvePool` per signature | Pass | Mixed sheet sizes center correctly (cover vs text). | Use `Metrix_Samples/jdf/S2328.jdf` (cover + text sizes). |
 | Normalize marks RunList structure + BCMY `SeparationSpec` placeholders | Partial | "Allow spot colors for BCMY" is enabled and spot mapping works. | Use `Metrix_Samples/jdf/S2313.jdf` (ganged) to verify BCMY behavior. |
 
 ## Conversion strategies (Metrix -> Prinect-ready JDF)
@@ -375,6 +377,7 @@ Based on observed gaps in current Metrix samples.
 - Inject `ConventionalPrintingParams` partitions by Signature/Sheet/Side using `SSi:WorkStyle` and/or MXML `PrintingMethod`.
 - Add `Media` resources for paper/plate; derive `Media/@Dimension` and origins from `Surface` `SSi:Dimension` and `SSi:MediaOrigin`.
 - Populate `HDM:PaperRect` and/or `Layout/@SurfaceContentsBox` equivalents to align with marks PDF TrimBox expectations.
+- Normalize `TransferCurvePool` per signature and attach `TransferCurvePoolRef` at signature-level `Layout` when mixed sheet sizes are present.
 - Translate MXML folding intent (`FoldingScheme`, component hierarchy) into `BinderySignature`/`FoldingParams` when needed.
 - Emit `Component` hierarchy for sheet/block/final products when downstream workflows expect it.
 - Preserve `MarkObject` geometry and attach marks RunList `FileSpec` (already present) to align with Signa-style marks handling.

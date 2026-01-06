@@ -421,6 +421,7 @@ This comparison is specific to Signa. Some other imposition systems (e.g., Metri
 - Structure:
   - `TransferCurvePool` parts by SignatureName and SheetName.
   - `TransferCurveSet` entries typically named `Paper` and `Plate`.
+- Normalization note: when a job mixes sheet sizes by signature, a per‑signature `TransferCurvePool` (PartIDKeys=`SignatureName`) referenced at the signature‑level `Layout` can prevent Layout Preview anchoring to the first sheet size.
 - Stability: **Advisory** (Layout Preview alignment) unless a workflow explicitly consumes curves.
 - Evidence:
   - `Signa_Samples/SingleSheet-Sheetwise.jdf`.
