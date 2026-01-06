@@ -131,7 +131,7 @@ public static class MetrixContentPostProcessor
                     }
                 }
 
-                var applyGeometry = false;
+                var applyGeometry = true;
                 if (!useMetrixLayout && applyGeometry)
                 {
                     foreach (var surface in sheet.Surfaces)
