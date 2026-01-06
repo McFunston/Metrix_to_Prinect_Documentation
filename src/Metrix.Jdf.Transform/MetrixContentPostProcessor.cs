@@ -131,8 +131,8 @@ public static class MetrixContentPostProcessor
                     }
                 }
 
-                var applyContentGeometry = true;
-                var applyMarkGeometry = false;
+            var applyContentGeometry = false;
+            var applyMarkGeometry = true;
                 if (!useMetrixLayout && (applyContentGeometry || applyMarkGeometry))
                 {
                     foreach (var surface in sheet.Surfaces)
