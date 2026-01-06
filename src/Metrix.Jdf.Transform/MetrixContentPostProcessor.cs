@@ -196,7 +196,7 @@ public static class MetrixContentPostProcessor
         // Use the main layout until we confirm a preview layout is required.
         NormalizeRootToImposition(signaDocument, metrixDocument);
 
-        // ApplyLabels(signaDocument, metrixDocument, metrixMxml);
+        ApplyLabels(signaDocument, metrixDocument, metrixMxml);
     }
 
     private static XElement BuildContentObject(XNamespace ns, XNamespace hdm, XNamespace ssi, string? side, MetrixContentObject content, (decimal X, decimal Y) originOffset, bool includeAssemblyFace)
