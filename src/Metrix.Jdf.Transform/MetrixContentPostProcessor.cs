@@ -207,7 +207,7 @@ public static class MetrixContentPostProcessor
             ClearTopLevelDimensionIfMixed(plateMedia, plateDimensions);
         }
 
-        var normalizeTransferCurvePool = false;
+        var normalizeTransferCurvePool = true;
         if (normalizeTransferCurvePool)
         {
             NormalizeTransferCurvePool(resourcePool, ns, paperOffsets);
