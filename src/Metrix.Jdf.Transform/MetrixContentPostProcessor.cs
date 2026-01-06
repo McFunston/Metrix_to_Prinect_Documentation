@@ -131,8 +131,9 @@ public static class MetrixContentPostProcessor
                     }
                 }
 
-                var applyGeometry = false;
-                if (!useMetrixLayout && applyGeometry)
+                var applyContentGeometry = true;
+                var applyMarkGeometry = false;
+                if (!useMetrixLayout && (applyContentGeometry || applyMarkGeometry))
                 {
                     foreach (var surface in sheet.Surfaces)
                     {
@@ -152,15 +153,21 @@ public static class MetrixContentPostProcessor
                         sideNode.Elements(ns + "MarkObject").Remove();
                         sideNode.Elements(ns + "ContentObject").Remove();
 
-                        foreach (var mark in surface.MarkObjects)
+                        if (applyMarkGeometry)
                         {
-                            sideNode.Add(BuildMarkObject(ns, mark));
+                            foreach (var mark in surface.MarkObjects)
+                            {
+                                sideNode.Add(BuildMarkObject(ns, mark));
+                            }
                         }
 
-                        var originOffset = (X: 0m, Y: 0m);
-                        foreach (var content in surface.ContentObjects)
+                        if (applyContentGeometry)
                         {
-                            sideNode.Add(BuildContentObject(ns, hdm, ssi, surface.Side, content, originOffset, includeAssemblyFace: true));
+                            var originOffset = (X: 0m, Y: 0m);
+                            foreach (var content in surface.ContentObjects)
+                            {
+                                sideNode.Add(BuildContentObject(ns, hdm, ssi, surface.Side, content, originOffset, includeAssemblyFace: true));
+                            }
                         }
                     }
                 }
