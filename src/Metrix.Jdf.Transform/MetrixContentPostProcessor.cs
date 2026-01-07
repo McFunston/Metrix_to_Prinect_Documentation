@@ -298,6 +298,11 @@ public static class MetrixContentPostProcessor
         if (includePageOrientation)
         {
             var orientation = ResolveOrientation(content.Ctm);
+            if (orientation == "90" || orientation == "270")
+            {
+                orientation = "0";
+            }
+
             element.SetAttributeValue(hdm + "PageOrientation", orientation);
         }
 
