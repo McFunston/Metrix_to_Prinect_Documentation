@@ -375,6 +375,15 @@ Observed in Cockpit with normalized S2326 bundle:
 
 Stability: **Advisory** (single sample run).
 
+Observed in Cockpit with normalized Estimate_141665_1 bundle (multi-product):
+
+- Two products created (Book 1, Book 2).
+- Two page lists created.
+- Cover labels for Book 2 continue the overall numbering (Cover-593, Cover-594, Cover-1099, Cover-1100) instead of resetting to 1.
+- Previews and imposed PDF look normal.
+
+Stability: **Advisory** (single sample run).
+
 ## What now works (current normalization)
 Observed in Cockpit across normalized samples (S2328, S2313, S2271, S2309, S2326):
 
