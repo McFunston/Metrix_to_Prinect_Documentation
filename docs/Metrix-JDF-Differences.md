@@ -514,6 +514,13 @@ This section will formalize a practical normalization plan.
 - Validate structure (Media, PaperRect, TransferCurvePool, RunLists) and import into Cockpit.
 - Confirm page assignment, page lists, workstyles, previews, and imposed PDFs across representative samples.
 
+### Known pitfalls (and mitigations)
+- **Work-and-Turn backs appear unexpectedly.** Treat WAT/WTT as single-side layouts to avoid extra back-side placements (fixed in S2309).
+- **Page assignment fails on rotated ganged layouts.** Force `HDM:PageOrientation=0` for 90/270 CTMs to avoid TrimBox size swaps (fixed in S2313).
+- **Layout Preview crashes Acrobat.** Avoid injecting CuttingParams/StrippingParams preview helpers; ensure PaperRect + TransferCurvePool alignment.
+- **TrimBox missing on some sheets in multi-signature jobs.** Reset marks logical pages per sheet when trim boxes disappear.
+- **Missing paper metadata.** Populate Paper Media attributes from MXML stock sheets (Brand/ProductID/Weight/Thickness/etc).
+
 ## Metrix -> Signa normalization deltas (checklist)
 Based on observed gaps in current Metrix samples.
 
