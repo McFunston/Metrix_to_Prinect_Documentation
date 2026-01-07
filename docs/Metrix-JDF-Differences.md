@@ -392,6 +392,12 @@ Observed in Cockpit with normalized Estimate_141665_1 bundle (multi-product, per
 
 Stability: **Advisory** (single sample run).
 
+Observed in Cockpit with normalized Estimate_141665_1 bundle (deduped label prefixes):
+
+- Labels remain correct after de-duplicating product prefixes.
+
+Stability: **Advisory** (single sample run).
+
 ## What now works (current normalization)
 Observed in Cockpit across normalized samples (S2328, S2313, S2271, S2309, S2326):
 
