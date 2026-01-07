@@ -374,6 +374,12 @@ Crash/No-crash checklist (layout preview):
 - Confirm `ContentObject` CTM/TrimCTM are not double-shifted by `MediaOrigin`.
 - If crash persists, diff against the Python output and check for unexpected attributes or malformed numbers.
 
+Working theory (PageOrientation vs TrimBox):
+
+- `HDM:PageOrientation` communicates the intended logical page rotation (0/90/180/270) so downstream tools can interpret trim/clip geometry consistently.
+- In Metrix ganged layouts, CTM already rotates the page while TrimBox remains in the original orientation; Cockpit appears to apply `PageOrientation` again, effectively swapping expected trim dimensions (e.g., 7x5 → 5x7).
+- Forcing `PageOrientation="0"` for 90/270 CTMs avoids the double-rotation signal and restores page assignment without harming previews/imposed PDFs (S2313).
+
 ### Normalization changes that enabled the current wins
 These map specific normalization steps to the observed Cockpit outcomes for S2328.
 
