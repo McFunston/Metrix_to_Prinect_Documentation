@@ -354,6 +354,15 @@ Observed in Cockpit with normalized S2271 bundle (saddle stitch):
 
 Stability: **Advisory** (single sample run).
 
+Observed in Cockpit with normalized S2309 bundle:
+
+- Pages assign without complaint.
+- Sheet 1 (cover) should be Work-and-Turn but shows a back; both sides are set to Work-and-Turn.
+- Cover back contains extra pages (about 9 assigned).
+- Sheet 2 and 3 backs have incorrect TrimBox/paper in the imposed PDF.
+
+Stability: **Advisory** (single sample run).
+
 ## What now works (current normalization)
 Observed in Cockpit with normalized S2328 bundle (current state):
 
