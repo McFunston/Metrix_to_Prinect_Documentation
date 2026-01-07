@@ -376,18 +376,17 @@ Observed in Cockpit with normalized S2326 bundle:
 Stability: **Advisory** (single sample run).
 
 ## What now works (current normalization)
-Observed in Cockpit with normalized S2328 bundle (current state):
+Observed in Cockpit across normalized samples (S2328, S2313, S2271, S2309, S2326):
 
 - Import succeeds without errors.
-- Sheet and plate sizes are correct.
-- Layout previews appear centered and reasonable across cover + text sheets.
-- Layout Preview does not crash Acrobat.
-- Page list appears correct.
-- WorkStyle is correct per sheet (SS for cover, PE for text), with simplex back suppression.
-- "Allow spot colors for BCMY" is enabled.
+- Page assignment works without complaints (including ganged postcards).
+- Layout previews and imposed PDFs look normal.
+- WorkStyle aligns with Metrix intent (SS/PE/WAT), with simplex back suppression.
+- Sheet/plate sizes and TrimBox alignment look correct.
 - Paper attributes (Description/Brand/ProductID/Weight/Thickness/Grade/Manufacturer/GrainDirection) are populated.
+- "Allow spot colors for BCMY" remains enabled.
 
-Stability: **Advisory** (single sample run; needs cross-check against Metrix preview).
+Stability: **Advisory** (single runs per sample; cross-check against Metrix previews pending).
 
 ### Layout Preview crash notes
 Observed behaviors so far:
@@ -411,7 +410,7 @@ Working theory (PageOrientation vs TrimBox):
 - Forcing `PageOrientation="0"` for 90/270 CTMs avoids the double-rotation signal and restores page assignment without harming previews/imposed PDFs (S2313).
 
 ### Normalization changes that enabled the current wins
-These map specific normalization steps to the observed Cockpit outcomes for S2328.
+These map specific normalization steps to the observed Cockpit outcomes across samples.
 
 | Change | Result | Evidence |
 | --- | --- | --- |
@@ -420,6 +419,8 @@ These map specific normalization steps to the observed Cockpit outcomes for S232
 | Normalize `TransferCurvePool` per signature + `TransferCurvePoolRef` at signature-level `Layout` | Mixed sheet sizes (cover vs text) center correctly; avoids text sheets anchoring to cover offset. | Iteration 22 (signature-level transfer curves). |
 | Use Metrix `ContentObject` geometry (CTM/TrimCTM/ClipBox/TrimBox1) without applying `MediaOrigin` shift | Page blocks align on sheets; no offset to the right/top. | Iteration 15 (page blocks no longer offset). |
 | Map `SSi:WorkStyle` to Signa WorkStyle + suppress back side for simplex sheets | WorkStyle correct per sheet; cover is single-sided. | Iteration 12 (simplex back suppression works). |
+| Treat Work-and-Turn/Work-and-Tumble as single-side layouts | Removes erroneous back side and extra page placements on WAT/WTT sheets. | S2309 (cover fixed). |
+| Normalize `HDM:PageOrientation` to `0` for 90/270 CTMs | Avoids TrimBox size mismatch during page assignment in ganged layouts. | S2313 (page assignment fixed). |
 | Remove `HDM:SignaBLOB` URL; keep Signa metadata otherwise | Avoid “Can’t copy the Signa Station data file.” | Iteration 2 (missing Signa Station error resolved). |
 | Normalize marks RunList structure + `SeparationSpec` placeholders | "Allow spot colors for BCMY" enabled. | Iteration 2 onward (BCMY enabled). |
 | Page labels from Metrix `Ord` + MXML `PagePool` | Page list appears correct. | Iteration 13 (page list correct). |
@@ -438,9 +439,9 @@ Validation checklist (testable items):
 | Item | Status | Validation | Test setup |
 | --- | --- | --- | --- |
 | Add `ConventionalPrintingParams` with `WorkStyle` partitions | Failed | WorkStyle appears and is editable in Cockpit. | Use `Metrix_Samples/jdf/S2328.jdf` (mixed SS/PE) for coverage. |
-| Add `Media` resources + `HDM:PaperRect` alignment | Partial | Previews are centered and match sheet dimensions. | Use `Metrix_Samples/jdf/S2271.jdf` (standard saddle stitch) for baseline. |
+| Add `Media` resources + `HDM:PaperRect` alignment | Pass | Previews are centered and match sheet dimensions. | Verified on S2328/S2271/S2326. |
 | Normalize `TransferCurvePool` per signature | Pass | Mixed sheet sizes center correctly (cover vs text). | Use `Metrix_Samples/jdf/S2328.jdf` (cover + text sizes). |
-| Normalize marks RunList structure + BCMY `SeparationSpec` placeholders | Partial | "Allow spot colors for BCMY" is enabled and spot mapping works. | Use `Metrix_Samples/jdf/S2313.jdf` (ganged) to verify BCMY behavior. |
+| Normalize marks RunList structure + BCMY `SeparationSpec` placeholders | Pass | "Allow spot colors for BCMY" is enabled and spot mapping works. | Verified with S2328 (non-blank content). |
 
 ## Conversion strategies (Metrix -> Prinect-ready JDF)
 This section will formalize a practical normalization plan.
