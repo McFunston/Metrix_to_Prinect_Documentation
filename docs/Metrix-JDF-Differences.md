@@ -369,6 +369,12 @@ Observed in Cockpit with normalized S2309 bundle (Work-and-Turn treated as singl
 
 Stability: **Advisory** (single sample run).
 
+Observed in Cockpit with normalized S2326 bundle:
+
+- All looks normal.
+
+Stability: **Advisory** (single sample run).
+
 ## What now works (current normalization)
 Observed in Cockpit with normalized S2328 bundle (current state):
 
