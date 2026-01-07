@@ -2223,7 +2223,14 @@ public static class MetrixContentPostProcessor
                         TryGetJobPartRange(jobPartRanges, ord, out var range))
                     {
                         var localIndex = ord - range.Start + 1;
-                        labels[ord] = $"{range.Name} {baseName}-{localIndex}";
+                        if (baseName.StartsWith(range.Name, StringComparison.OrdinalIgnoreCase))
+                        {
+                            labels[ord] = $"{baseName}-{localIndex}";
+                        }
+                        else
+                        {
+                            labels[ord] = $"{range.Name} {baseName}-{localIndex}";
+                        }
                     }
                     else
                     {
