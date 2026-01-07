@@ -318,6 +318,17 @@ Observed in Cockpit with normalized S2328 bundle (iteration 19 with CuttingParam
 
 Stability: **Advisory** (single sample run).
 
+Observed in Cockpit with normalized S2313 bundle (ganged postcards):
+
+- Page list labels are correct and count matches expectation.
+- Thumbnail Preview and Layout Preview do not crash Acrobat and look correct.
+- Imposed PDF appears correct.
+- Artwork assignment only works for the 9x6 position (TAR52209_65362).
+- Other positions reject artwork due to TrimBox size mismatch; Cockpit reports:
+  - TrimBox is 7.0 x 5.0 in, but layout positions expect 5.0 x 7.0 in for position 5 (repeated).
+
+Stability: **Advisory** (single sample run).
+
 ## What now works (current normalization)
 Observed in Cockpit with normalized S2328 bundle (current state):
 
