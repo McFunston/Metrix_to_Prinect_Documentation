@@ -388,6 +388,17 @@ Observed in Cockpit across normalized samples (S2328, S2313, S2271, S2309, S2326
 
 Stability: **Advisory** (single runs per sample; cross-check against Metrix previews pending).
 
+### Current normalization recipe (summary)
+- Build per-sheet Media (Paper/Plate) partitions with `Dimension`, plus signature-level `MediaRef`.
+- Populate `HDM:PaperRect` per side from `SSi:MediaOrigin` (or centered fallback) and align TransferCurvePool CTMs.
+- Normalize TransferCurvePool per signature and attach `TransferCurvePoolRef` at signature-level `Layout`.
+- Use Metrix ContentObject geometry as-is (CTM/TrimCTM/ClipBox/TrimBox1) without applying MediaOrigin shift.
+- Map `SSi:WorkStyle` to Signa WorkStyle; treat Simplex, Work-and-Turn, and Work-and-Tumble as single-side layouts.
+- Set `HDM:PageOrientation=0` for 90/270 CTM rotations to avoid TrimBox mismatches in Cockpit.
+- Normalize marks RunList structure + SeparationSpec placeholders.
+- Apply MXML paper metadata to Paper Media attributes.
+- Remove `HDM:SignaBLOB` URL; preserve other Signa/HDM/SSi metadata.
+
 ### Layout Preview crash notes
 Observed behaviors so far:
 
