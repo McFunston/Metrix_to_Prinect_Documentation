@@ -482,10 +482,37 @@ Validation checklist (testable items):
 ## Conversion strategies (Metrix -> Prinect-ready JDF)
 This section will formalize a practical normalization plan.
 
-1) Identify missing Signa-required fields and resources.
-2) Inject or normalize required structures based on Signa baseline.
-3) Preserve vendor-specific data without interpretation.
-4) Validate against schema and Cockpit import behavior.
+1) Intake and classification
+- Parse Metrix JDF + MXML; determine product count, sheet sizes, and workstyles.
+- Classify job as single-product vs multi-product; note any ganged layouts or mixed sheet sizes.
+
+2) Core structure normalization (always-on)
+- Ensure per-sheet `Media` (Paper/Plate) partitions with `Dimension`; add signature-level `MediaRef`.
+- Emit per-side `HDM:PaperRect` and align `TransferCurvePool` CTMs.
+- Normalize `TransferCurvePool` per signature and attach `TransferCurvePoolRef` at signature-level `Layout`.
+- Use Metrix `ContentObject` geometry as-is (CTM/TrimCTM/ClipBox/TrimBox1) without additional MediaOrigin shifting.
+- Map `SSi:WorkStyle` to Signa WorkStyle; treat Simplex, Work-and-Turn, and Work-and-Tumble as single-side layouts.
+- Normalize `HDM:PageOrientation` to `0` for 90/270 CTMs to avoid TrimBox size mismatches in Cockpit.
+
+3) Marks and runlist normalization
+- Normalize marks RunList structure and `SeparationSpec` placeholders for BCMY behavior.
+- Keep marks page counts consistent per side; reset logical pages per sheet if trim boxes disappear in multi-signature jobs.
+
+4) Paper metadata enrichment
+- Pull paper attributes from MXML stock sheets (Brand, Description, Grade, ProductID, Weight, Thickness, GrainDirection).
+- Apply uniformly to `Media` leaves; keep top-level `Media` attributes minimal.
+
+5) Multi-product handling (when >1 MXML product)
+- Emit `HDM:SignaJobPart` entries for each product.
+- Tag `ContentObject` with `HDM:JobPart` based on `Ord` ranges derived from product page counts.
+- Reset labels per product and avoid redundant prefixes (e.g., `Book 2 Cover-1`).
+
+6) Preserve Signa/HDM/SSi transport data
+- Keep Signa metadata unless it blocks import; remove only `HDM:SignaBLOB` URLs since we cannot produce the SDF.
+
+7) Validation and Cockpit checks
+- Validate structure (Media, PaperRect, TransferCurvePool, RunLists) and import into Cockpit.
+- Confirm page assignment, page lists, workstyles, previews, and imposed PDFs across representative samples.
 
 ## Metrix -> Signa normalization deltas (checklist)
 Based on observed gaps in current Metrix samples.
