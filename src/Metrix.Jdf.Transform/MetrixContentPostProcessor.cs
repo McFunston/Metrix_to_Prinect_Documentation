@@ -282,19 +282,19 @@ public static class MetrixContentPostProcessor
             element.SetAttributeValue(hdm + "AssemblyFB", side);
         }
 
-        var includeFinalPageBox = false;
+        var includeFinalPageBox = true;
         if (includeFinalPageBox)
         {
             var finalBox = !string.IsNullOrWhiteSpace(content.TrimBox1)
                 ? content.TrimBox1
-                : content.ClipBox;
+                : element.Attribute("ClipBox")?.Value ?? content.ClipBox;
             if (!string.IsNullOrWhiteSpace(finalBox))
             {
-                element.SetAttributeValue(hdm + "FinalPageBox", ShiftBox(finalBox, originOffset));
+                element.SetAttributeValue(hdm + "FinalPageBox", finalBox);
             }
         }
 
-        var includePageOrientation = false;
+        var includePageOrientation = true;
         if (includePageOrientation)
         {
             var orientation = ResolveOrientation(content.Ctm);
