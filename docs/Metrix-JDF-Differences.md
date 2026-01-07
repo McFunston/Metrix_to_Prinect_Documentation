@@ -329,6 +329,14 @@ Observed in Cockpit with normalized S2313 bundle (ganged postcards):
 
 Stability: **Advisory** (single sample run).
 
+Observed in Cockpit with normalized S2313 bundle (no `HDM:PageOrientation`/`HDM:FinalPageBox` on ContentObjects):
+
+- All pages assign correctly.
+- Previews look correct.
+- Imposed PDF looks correct.
+
+Stability: **Advisory** (single sample run).
+
 ## What now works (current normalization)
 Observed in Cockpit with normalized S2328 bundle (current state):
 
