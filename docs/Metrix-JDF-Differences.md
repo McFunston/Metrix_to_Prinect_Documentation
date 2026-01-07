@@ -412,6 +412,8 @@ Stability: **Advisory** (single runs per sample; cross-check against Metrix prev
 - Use Metrix ContentObject geometry as-is (CTM/TrimCTM/ClipBox/TrimBox1) without applying MediaOrigin shift.
 - Map `SSi:WorkStyle` to Signa WorkStyle; treat Simplex, Work-and-Turn, and Work-and-Tumble as single-side layouts.
 - Set `HDM:PageOrientation=0` for 90/270 CTM rotations to avoid TrimBox mismatches in Cockpit.
+- For multi-product jobs, emit `HDM:SignaJobPart` entries and tag each `ContentObject` with `HDM:JobPart` based on MXML product page ranges.
+- Reset per-product labels for multi-product jobs (e.g., `Book 2 Cover-1`).
 - Normalize marks RunList structure + SeparationSpec placeholders.
 - Apply MXML paper metadata to Paper Media attributes.
 - Remove `HDM:SignaBLOB` URL; preserve other Signa/HDM/SSi metadata.
