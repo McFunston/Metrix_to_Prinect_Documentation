@@ -2208,6 +2208,9 @@ public static class MetrixContentPostProcessor
     {
         var mode = ResolveLabelMode(metrixDocument, metrixMxml);
         var labels = new Dictionary<int, string>();
+        var jobPartRanges = mode == LabelMode.MultiProduct
+            ? BuildJobPartRanges(metrixMxml)
+            : new List<JobPartRange>();
 
         var baseMap = BuildPostcardBaseMap(metrixDocument);
         if (baseMap.Count > 0)
@@ -2216,7 +2219,16 @@ public static class MetrixContentPostProcessor
             {
                 if (baseMap.TryGetValue(ord, out var baseName))
                 {
-                    labels[ord] = $"{baseName}-{ord + 1}";
+                    if (jobPartRanges.Count > 0 &&
+                        TryGetJobPartRange(jobPartRanges, ord, out var range))
+                    {
+                        var localIndex = ord - range.Start + 1;
+                        labels[ord] = $"{range.Name} {baseName}-{localIndex}";
+                    }
+                    else
+                    {
+                        labels[ord] = $"{baseName}-{ord + 1}";
+                    }
                 }
             }
         }
@@ -2371,6 +2383,21 @@ public static class MetrixContentPostProcessor
         }
 
         return null;
+    }
+
+    private static bool TryGetJobPartRange(List<JobPartRange> ranges, int ord, out JobPartRange range)
+    {
+        foreach (var candidate in ranges)
+        {
+            if (ord >= candidate.Start && ord <= candidate.End)
+            {
+                range = candidate;
+                return true;
+            }
+        }
+
+        range = default;
+        return false;
     }
 
     private static bool IsSimplex(string? workStyle)
