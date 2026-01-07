@@ -1736,7 +1736,7 @@ public static class MetrixContentPostProcessor
         SetAttrIfPresent(leaf, "DescriptiveName", info.DescriptiveName);
         SetAttrIfPresent(leaf, "Manufacturer", info.Manufacturer);
         SetAttrIfPresent(leaf, "Grade", info.Grade);
-        SetAttrIfPresent(leaf, "ProductID", info.ProductId);
+        SetAttrIfPresent(leaf, "ProductID", NormalizeProductId(info.ProductId));
         SetAttrIfPresent(leaf, "GrainDirection", info.GrainDirection);
         leaf.SetAttributeValue("MediaUnit", "Sheet");
 
@@ -1757,6 +1757,22 @@ public static class MetrixContentPostProcessor
         {
             element.SetAttributeValue(name, value);
         }
+    }
+
+    private static string? NormalizeProductId(string? productId)
+    {
+        if (string.IsNullOrWhiteSpace(productId))
+        {
+            return productId;
+        }
+
+        var underscoreIndex = productId.IndexOf('_');
+        if (underscoreIndex < 0 || underscoreIndex >= productId.Length - 1)
+        {
+            return productId;
+        }
+
+        return productId[(underscoreIndex + 1)..];
     }
 
     private static List<StockSheetInfo> BuildStockSequence(MetrixMxmlDocument metrixMxml)
