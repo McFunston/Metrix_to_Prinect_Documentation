@@ -14,6 +14,8 @@ public static class JdfGenerator
 
         var ns = XNamespace.Get("http://www.CIP4.org/JDFSchema_1_1");
         var hdm = XNamespace.Get("www.heidelberg.com/schema/HDM");
+        var ssi = XNamespace.Get("http://www.creo.com/SSI/JDFExtensions.xsd");
+        var xsi = XNamespace.Get("http://www.w3.org/2001/XMLSchema-instance");
 
         var types = string.Join(' ', options.Types);
 
@@ -26,7 +28,9 @@ public static class JdfGenerator
             new XAttribute("JobPartID", options.JobPartId),
             new XAttribute("Status", options.Status),
             new XAttribute("DescriptiveName", options.DescriptiveName),
-            new XAttribute(XNamespace.Xmlns + "HDM", hdm));
+            new XAttribute(XNamespace.Xmlns + "HDM", hdm),
+            new XAttribute(XNamespace.Xmlns + "SSI", ssi),
+            new XAttribute(XNamespace.Xmlns + "xsi", xsi));
 
         var resourcePool = new XElement(ns + "ResourcePool");
         root.Add(resourcePool);
