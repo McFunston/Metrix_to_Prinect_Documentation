@@ -35,6 +35,7 @@ public static class MetrixContentPostProcessor
         }
 
         var useMetrixLayout = false;
+        var jobPartRanges = BuildJobPartRanges(metrixMxml);
         if (useMetrixLayout)
         {
             layoutRoot = ReplaceLayoutWithMetrixLayout(resourcePool, layoutRoot, metrixDocument, metrixLayout);
@@ -175,7 +176,8 @@ public static class MetrixContentPostProcessor
                             var originOffset = (X: 0m, Y: 0m);
                             foreach (var content in surface.ContentObjects)
                             {
-                                sideNode.Add(BuildContentObject(ns, hdm, ssi, surface.Side, content, originOffset, includeAssemblyFace: true));
+                                var jobPart = ResolveJobPartForContent(content, jobPartRanges);
+                                sideNode.Add(BuildContentObject(ns, hdm, ssi, surface.Side, content, originOffset, includeAssemblyFace: true, jobPart));
                             }
 
                             for (var i = markIndex; i < surface.MarkObjects.Count; i++)
@@ -198,7 +200,8 @@ public static class MetrixContentPostProcessor
                                 var originOffset = (X: 0m, Y: 0m);
                                 foreach (var content in surface.ContentObjects)
                                 {
-                                    sideNode.Add(BuildContentObject(ns, hdm, ssi, surface.Side, content, originOffset, includeAssemblyFace: true));
+                                    var jobPart = ResolveJobPartForContent(content, jobPartRanges);
+                                    sideNode.Add(BuildContentObject(ns, hdm, ssi, surface.Side, content, originOffset, includeAssemblyFace: true, jobPart));
                                 }
                             }
                         }
@@ -242,7 +245,7 @@ public static class MetrixContentPostProcessor
         ApplyLabels(signaDocument, metrixDocument, metrixMxml);
     }
 
-    private static XElement BuildContentObject(XNamespace ns, XNamespace hdm, XNamespace ssi, string? side, MetrixContentObject content, (decimal X, decimal Y) originOffset, bool includeAssemblyFace)
+    private static XElement BuildContentObject(XNamespace ns, XNamespace hdm, XNamespace ssi, string? side, MetrixContentObject content, (decimal X, decimal Y) originOffset, bool includeAssemblyFace, string? jobPart)
     {
         var element = new XElement(ns + "ContentObject");
 
@@ -280,6 +283,10 @@ public static class MetrixContentPostProcessor
         if (includeAssemblyFace && !string.IsNullOrWhiteSpace(side))
         {
             element.SetAttributeValue(hdm + "AssemblyFB", side);
+        }
+        if (!string.IsNullOrWhiteSpace(jobPart))
+        {
+            element.SetAttributeValue(hdm + "JobPart", jobPart);
         }
 
         var includeFinalPageBox = true;
@@ -395,7 +402,7 @@ public static class MetrixContentPostProcessor
                     var originOffset = (X: 0m, Y: 0m);
                     foreach (var content in surface.ContentObjects)
                     {
-                        surfaceElement.Add(BuildContentObject(ns, hdm, ssi, surface.Side, content, originOffset, includeAssemblyFace: false));
+                        surfaceElement.Add(BuildContentObject(ns, hdm, ssi, surface.Side, content, originOffset, includeAssemblyFace: false, jobPart: null));
                     }
 
                     sheetElement.Add(surfaceElement);
@@ -2308,6 +2315,64 @@ public static class MetrixContentPostProcessor
         return labels;
     }
 
+    private static List<JobPartRange> BuildJobPartRanges(MetrixMxmlDocument? metrixMxml)
+    {
+        if (metrixMxml is null || metrixMxml.Project.Products.Count <= 1)
+        {
+            return new List<JobPartRange>();
+        }
+
+        var ranges = new List<JobPartRange>();
+        var start = 0;
+        var index = 1;
+        foreach (var product in metrixMxml.Project.Products)
+        {
+            var count = product.Pages.Count;
+            if (count <= 0)
+            {
+                index++;
+                continue;
+            }
+
+            var name = product.Description ?? product.Name ?? product.Id ?? $"Part_{index}";
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                index++;
+                continue;
+            }
+
+            ranges.Add(new JobPartRange(start, start + count - 1, name));
+            start += count;
+            index++;
+        }
+
+        return ranges;
+    }
+
+    private static string? ResolveJobPartForContent(MetrixContentObject content, List<JobPartRange> ranges)
+    {
+        if (ranges.Count == 0)
+        {
+            return null;
+        }
+
+        var ord = ParseOrdValue(content.Ord);
+        if (!ord.HasValue)
+        {
+            return null;
+        }
+
+        foreach (var range in ranges)
+        {
+            if (ord.Value >= range.Start && ord.Value <= range.End)
+            {
+                return range.Name;
+            }
+        }
+
+        return null;
+    }
+
     private static bool IsSimplex(string? workStyle)
     {
         return string.Equals(workStyle, "SS", StringComparison.OrdinalIgnoreCase)
@@ -2342,6 +2407,8 @@ public static class MetrixContentPostProcessor
 
         return int.TryParse(value, out var parsed) ? parsed : null;
     }
+
+    private readonly record struct JobPartRange(int Start, int End, string Name);
 
     private static string? Attr(XElement element, string name)
     {

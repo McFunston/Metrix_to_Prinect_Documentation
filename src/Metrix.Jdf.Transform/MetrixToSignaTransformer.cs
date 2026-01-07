@@ -64,6 +64,7 @@ public sealed class MetrixToSignaTransformer
 
         var documentPageCount = ResolveDocumentPageCount(jdf);
         var uniformWorkStyle = ResolveUniformWorkStyle(layout, mxml);
+        var signaJobPartNames = ResolveSignaJobPartNames(mxml);
 
         var generatorOptions = new GeneratorOptions
         {
@@ -110,6 +111,8 @@ public sealed class MetrixToSignaTransformer
             IncludeSignaBlob = options.IncludeSignaBlob,
             IncludeSignaJdf = options.IncludeSignaJdf,
             IncludeSignaJob = options.IncludeSignaJob,
+            SignaJobPartNames = signaJobPartNames,
+            IncludeContentJobPart = signaJobPartNames.Count > 1,
             Signatures = signatures
         };
 
@@ -142,6 +145,28 @@ public sealed class MetrixToSignaTransformer
             "WorkAndBack" => "WorkAndBack",
             _ => "Perfecting"
         };
+    }
+
+    private static List<string> ResolveSignaJobPartNames(MetrixMxmlDocument? mxml)
+    {
+        if (mxml is null || mxml.Project.Products.Count <= 1)
+        {
+            return new List<string>();
+        }
+
+        var names = new List<string>();
+        var index = 1;
+        foreach (var product in mxml.Project.Products)
+        {
+            var name = product.Description ?? product.Name ?? product.Id ?? $"Part_{index}";
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                names.Add(name);
+            }
+            index++;
+        }
+
+        return names;
     }
 
     private static bool TryParseBox(string? value, out decimal width, out decimal height)
