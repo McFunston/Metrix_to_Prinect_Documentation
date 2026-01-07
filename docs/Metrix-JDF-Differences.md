@@ -337,6 +337,14 @@ Observed in Cockpit with normalized S2313 bundle (no `HDM:PageOrientation`/`HDM:
 
 Stability: **Advisory** (single sample run).
 
+Observed in Cockpit with normalized S2313 bundle (`HDM:FinalPageBox` present, `HDM:PageOrientation` forced to 0 for rotated CTMs):
+
+- No complaints on page assignment.
+- Previews look normal.
+- Imposed PDF looks normal.
+
+Stability: **Advisory** (single sample run).
+
 ## What now works (current normalization)
 Observed in Cockpit with normalized S2328 bundle (current state):
 
