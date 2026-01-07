@@ -127,7 +127,7 @@ public static class MetrixContentPostProcessor
                     }
                 }
 
-                if (IsSimplex(sheet.WorkStyle))
+                if (IsSingleSideLayout(sheet.WorkStyle))
                 {
                     var sideElements = useMetrixLayout
                         ? sheetNode.Elements(ns + "Surface")
@@ -146,7 +146,7 @@ public static class MetrixContentPostProcessor
                 {
                     foreach (var surface in sheet.Surfaces)
                     {
-                        if (IsSimplex(sheet.WorkStyle) &&
+                        if (IsSingleSideLayout(sheet.WorkStyle) &&
                             string.Equals(surface.Side, "Back", StringComparison.OrdinalIgnoreCase))
                         {
                             continue;
@@ -362,7 +362,7 @@ public static class MetrixContentPostProcessor
 
                 foreach (var surface in sheet.Surfaces)
                 {
-                    if (IsSimplex(sheet.WorkStyle) &&
+                    if (IsSingleSideLayout(sheet.WorkStyle) &&
                         string.Equals(surface.Side, "Back", StringComparison.OrdinalIgnoreCase))
                     {
                         continue;
@@ -907,7 +907,7 @@ public static class MetrixContentPostProcessor
                 logicalPage += marksPagesPerSide;
                 sheetPart.Add(frontPart);
 
-                if (IsSimplex(sheet.WorkStyle))
+                if (IsSingleSideLayout(sheet.WorkStyle))
                 {
                 }
                 else
@@ -951,7 +951,7 @@ public static class MetrixContentPostProcessor
 
         var totalSides = metrixLayout.Signatures
             .SelectMany(signature => signature.Sheets)
-            .Sum(sheet => IsSimplex(sheet.WorkStyle) ? 1 : 2);
+            .Sum(sheet => IsSingleSideLayout(sheet.WorkStyle) ? 1 : 2);
         if (totalSides <= 0)
         {
             return 2;
@@ -1226,7 +1226,7 @@ public static class MetrixContentPostProcessor
 
                 foreach (var surface in sheet.Surfaces)
                 {
-                    if (IsSimplex(sheet.WorkStyle) &&
+                    if (IsSingleSideLayout(sheet.WorkStyle) &&
                         string.Equals(surface.Side, "Back", StringComparison.OrdinalIgnoreCase))
                     {
                         continue;
@@ -2313,6 +2313,24 @@ public static class MetrixContentPostProcessor
         return string.Equals(workStyle, "SS", StringComparison.OrdinalIgnoreCase)
                || string.Equals(workStyle, "SF", StringComparison.OrdinalIgnoreCase)
                || string.Equals(workStyle, "Simplex", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static bool IsSingleSideLayout(string? workStyle)
+    {
+        if (string.IsNullOrWhiteSpace(workStyle))
+        {
+            return false;
+        }
+
+        if (IsSimplex(workStyle))
+        {
+            return true;
+        }
+
+        return string.Equals(workStyle, "TN", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "TO", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "WorkAndTurn", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "WorkAndTumble", StringComparison.OrdinalIgnoreCase);
     }
 
     private static int? ParseOrdValue(string? value)
