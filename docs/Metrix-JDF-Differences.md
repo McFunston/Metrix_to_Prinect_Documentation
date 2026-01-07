@@ -384,6 +384,14 @@ Observed in Cockpit with normalized Estimate_141665_1 bundle (multi-product):
 
 Stability: **Advisory** (single sample run).
 
+Observed in Cockpit with normalized Estimate_141665_1 bundle (multi-product, per-product label reset):
+
+- Page list looks as expected; labels reset per product with product name prefix.
+- Products are correctly separated.
+- Previews and imposed PDF look as expected.
+
+Stability: **Advisory** (single sample run).
+
 ## What now works (current normalization)
 Observed in Cockpit across normalized samples (S2328, S2313, S2271, S2309, S2326):
 
