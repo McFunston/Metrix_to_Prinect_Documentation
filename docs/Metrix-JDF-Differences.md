@@ -345,6 +345,15 @@ Observed in Cockpit with normalized S2313 bundle (`HDM:FinalPageBox` present, `H
 
 Stability: **Advisory** (single sample run).
 
+Observed in Cockpit with normalized S2271 bundle (saddle stitch):
+
+- No complaints on page assignment.
+- Layout previews and imposed PDF look correct.
+- WorkStyle looks correct.
+- Paper attributes appear correct.
+
+Stability: **Advisory** (single sample run).
+
 ## What now works (current normalization)
 Observed in Cockpit with normalized S2328 bundle (current state):
 
