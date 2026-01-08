@@ -20,6 +20,11 @@ It is not vendor documentation and makes no claims about internal algorithms or 
 - Bindery-executable JDF (folding machines, cutters, stitchers).
 - Bindery components that require licensed Prinect modules or physical device integration.
 
+## Where to find things
+
+- Documentation: `/docs`
+- Conversion engine code: `/src`
+
 ## Included reference data
 
 - `JDF_Schema/JDFFoldingSchemes/Folds.json` contains standard JDF fold scheme metadata used in documentation and validation notes.
