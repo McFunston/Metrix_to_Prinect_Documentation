@@ -455,6 +455,7 @@ Observed in Cockpit across normalized samples (Sample_A, Ganged_Postcards, Sampl
 - Sheet/plate sizes and TrimBox alignment look correct.
 - Paper attributes (Description/Brand/ProductID/Weight/Thickness/Grade/Manufacturer/GrainDirection) are populated.
 - "Allow spot colors for BCMY" remains enabled.
+- Sample_A shows no significant differences when compared to a Signa layout.
 
 Stability: **Advisory** (single runs per sample; cross-check against Metrix previews pending).
 
