@@ -935,7 +935,7 @@ Schema errors are dominated by two patterns:
 
 ## Remaining gaps and working theories
 - `HDM:*` attributes (e.g., `HDM:ChangeInfo`, `HDM:OFW`, `HDM:Purpose`, `HDM:FoldRule`) are Heidelberg extensions and not defined in the core JDF spec. Treat them as vendor-specific until Heidelberg/HDM documentation is available.
-- `SignaData.sdf` is a binary blob; no structure has been decoded from it yet.
+- `SignaData.sdf` is a binary blob; no structure has been decoded from it. It falls under "inner workings of Signa/Prinect," and will not be explored.
 - Terminology note: we use "job part" or "product part" to describe multiple products in a single job; "versioning" typically refers to plate-level replacements (often the K plate) to create multiple product versions.
 
 <a id="Signa-Invariants"></a>
