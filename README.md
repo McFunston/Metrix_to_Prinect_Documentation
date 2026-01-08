@@ -1,4 +1,5 @@
-# Metrix to Cockpit
+# Metrix to Prinect Documentation
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 This project documents and normalizes Metrix JDF output for Heidelberg Prinect Cockpit import.
 
