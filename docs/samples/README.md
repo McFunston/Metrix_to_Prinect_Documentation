@@ -18,3 +18,7 @@ Create a private folder outside this repo, for example:
 When running the CLI tools, pass absolute or relative paths to the private sample folders (e.g., `~/Metrix_to_Cockpit_PrivateSamples/Metrix_Samples/...`).
 
 If desired, set an environment variable such as `METRIX_SAMPLES_DIR` and use it in your local scripts to avoid hard‑coding paths.
+
+## Private mapping table (keep outside repo)
+
+Maintain a private mapping table that maps public sample labels to internal job IDs (e.g., `Sample_A → S2328`). Store it outside this repo alongside the private samples.
