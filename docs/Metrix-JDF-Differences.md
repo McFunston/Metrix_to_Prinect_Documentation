@@ -482,6 +482,13 @@ Validation checklist (testable items):
 ## Conversion strategies (Metrix -> Prinect-ready JDF)
 This section will formalize a practical normalization plan.
 
+### Design philosophy (Metrix → Prinect)
+This converter prioritizes:
+- correct geometry
+- correct press behavior
+- correct page assignment
+over completeness of JDF semantics.
+
 Note: This project does not attempt to generate bindery-executable JDF (folding machines, cutters, stitchers). Bindery components require licensed Prinect modules and physical device integration, which are not available in this environment.
 
 1) Intake and classification
