@@ -618,6 +618,7 @@ Use this as the “must have” checklist for generating a JDF that Cockpit will
 - **ContentObject placement:** required for a page list; `Ord` and `DescriptiveName` drive Cockpit’s page list labels. (Stability: Stable)
 - **TransferCurvePool:** optional for import, but required for consistent Layout Preview alignment. (Stability: Advisory)
 - **Document RunList / PagePool:** optional for import; Cockpit accepts layouts with only marks + ContentObject. (Stability: Advisory)
+- Note: This project does not attempt to generate bindery-executable JDF (folding machines, cutters, stitchers). Bindery components require licensed Prinect modules and physical device integration, which are not available in this environment.
 
 ### Minimal JDF import experiments (Cockpit)
 #### JobPart/Product split rules (summary)

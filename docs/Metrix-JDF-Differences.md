@@ -482,6 +482,8 @@ Validation checklist (testable items):
 ## Conversion strategies (Metrix -> Prinect-ready JDF)
 This section will formalize a practical normalization plan.
 
+Note: This project does not attempt to generate bindery-executable JDF (folding machines, cutters, stitchers). Bindery components require licensed Prinect modules and physical device integration, which are not available in this environment.
+
 1) Intake and classification
 - Parse Metrix JDF + MXML; determine product count, sheet sizes, and workstyles.
 - Classify job as single-product vs multi-product; note any ganged layouts or mixed sheet sizes.
