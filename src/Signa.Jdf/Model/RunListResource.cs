@@ -2,6 +2,7 @@ namespace Signa.Jdf;
 
 public sealed class RunListResource
 {
+    // Top-level RunList (Document/Marks/PagePool) with nested partitions.
     public string? Id { get; init; }
     public string? PartIdKeys { get; init; }
     public string? DescriptiveName { get; init; }

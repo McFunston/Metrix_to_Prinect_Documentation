@@ -2,6 +2,7 @@ namespace Signa.Jdf;
 
 public sealed class RunListPart
 {
+    // Recursive RunList partition node capturing Signature/Sheet/Side splits.
     public string? SignatureName { get; init; }
     public string? SheetName { get; init; }
     public string? Side { get; init; }

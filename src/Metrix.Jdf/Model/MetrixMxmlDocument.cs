@@ -4,6 +4,7 @@ namespace Metrix.Jdf;
 
 public sealed class MetrixMxmlDocument
 {
+    // Companion MXML data used to fill gaps in the JDF (paper, marks, products).
     public MetrixMxmlDocument(
         string sourcePath,
         XNamespace mxmlNamespace,
@@ -30,6 +31,7 @@ public sealed class MetrixMxmlDocument
 
 public sealed class MetrixMxmlResourcePool
 {
+    // ResourcePool is the primary source for folding schemes, marks, and stock metadata.
     public List<MetrixMxmlFoldingScheme> FoldingSchemes { get; } = new();
     public List<MetrixMxmlMarkFile> MarkFiles { get; } = new();
     public List<MetrixMxmlStock> Stocks { get; } = new();
@@ -37,6 +39,7 @@ public sealed class MetrixMxmlResourcePool
 
 public sealed class MetrixMxmlFoldingScheme
 {
+    // Folding scheme entries map to JDFFoldCatalog identifiers.
     public string? Id { get; set; }
     public string? Name { get; set; }
     public string? JdfFoldCatalog { get; set; }
@@ -44,6 +47,7 @@ public sealed class MetrixMxmlFoldingScheme
 
 public sealed class MetrixMxmlMarkFile
 {
+    // Marks file metadata (filename and size) referenced by layout marks.
     public string? Id { get; set; }
     public string? FileName { get; set; }
     public string? Width { get; set; }
@@ -52,6 +56,7 @@ public sealed class MetrixMxmlMarkFile
 
 public sealed class MetrixMxmlStock
 {
+    // Stock metadata captures paper descriptions and weight/thickness defaults.
     public string? Id { get; set; }
     public string? MisId { get; set; }
     public string? Name { get; set; }
@@ -66,6 +71,7 @@ public sealed class MetrixMxmlStock
 
 public sealed class MetrixMxmlStockSheet
 {
+    // StockSheet records buy-sheet size and grain direction.
     public string? Id { get; set; }
     public string? MisId { get; set; }
     public string? Width { get; set; }
@@ -77,6 +83,7 @@ public sealed class MetrixMxmlStockSheet
 
 public sealed class MetrixMxmlProject
 {
+    // Project ties products and layouts to a single Metrix job/estimate.
     public string? ProjectId { get; set; }
     public string? Name { get; set; }
     public string? MisId { get; set; }
@@ -86,6 +93,7 @@ public sealed class MetrixMxmlProject
 
 public sealed class MetrixMxmlProduct
 {
+    // Product metadata drives job-part labeling and trim sizes.
     public string? Id { get; set; }
     public string? Name { get; set; }
     public string? Description { get; set; }
@@ -99,6 +107,7 @@ public sealed class MetrixMxmlProduct
 
 public sealed class MetrixMxmlLayout
 {
+    // Layout entries capture printing method and stock sheet references.
     public string? Id { get; set; }
     public string? MisId { get; set; }
     public string? PrintingMethod { get; set; }
@@ -108,6 +117,7 @@ public sealed class MetrixMxmlLayout
 
 public sealed class MetrixMxmlPage
 {
+    // Page entries are used for Folio/Number labeling in Cockpit page lists.
     public string? Folio { get; set; }
     public string? Number { get; set; }
 }

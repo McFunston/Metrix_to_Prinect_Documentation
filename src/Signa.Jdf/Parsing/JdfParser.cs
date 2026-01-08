@@ -4,6 +4,7 @@ namespace Signa.Jdf;
 
 public static class JdfParser
 {
+    // Parses Signa-style JDF into a flattened model used by validator and tools.
     public static JdfDocument Parse(string path)
     {
         if (string.IsNullOrWhiteSpace(path))
@@ -11,6 +12,7 @@ public static class JdfParser
             throw new ArgumentException("Path is required.", nameof(path));
         }
 
+        // Preserve whitespace so CTM/box strings remain intact for validation math.
         var document = XDocument.Load(path, LoadOptions.PreserveWhitespace);
         var root = document.Root ?? throw new InvalidDataException("Missing JDF root element.");
         var ns = root.Name.Namespace;
@@ -39,14 +41,15 @@ public static class JdfParser
         var binderySignatures = new List<BinderySignatureInfo>();
         var components = new List<ComponentInfo>();
 
+        // ResourcePool holds the primary data sources; nested parts are flattened below.
         var resourcePool = root.Element(ns + "ResourcePool");
         if (resourcePool is not null)
         {
             var layoutElement = resourcePool.Element(ns + "Layout");
             if (layoutElement is not null)
             {
-            layout = ParseLayout(layoutElement, ns, hdm);
-            signaJob = ParseSignaJob(layoutElement, hdm);
+                layout = ParseLayout(layoutElement, ns, hdm);
+                signaJob = ParseSignaJob(layoutElement, hdm);
             }
 
             foreach (var runList in resourcePool.Elements(ns + "RunList"))
@@ -101,6 +104,7 @@ public static class JdfParser
 
     private static LayoutPart ParseLayout(XElement layoutElement, XNamespace ns, XNamespace hdm)
     {
+        // Layout partitions are recursive: Signature -> Sheet -> Side -> Content/Marks.
         var part = new LayoutPart
         {
             SignatureName = Attr(layoutElement, "SignatureName"),
@@ -118,6 +122,7 @@ public static class JdfParser
 
         foreach (var contentObject in layoutElement.Elements(ns + "ContentObject"))
         {
+            // Only extract labels/JobPart tags needed for page list validation.
             part.ContentObjects.Add(new ContentObjectInfo
             {
                 SignatureName = part.SignatureName,
@@ -141,6 +146,7 @@ public static class JdfParser
 
     private static ComponentInfo ParseComponent(XElement element, XNamespace ns, XNamespace hdm)
     {
+        // Component trees encode finishing outputs and block-level folding dimensions.
         var info = new ComponentInfo
         {
             Id = Attr(element, "ID"),
@@ -171,6 +177,7 @@ public static class JdfParser
 
     private static SignaJobInfo? ParseSignaJob(XElement layoutElement, XNamespace hdm)
     {
+        // SignaJobPart list is used to validate multi-product page list splits.
         var signaJob = layoutElement.Element(hdm + "SignaJob");
         if (signaJob is null)
         {
@@ -192,6 +199,7 @@ public static class JdfParser
 
     private static RunListResource ParseRunList(XElement runListElement, XNamespace ns)
     {
+        // RunList parsing flattens top-level metadata and preserves nested partitions.
         var resource = new RunListResource
         {
             Id = Attr(runListElement, "ID"),
@@ -222,6 +230,7 @@ public static class JdfParser
 
     private static RunListPart ParseRunListPart(XElement element, XNamespace ns)
     {
+        // Recursive parts capture signature/sheet/side partitions for marks mapping.
         var part = new RunListPart
         {
             SignatureName = Attr(element, "SignatureName"),
@@ -251,6 +260,7 @@ public static class JdfParser
 
     private static IEnumerable<SeparationSpecInfo> GetSeparationSpecs(XElement element, XNamespace ns)
     {
+        // SeparationSpec entries are attached to LayoutElement, not RunList directly.
         var layoutElement = element.Element(ns + "LayoutElement");
         if (layoutElement is null)
         {
@@ -282,6 +292,7 @@ public static class JdfParser
 
     private static BinderySignatureInfo ParseBinderySignature(XElement element, XNamespace ns, XNamespace hdm)
     {
+        // BinderySignature captures fold schemes and per-side orientations.
         var signatureCell = element.Element(ns + "SignatureCell");
 
         return new BinderySignatureInfo
@@ -311,6 +322,7 @@ public static class JdfParser
         XNamespace ns,
         List<ConventionalPrintingParamsPart> parts)
     {
+        // Flatten nested printing params so validators can resolve WorkStyle by part.
         parts.Add(new ConventionalPrintingParamsPart
         {
             WorkStyle = Attr(element, "WorkStyle"),
@@ -330,6 +342,7 @@ public static class JdfParser
         XNamespace ns,
         List<StrippingParamsPart> parts)
     {
+        // StrippingParams partitions are used to resolve assembly/fold context.
         parts.Add(new StrippingParamsPart
         {
             WorkStyle = Attr(element, "WorkStyle"),
@@ -348,6 +361,7 @@ public static class JdfParser
 
     private static MediaResource ParseMedia(XElement element)
     {
+        // Media can be partitioned; capture both root and nested sheet dimensions.
         var media = new MediaResource
         {
             Id = Attr(element, "ID"),
@@ -386,6 +400,7 @@ public static class JdfParser
 
     private static List<ResourceLink> ParseResourceLinks(XElement? resourceLinkPool)
     {
+        // ResourceLinkPool is the wiring for RunLists, Media, and layout resources.
         var links = new List<ResourceLink>();
         if (resourceLinkPool is null)
         {

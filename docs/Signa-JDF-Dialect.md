@@ -1,5 +1,40 @@
 # Signa 21 JDF Dialect for Imposition
 
+## Status
+- Audience: Engineers integrating Signa JDF into Prinect/Cockpit workflows.
+- Maturity: Living reference with Stability tags and evidence anchors.
+- Sample policy: filenames are sanitized placeholders; private samples live outside this repo.
+- Change log: see Appendix.
+
+## AI quick summary
+- Signa exports imposition as `ProcessGroup` JDF with `Types` and `CombinedProcessIndex` linkage.
+- Layout hierarchy is Signature → Sheet → Side → MarkObject/ContentObject.
+- WorkStyle is expressed across Layout/ConventionalPrintingParams/StrippingParams partitions.
+- Marks and document PDFs are linked via RunList; marks PDF page counts track sheet sides.
+- `HDM:PaperRect` and `HDM:FinalPageBox` are critical for correct previews/trim alignment.
+
+## Anchor index
+- Scope: Purpose and scope (id: Signa-Scope)
+- Samples: Sample index (evidence set) (id: Signa-Samples)
+- Geometry: Layout (imposition geometry) (id: Signa-Layout)
+- WorkStyle: WorkStyle vocabulary + printing params (id: Signa-WorkStyle)
+- Marks: RunList / SeparationSpec / BCMY placeholders (id: Signa-Marks)
+- Media: Media (paper/plate) notes (id: Signa-Media)
+- Validation: Quick conformance checklist (imposition-focused) (id: Signa-Validation)
+- Consumer guide: Implementation focus (id: Signa-ConsumerGuide)
+- Minimum acceptance: Cockpit acceptance notes (id: Signa-MinimumAcceptance)
+- Implementation evidence: Converter behavior notes (id: Signa-ImplementationEvidence)
+- Validator notes: Batch patterns (id: Signa-ValidatorNotes)
+- Invariants: Observed across Signa 21 (id: Signa-Invariants)
+
+## Key invariants (importability)
+- `JDF/@Type="ProcessGroup"` and `Types` include `Imposition`.
+- `ResourcePool/Layout` exists with `PartIDKeys="SignatureName SheetName Side"`.
+- Layout partitions include `Side="Front"` (and `Back` when applicable).
+- Marks RunList has a valid `FileSpec` and `SeparationSpec` placeholders.
+- `HDM:PaperRect` aligns with marks PDF TrimBox expectations.
+
+<a id="Signa-Scope"></a>
 ## Purpose and scope
 - Capture the Signa 21 JDF dialect used for imposition so it is reusable across projects.
 - Human readable, explicit, and code agnostic (documentation only, no XSD or schema).
@@ -23,6 +58,10 @@
 - Guarantee bindery correctness without geometry validation.
 - Replace physical print knowledge.
 
+## Data policy
+- Private sample data and customer metadata are kept outside this repo.
+- Sample names in this document are placeholders mapped in private notes.
+
 ## Evidence model
 - This document is based on a large internal corpus of Signa-exported JDFs across multiple Signa 21.x builds.
 - Individual sample filenames are cited as anchors, not as exhaustive proof.
@@ -43,6 +82,7 @@
 - **Transport-only** — required for Signa/Cockpit handoff; not part of the logical model.
 - **Decorative** — preserve verbatim, never interpret (opaque or vendor-specific payloads).
 
+<a id="Signa-Samples"></a>
 ## Sample index (evidence set)
 - Note: Sample JDF filenames in this repo are renamed for clarity and to avoid collisions. Signa exports a `<jobnumber>.jdf` bundle that contains `data.jdf` (the ticket) and related assets (e.g., marks PDF).
 - These samples are references only; the dialect rules stand on their own and should remain valid even if the sample set changes.
@@ -68,7 +108,7 @@
 - `Signa_Samples/Saddle28PWATCoverSW8AndMontage.jdf` - Saddle‑stitched with a montage as a separate product part.
 
 ## Signa export bundle (observed)
-Example bundle: `Signa_Samples/P2452 Cdn Paediatric_P2452 CdnPaed.jdf`.
+Example bundle: `Signa_Samples/SampleBundle_A.jdf`.
 - `data.jdf` is the main ticket and contains the same structure discussed in this document.
 - `SignaData.sdf` is referenced by `HDM:SignaBLOB` and is used by Signa/Cockpit for "edit layout". (Stability: Transport-only)
 - `data.pdf` is referenced by RunList `FileSpec` entries as the source PDF in this sample.
@@ -159,6 +199,7 @@ JDF (ProcessGroup)
   ResourceLinkPool (links + CombinedProcessIndex)
 ```
 
+<a id="Signa-Root"></a>
 ## Root element: JDF (ProcessGroup)
 - Role: Job container for a process group that includes Imposition and downstream processes.
 - Key attributes:
@@ -183,8 +224,10 @@ JDF (ProcessGroup)
 - Evidence:
   - `Signa_Samples/SingleSheet-WorkandTurn.jdf`, `Signa_Samples/SS-BookText-Perfecting.jdf`.
 
+<a id="Signa-ResourcePool"></a>
 ## ResourcePool core (imposition-relevant)
 
+<a id="Signa-Layout"></a>
 ### Layout (imposition geometry)
 - Role: Primary imposition geometry definition.
 - Top-level attributes:
@@ -239,6 +282,7 @@ JDF (ProcessGroup)
   - Perfecting with distinct front/back sides: `Signa_Samples/SS-SingleSheet-Perfecting.jdf`.
 - Working theory: `HDM:AssemblyFB` represents the final product face, independent of plate side, which allows WorkAndTurn and simplex layouts to map both faces under a single plate side.
 
+<a id="Signa-WorkStyle"></a>
 ### WorkStyle vocabulary and side handling
 - WorkStyle values observed: `Perfecting`, `WorkAndBack`, `WorkAndTurn`, `Simplex`.
 - Signa uses `WorkAndBack` where file naming and job intent indicate sheetwise; no `WorkStyle="Sheetwise"` appears in the sample set.
@@ -325,6 +369,7 @@ This comparison is specific to Signa. Some other imposition systems (e.g., Metri
 | Validator behavior | Skips fold-dimension warnings when `BinderySignatureType="Grid"` | Emits fold-dimension warnings when expected |
 - 4x6 comparison: the montage version omits `FoldCatalog`, `FoldingParams`, `HDM:CIP3FoldSheetIn_*`, and closed/opened folding dimensions while keeping `BinderySignatureType="Grid"` and `AssemblyIDs="Block_*"`. The fold‑mode version adds `BinderySignatureType="Fold"`, `FoldCatalog="F2-1"`, `FoldingParams`, `HDM:CIP3FoldSheetIn_*`, and `HDM:Closed/OpenedFoldingSheetDimensions`, and uses `AssemblyIDs` tied to the fold scheme. Evidence: `Signa_Samples/4x6MontageSample.jdf`, `Signa_Samples/4x6wFoldSample.jdf`.
 
+<a id="Signa-Marks"></a>
 ### RunList (page and marks mapping)
 - Role: Connects imposition to source PDFs and page mapping.
 - Observed patterns:
@@ -348,7 +393,7 @@ This comparison is specific to Signa. Some other imposition systems (e.g., Metri
 - PagePool is not required for downstream Prinect acceptance; third‑party imposition JDFs may not include PagePool at all. Treat it as a Signa/Cockpit transfer artifact unless Signa is in the workflow. (Stability: Transport-only)
   - Document RunList `PartIDKeys` is either omitted or `Run` (1547/2310 omitted, 763/2310 `Run` in this sample set).
   - Marks RunList `PartIDKeys` is consistently `SignatureName SheetName Side` in Signa exports.
-  - Marks RunLists include `SeparationSpec` lists in most files (2260/2310), but a small subset omit them; treat missing separation specs as non-fatal. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q2080 GPS_Q2080-data.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1513 INAC_Q1513-data.jdf`.
+  - Marks RunLists include `SeparationSpec` lists in most files (2260/2310), but a small subset omit them; treat missing separation specs as non-fatal. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_18.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_14.jdf`.
   - Montage example: the Document RunList can be a reservation placeholder (`ElementType="Reservation"`, `Status="Unavailable"`) while the Marks RunList carries the actual marks PDF and separations. Evidence: `Signa_Samples/MontageSample.jdf`.
   - Typical structure (simplified):
   ```
@@ -375,6 +420,7 @@ This comparison is specific to Signa. Some other imposition systems (e.g., Metri
   - Reservation placeholder: `Signa_Samples/SingleSheet-Sheetwise.jdf`.
   - `HDM:OFW`: `Signa_Samples/SingleSheet-Sheetwise.jdf`, `Signa_Samples/SingleSheet-WorkandTurn.jdf`.
 
+<a id="Signa-Media"></a>
 ### Media
 - Role: Defines paper and plate media for the sheet.
 - Observed attributes: `MediaType="Paper"` or `MediaType="Plate"`, `Dimension`, `PartIDKeys="SignatureName SheetName"`.
@@ -408,7 +454,7 @@ This comparison is specific to Signa. Some other imposition systems (e.g., Metri
 - `FoldingParams` with `FoldCatalog`, `HDM:CIP3FoldSheetIn_*`, and `NoOp="true"` when folding is not applied.
 - `FoldCatalog` is the explicit folding scheme name when Signa models folding; it is typically present when folding is defined, but some FoldingParams appear without it.
 - Fold schemes may be implied by naming (e.g., `AssemblyIDs`/`BlockName` prefixes like `F01-01`) even when folding is not explicitly modeled; in these cases fold dimensions may be omitted even if the piece will be folded downstream.
-  - Fold scheme page rotations can explain “non‑mirrored” back layouts in perfecting; some schemes (e.g., head‑in) rotate pages 180 degrees on both sides, so back-side rotations need not look mirrored. Reference rotations: `Signa_Samples/JDFFoldingSchemes/Folds.json`.
+- Fold scheme page rotations can explain “non‑mirrored” back layouts in perfecting; some schemes (e.g., head‑in) rotate pages 180 degrees on both sides, so back-side rotations need not look mirrored. Reference rotations: `JDF_Schema/JDFFoldingSchemes/Folds.json`.
   - `Assembly` with `AssemblySection` carrying HDM fields like `HDM:BlockName`, `HDM:SheetName`, `HDM:SignatureName`.
   - `HDM:CombiningParams` is present in many samples, pairing multiple cut blocks into a combined block before folding.
 - Stability: **Advisory** (finish-chain context); use for interpretation but not required for Cockpit import.
@@ -435,8 +481,8 @@ This comparison is specific to Signa. Some other imposition systems (e.g., Metri
   - `Signa_Samples/SingleSheet-Sheetwise.jdf`, `Signa_Samples/SS-BookText-Perfecting.jdf`.
 
 ## Behavior by product type (selected samples)
-- Selection method: job descriptions in `Signa_Samples/Job_JDFs_with_descriptions/Q.csv` were used to choose example JDFs; descriptions are not authoritative for the JDF content.
-- Perfect bound text includes extra finishing steps in `Types` (`Gathering`, `SpinePreparation`, `SpineTaping`); matching cover files stop at `Trimming` and are Simplex layouts. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1323 HealthCare Can_P1701 Text-data.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1323 HealthCare Can_P1701 Cover-data.jdf`.
+- Selection method: job descriptions in `Signa_Samples/Job_JDFs_with_descriptions/JobIndex.csv` were used to choose example JDFs; descriptions are not authoritative for the JDF content.
+- Perfect bound text includes extra finishing steps in `Types` (`Gathering`, `SpinePreparation`, `SpineTaping`); matching cover files stop at `Trimming` and are Simplex layouts. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_13.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_12.jdf`.
 - Perfect-bound text-only layouts (no cover part) still emit the full binding chain in `Types` and include `SpinePreparationParams`/`SpineTapingParams`, while `FoldingParams` carries `HDM:BindingRule="PerfectBound"`. Evidence: `Signa_Samples/16PagePerfectBoundSample.jdf`.
 - Adding a cover on a separate press sheet introduces a second signature/sheet plus `CoverApplication` in `Types`, and emits `CoverApplicationParams`. Cover blocks are tagged with `HDM:IsCover="true"` and `ProductType="Cover"`, while text blocks remain `ProductType="Body"`. Evidence: `Signa_Samples/16PagePerfectBoundSampleCover.jdf`.
 - User‑named cover/text sheets propagate into `SheetName`, `DescriptiveName`, and downstream block identifiers (`BlockName`, `HDM:OutputBlockName`, `FoldingParams` partitions), replacing default `FB 001`/`FB 002` naming. Evidence: `Signa_Samples/16PagePerfectBoundSampleCoverNamed.jdf`.
@@ -469,19 +515,19 @@ This comparison is specific to Signa. Some other imposition systems (e.g., Metri
 - Enabling “Creep by Offset” still does not emit any explicit creep attributes; the only differences are geometric shifts in `ContentObject` boxes/CTMs and mark positions, plus resulting block sizes in `CuttingParams`/`FoldingParams`. Evidence: `Signa_Samples/Saddle28PWATCoverSW8CreepOffset.jdf`.
 - Enabling “Creep by Scaling” likewise emits no creep attributes; instead `ContentObject` `CTM`/`TrimCTM` gain scale factors (e.g., `0.998765`, `0.997941`) and corresponding `FinalPageBox` shifts, while marks shift slightly to match the adjusted geometry. In this sample the work‑and‑turn cover (`Sig001`) stays unscaled; scale factors appear on the perfecting/work‑and‑back signatures (`Sig002`/`Sig003`). Evidence: `Signa_Samples/Saddle28PWATCoverSW8CreepScaling.jdf`.
 - When a montage is introduced as a separate product part, Signa adds a new signature (`Sig004`) whose `BinderySignatureType="Grid"` and `FoldCatalog="unnamed"` with `FoldingParams NoOp="true"`. The montage part uses its own `HDM:JobPart` tag (`Montage`) and a separate `RunlistIndex` range, while the marks `RunList` appends a new front/back range for the montage sheet. Evidence: `Signa_Samples/Saddle28PWATCoverSW8AndMontage.jdf`.
-- Saddle-stitched/self-cover jobs include `Collecting` and `Stitching` in `Types`, and may include multiple `HDM:SignaJobPart` entries for inserts/text in one file. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1137 CPS_Q1137-data.jdf`.
-- Varnish work shows up as additional PagePool RunList PDFs (e.g., filenames containing "varnish") while `Types` still omits a varnish/coating process; working theory is varnish is treated as a content layer file in PagePool. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1038 Xerox_Q1038 Varnish-data.jdf`.
-- Tabs layouts use `WorkStyle="WorkAndBack"` and a PagePool that contains separate cover/tabs/text PDFs; `SeparationSpec` includes `HDM_DarkColor` alongside CMYK, likely to target the darkest separation for marks. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1124 GGLS - BRP SEA CANeng_Q1124 tabs-data.jdf`.
-- Map/large-flat jobs can be Simplex with `FoldingParams` marked `NoOp="true"` even when the job description references folding; working theory is folding is handled outside Signa for these cases. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1039 Aviation_Q1039 map-data.jdf`.
+- Saddle-stitched/self-cover jobs include `Collecting` and `Stitching` in `Types`, and may include multiple `HDM:SignaJobPart` entries for inserts/text in one file. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_10.jdf`.
+- Varnish work shows up as additional PagePool RunList PDFs (e.g., filenames containing "varnish") while `Types` still omits a varnish/coating process; working theory is varnish is treated as a content layer file in PagePool. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_07.jdf`.
+- Tabs layouts use `WorkStyle="WorkAndBack"` and a PagePool that contains separate cover/tabs/text PDFs; `SeparationSpec` includes `HDM_DarkColor` alongside CMYK, likely to target the darkest separation for marks. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_09.jdf`.
+- Map/large-flat jobs can be Simplex with `FoldingParams` marked `NoOp="true"` even when the job description references folding; working theory is folding is handled outside Signa for these cases. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_08.jdf`.
 
 ## Complexity-driven structural shifts
 - Multi-signature jobs: `Layout` gains multiple signature branches (`SignatureName`), while `StrippingParams`/`Media`/`BinderySignature` use `PartIDKeys="SignatureName SheetName BinderySignatureName"` with per-signature parts. Evidence: `Signa_Samples/MultiSig-Perfecting.jdf`, `Signa_Samples/MixedWorkStyles.jdf`.
 - Ganged or multi-up sheets: `StrippingParams` nests multiple `BinderySignatureName` parts with `Position/RelativeBox`, and `HDM:CombiningParams` plus `Assembly` enumerate multiple `BlockName`/`AssemblyIDs` at the block level. Evidence: `Signa_Samples/GangedPostcards-Perfecting.jdf`, `Signa_Samples/MixedWorkStyles.jdf`.
 - Work-and-turn/back layouts: `Layout` may only define `Side="Front"`, but `ContentObject` uses `HDM:AssemblyFB="Front|Back"` to tag product faces; printing params follow the work style. Evidence: `Signa_Samples/SingleSheet-WorkandTurn.jdf`.
-- Multi-job-part/inserts: job-level `HDM:SignaJobPart` appears, `HDM:JobPart` tags `ContentObject`, and the PagePool aggregates multiple source PDFs (text/insert/cover). Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1137 CPS_Q1137-data.jdf`.
+- Multi-job-part/inserts: job-level `HDM:SignaJobPart` appears, `HDM:JobPart` tags `ContentObject`, and the PagePool aggregates multiple source PDFs (text/insert/cover). Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_10.jdf`.
 - Multiple Signa product parts can duplicate the full layout/signature tree: each part gets its own `SignatureName`/`SheetName`, while `HDM:JobPart` and `HDM:RunlistIndex` tag `ContentObject` placements. Marks RunList expands to include logical page ranges per part (e.g., `NPage=8` with Front/Back ranges per part). Evidence: `Signa_Samples/2ProductPartsSample.jdf`.
 - Product parts are independent product intents: each part can define its own product type (e.g., perfect bound vs saddle‑stitch) and uses only its own pages for spine/creep calculations and finishing decisions. Source: user observation.
-- Longer finishing chains: extra `Types` steps (e.g., `Collecting`, `Stitching`, `SpinePreparation`) add `Component` outputs and finishing params partitioned by `AssemblyIDs`/`BlockName`. Evidence: `Signa_Samples/SS-BookText-Perfecting.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1323 HealthCare Can_P1701 Text-data.jdf`.
+- Longer finishing chains: extra `Types` steps (e.g., `Collecting`, `Stitching`, `SpinePreparation`) add `Component` outputs and finishing params partitioned by `AssemblyIDs`/`BlockName`. Evidence: `Signa_Samples/SS-BookText-Perfecting.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_13.jdf`.
 - RunList depth: document RunLists add nested parts by `SignatureName`/`SheetName`/`Side`/`LogicalPage`, while PagePool stays `PartIDKeys="Run"` but grows across multiple PDFs. Evidence: `Signa_Samples/MultiSig-Perfecting.jdf`, `Signa_Samples/PB-BookCover2Versions-Ganged-Sheetwise.jdf`.
 
 ## Attribute hoisting (partitioning behavior)
@@ -512,14 +558,15 @@ This comparison is specific to Signa. Some other imposition systems (e.g., Metri
 - Heidelberg/Signa extensions (`HDM:*`) are pervasive and undocumented in the core spec; assume vendor extensions until proven otherwise. Evidence: `Signa_Samples/SingleSheet-Sheetwise.jdf`, `Signa_Samples/SS-BookText-Perfecting.jdf`.
 - Marks are separate PDFs linked with `ProcessUsage="Marks"` and can have more pages than sheet sides; do not expect PagePool/Document counts to align with marks PDF pages. Evidence: `Signa_Samples/SingleSheet-SingleSide.pdf`, `Signa_Samples/SingleSheet-SingleSide.jdf`.
 - RunList partitions repeat `FileSpec`/`SeparationSpec` at leaf parts even when identical; this is compliant but may look redundant if you expect maximum hoisting. Evidence: `Signa_Samples/SingleSheet-Sheetwise.jdf`.
-- PagePool RunListLink is build-dependent: older Signa 21.00 builds (e.g., 22103.35, 21142.24) often omit `ProcessUsage="PagePool"` entirely while still linking Document/Marks/Output; newer 21.10 builds emit it consistently. Treat missing PagePool links as a warning unless a PagePool RunList exists. Evidence: `Signa_Samples/SS-Book-SelfCover-Perfecting.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/Q/Q2423 ASCM - CPIM Book2_Q2423 book 2 text-data.jdf`.
+- PagePool RunListLink is build-dependent: older Signa 21.00 builds (e.g., 22103.35, 21142.24) often omit `ProcessUsage="PagePool"` entirely while still linking Document/Marks/Output; newer 21.10 builds emit it consistently. Treat missing PagePool links as a warning unless a PagePool RunList exists. Evidence: `Signa_Samples/SS-Book-SelfCover-Perfecting.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_22.jdf`.
 - Placeholder separations (`B/C/M/Y`, `X/Z/U/V/S1...S8`, `HDM_DarkColor`) appear instead of explicit ink names; treat these as remappable slots in Signa/Prinect workflows. Evidence: `Signa_Samples/SingleSheet-SingleSide.pdf`, `Signa_Samples/SS-SingleSheet-Perfecting.pdf`.
 - `Version="1.3"` with higher `MaxVersion` and inconsistent `ICSVersions` presence can look contradictory but reflects Signa export defaults. Evidence: `Signa_Samples/SingleSheet-Sheetwise.jdf`, `Signa_Samples/SS-SingleSheet-Perfecting.jdf`.
 - WorkStyle and SourceWorkStyle appear on multiple resources (Layout, ConventionalPrintingParams, StrippingParams) with inheritance/partitioning; do not assume a single source of truth without resolving partitions. Evidence: `Signa_Samples/MixedWorkStyles.jdf`.
-- Folding can be encoded with `NoOp="true"` while fold metadata remains populated; indicates no folding applied in Signa, not an invalid fold definition. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1039 Aviation_Q1039 map-data.jdf`.
-- `AssemblyIDs` and `HDM:AssemblyFB` are not always present on `ContentObject` (notably Simplex or older builds), yet are used on other resources; avoid treating their absence as invalid. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q2137 Barrhaven_Optometric_Q2137-data.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1250 Cibles Can_Q1250 blk-data.jdf`.
-- `FoldCatalog="unnamed"` typically indicates montage/custom layouts where folding is not modeled; folding hints can exist but are not deterministic. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q2206 GGLS - SHRM_Q2206 Org text-data.jdf`.
+- Folding can be encoded with `NoOp="true"` while fold metadata remains populated; indicates no folding applied in Signa, not an invalid fold definition. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_08.jdf`.
+- `AssemblyIDs` and `HDM:AssemblyFB` are not always present on `ContentObject` (notably Simplex or older builds), yet are used on other resources; avoid treating their absence as invalid. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_19.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_11.jdf`.
+- `FoldCatalog="unnamed"` typically indicates montage/custom layouts where folding is not modeled; folding hints can exist but are not deterministic. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_20.jdf`.
 
+<a id="Signa-ConsumerGuide"></a>
 ## Consumer guide (implementation focus)
 - **Minimum skeleton**: JDF root `Type="ProcessGroup"` with `Types` including `Imposition`, `ResourcePool/Layout` partitioned by `SignatureName SheetName Side`, `RunList` links for `Document`, `Marks`, and `PagePool`, and `ResourceLinkPool` with `CombinedProcessIndex`.
 - **WorkStyle mapping**: treat `Layout/@SourceWorkStyle`, `ConventionalPrintingParams/@WorkStyle`, and `StrippingParams/@WorkStyle` as a resolved value via partition inheritance; always walk up the partition tree.
@@ -569,6 +616,7 @@ This comparison is specific to Signa. Some other imposition systems (e.g., Metri
   </JDF>
   ```
 
+<a id="Signa-MinimumAcceptance"></a>
 ## Minimum Prinect acceptance (Metrix sample)
 Metrix JDFs configured for Prinect can be accepted even when many Signa‑specific details are missing. This is not a Metrix spec, but it shows what Prinect tolerates at a basic level.
 - Required: `Layout` with `Signature/Sheet/Surface/ContentObject` geometry, `RunListLink` for `Document` and `Marks`, and a valid marks PDF URL.
@@ -691,7 +739,7 @@ Use this as the “must have” checklist for generating a JDF that Cockpit will
 Quick scan of `Signa_Samples` using the new checklist warnings (2025-01-01 run).
 - Most common missing items: `layout:surface_contents_box`, `layout:paper_rect`, `marks:missing`, `content:missing` (each in 2,351 files).
 - Less common: `media:paper_dimension` (45 files), `media:plate_dimension` (19 files).
-- Highest warning counts (7 each): `Signa_Samples/MixedWorkStyles.jdf`, plus several `Signa_Samples/Job_JDFs_with_descriptions/Q/*-data.jdf` files where Signa emits layout metadata without marks/content objects.
+- Highest warning counts (7 each): `Signa_Samples/MixedWorkStyles.jdf`, plus several `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_01.jdf` files where Signa emits layout metadata without marks/content objects.
 - Interpretation: Signa exports are assumed canonically correct; repeated warnings across hundreds of files indicate the checklist may be too strict or scoped to a narrower JDF subset. Treat large‑volume warnings as validator‑tuning signals, not Signa errors.
 
 ### Minimal import findings: required vs optional (Cockpit)
@@ -855,12 +903,12 @@ These are the most frequent schema validation errors from `schema-summary.csv`; 
 
 ### Schema hotspots
 Top files by schema error count (useful for future deep dives):
-- `Signa_Samples/Job_JDFs_with_descriptions/Q/Q0753 GGLS - Korn Ferry_Q0753 text w barcode-data.jdf` (1,040)
-- `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1688 GGLS - Korn Ferry_Q1688 text w barcode-data.jdf` (1,040)
-- `Signa_Samples/Job_JDFs_with_descriptions/Q/Q2478 GGLS - Korn Ferry_Q2478 text w barcode-data.jdf` (1,040)
-- `Signa_Samples/Job_JDFs_with_descriptions/Q/P1701 HealthCare_P1701 Text-data.jdf` (965)
-- `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1323 HealthCare Can_P1701 Text-data.jdf` (965)
-- `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1946 CAOT_Q1946 Text-data.jdf` (957)
+- `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_05.jdf` (1,040)
+- `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_15.jdf` (1,040)
+- `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_23.jdf` (1,040)
+- `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_02.jdf` (965)
+- `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_13.jdf` (965)
+- `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_16.jdf` (957)
 - Full list: `schema-hotspots.csv`.
 
 Top invalid tokens (schema message frequency):
@@ -875,21 +923,22 @@ Top invalid tokens (schema message frequency):
 - Most common HDM attributes in the sample set: `PoolIndex` (RunList), `Type`/`IsMapRel` (SeparationSpec), `FinalPageBox`/`PageOrientation` (ContentObject), `AssemblyFB`/`AssemblyIDs` (ContentObject), `CIP3BlockTrf` (CutBlock), `PaperRect` (Layout), `ClosedFoldingSheetDimensions`/`OpenedFoldingSheetDimensions` (Component), `CIP3FoldSheetIn_1/2` (FoldingParams), `BlankPage` (RunList). (Stability: mostly Stable, but see notes below.)
 - Most common HDM elements: `HDM:CombiningParams` and `HDM:Signa*` metadata (`SignaBLOB`, `SignaJDF`, `SignaGenContext`, `SignaJob`, `SignaJobPart`). (Stability: Signa* is Transport-only; CombiningParams is Advisory)
 - Near‑universal per‑file presence (in this sample set): `HDM:PaperRect`, `HDM:FinalPageBox`, `HDM:PageOrientation`, `HDM:CIP3BlockTrf`, `HDM:OFW`, `HDM:OrigNameBySigna` appear in essentially every JDF; `HDM:BlankPage` is more sporadic. (Stability: `PaperRect`/`FinalPageBox`/`PageOrientation` Stable; `OFW`/`OrigNameBySigna` Decorative)
-### Hotspot deep dive: Q0753 (Korn Ferry text w barcode)
+### Hotspot deep dive: Sample_Barcode_Text
 Schema errors are dominated by two patterns:
 - `PositionX`/`PositionY` appear only on `ContentObject` (512 placements) with values like `Center`; treat as alignment hints alongside CTM/TrimCTM rather than required geometry inputs.
-- `AssemblyIDs` appears on `Component`, `CutBlock`, `FoldingParams`, `AssemblySection`, and `StrippingParams` as a cross‑resource join key; the base schema rejects it, but Signa uses it to tie block/assembly context. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q0753 GGLS - Korn Ferry_Q0753 text w barcode-data.jdf`.
+- `AssemblyIDs` appears on `Component`, `CutBlock`, `FoldingParams`, `AssemblySection`, and `StrippingParams` as a cross‑resource join key; the base schema rejects it, but Signa uses it to tie block/assembly context. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_05.jdf`.
 
 ### Dialect rules extracted from hotspots
-- `PositionX`/`PositionY` on `ContentObject` (typically `Center`) act as alignment hints and can be ignored when CTM/TrimCTM are present. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q0753 GGLS - Korn Ferry_Q0753 text w barcode-data.jdf`.
-- `AssemblyIDs` is used across multiple resources (`Component`, `CutBlock`, `FoldingParams`, `AssemblySection`, `StrippingParams`) as a join key despite being invalid in the base schema. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q0753 GGLS - Korn Ferry_Q0753 text w barcode-data.jdf`.
-- `BlockName` and `BinderySignatureName` may include parentheses, which violates schema name-token rules but is common in Signa naming (seen on `Component`, `CutBlock`, `FoldingParams`, `CombiningParams`, `StrippingParams`). Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/P1701 HealthCare_P1701 Text-data.jdf`.
+- `PositionX`/`PositionY` on `ContentObject` (typically `Center`) act as alignment hints and can be ignored when CTM/TrimCTM are present. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_05.jdf`.
+- `AssemblyIDs` is used across multiple resources (`Component`, `CutBlock`, `FoldingParams`, `AssemblySection`, `StrippingParams`) as a join key despite being invalid in the base schema. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_05.jdf`.
+- `BlockName` and `BinderySignatureName` may include parentheses, which violates schema name-token rules but is common in Signa naming (seen on `Component`, `CutBlock`, `FoldingParams`, `CombiningParams`, `StrippingParams`). Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_02.jdf`.
 
 ## Remaining gaps and working theories
 - `HDM:*` attributes (e.g., `HDM:ChangeInfo`, `HDM:OFW`, `HDM:Purpose`, `HDM:FoldRule`) are Heidelberg extensions and not defined in the core JDF spec. Treat them as vendor-specific until Heidelberg/HDM documentation is available.
 - `SignaData.sdf` is a binary blob; no structure has been decoded from it yet.
 - Terminology note: we use "job part" or "product part" to describe multiple products in a single job; "versioning" typically refers to plate-level replacements (often the K plate) to create multiple product versions.
 
+<a id="Signa-Invariants"></a>
 ## Invariants across observed Signa 21 JDFs
 - Root `Types` always include `Imposition` and consistently include `ConventionalPrinting`.
 - `ResourceLinkPool` is present and `CombinedProcessIndex` follows the order of `Types`.
@@ -906,6 +955,7 @@ Schema errors are dominated by two patterns:
 - `HDM:OFW` appears on RunList in nearly all samples (keep verbatim; vendor-specific).
 - `Version="1.3"` with higher `MaxVersion` is the common Signa export pattern.
 
+<a id="Signa-ValidatorNotes"></a>
 ## Validator investigation notes (current batch patterns)
 - Investigation flags are not errors; they highlight where Signa varies across samples so we can form hypotheses.
 - Minimal importability warnings dropped to zero after accounting for Media `Dimension` on nested `Media` parts; several Signa exports carry dimensions only on per‑signature Media parts rather than the top-level Media node.
@@ -914,9 +964,9 @@ Schema errors are dominated by two patterns:
 - `HDM:CIP3FoldSheetIn_1/2` can also be absent even when `FoldCatalog` is present (e.g., book text layouts), so the presence of a fold catalog is not sufficient to assume folded-sheet dimensions are emitted.
   - Evidence: `Signa_Samples/SS-BookText-Perfecting.jdf`.
 - `HDM:CIP3FoldSheetIn_1/2` appears to be emitted on the top-level `FoldingParams` node; nested `FoldingParams` partitions (Signature/Sheet/Block) often omit it even when `FoldCatalog` is present.
-  - Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q0306 GRepro_Q0306 stepped brochure-data.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/Q/Q0216 DLI - Taradel_Q0216-data.jdf`.
+  - Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_04.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_03.jdf`.
 - `FoldCatalog="unnamed"` likely denotes a custom or montage-style layout that does not use a formal folding scheme; in these cases `HDM:CIP3FoldSheetIn_*` may be absent.
-  - Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q0905 MYC Sunshine 1A_Q0905-data.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/Q/Q2009 MHCC_Q2009 text-data.jdf`.
+  - Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_06.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_17.jdf`.
 - Low-priority investigation: a few top-level `FoldingParams` have a named `FoldCatalog` but only one of `HDM:CIP3FoldSheetIn_*` is present; this appears isolated (e.g., `F4-1` stepped brochure) and should not block interpretation.
 - Low-priority investigation: some JDFs omit `HDM:AssemblyIDs` and `HDM:AssemblyFB` on `ContentObject` while still using `AssemblyIDs` on `CutBlock`, `Component`, or `StrippingParams`; this appears to be a variation in certain builds or job types, not necessarily an invalid layout.
 - Low-priority investigation: Simplex jobs often omit `HDM:AssemblyIDs`/`HDM:AssemblyFB` on `ContentObject`, relying on block-level AssemblyIDs instead.
@@ -973,7 +1023,7 @@ These inferences are based on patterns across the Signa samples. They are best-e
 - `HDM:AssemblyFB` identifies whether the placed page belongs to the front or back of the assembled product, independent of plate side. Confidence: Medium. Evidence: `Signa_Samples/SingleSheet-WorkandTurn.jdf`, `Signa_Samples/SS-SingleSheet-Perfecting.jdf`.
 - `HDM:AssemblyIDs` links a placed page to a specific assembly or bindery signature identifier. Confidence: Medium. Evidence: `Signa_Samples/SingleSheet-Sheetwise.jdf`, `Signa_Samples/GangedPostcards-Perfecting.jdf`.
 - `HDM:OrigNameBySigna` preserves the original Signa naming for signatures and sheets even when `Name` changes. Confidence: Medium. Evidence: `Signa_Samples/SingleSheet-Sheetwise.jdf`, `Signa_Samples/SS-SingleSheet-Perfecting.jdf`.
-- `PositionX`/`PositionY` appear on `ContentObject` in some Signa outputs (often `Center`); treat them as alignment hints that can be ignored when CTM/TrimCTM are present, since the base schema does not allow these attributes on `ContentObject`. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/Q/Q2397 David Berman_Q2397 Tabs-data.jdf`.
+- `PositionX`/`PositionY` appear on `ContentObject` in some Signa outputs (often `Center`); treat them as alignment hints that can be ignored when CTM/TrimCTM are present, since the base schema does not allow these attributes on `ContentObject`. Evidence: `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_21.jdf`.
 - Montage layouts: `ContentObject` CTM/TrimCTM values drive explicit rotations (0/90/180/270) without fold schemes; block‑level `AssemblyIDs` (e.g., `Block_1_1`, `Block_3_3`) identify distinct montage placements. Evidence: `Signa_Samples/MontageSample.jdf`.
 
 ### Preview placement troubleshooting (low effort diagnostics)
@@ -995,7 +1045,7 @@ These inferences are based on patterns across the Signa samples. They are best-e
 
 **Color, Media, and RunList Hints**
 - Stability: **Advisory** (observed behaviors and operator settings; do not treat as strict requirements).
-- Process separations appear as spot-style placeholders: `B/C/M/Y` are process slots that can be remapped to actual inks (e.g., mapping `C` to Pantone 186), and `X/Z/U/V/S1...S8` provide additional spot slots for remapping; `HDM_DarkColor` likely marks the darkest separation so marks can print on that ink only. Confidence: Low (user observation; not vendor-documented). Evidence: `Signa_Samples/SingleSheet-Sheetwise.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/Q/Q1124 GGLS - BRP SEA CANeng_Q1124 tabs-data.jdf`.
+- Process separations appear as spot-style placeholders: `B/C/M/Y` are process slots that can be remapped to actual inks (e.g., mapping `C` to Pantone 186), and `X/Z/U/V/S1...S8` provide additional spot slots for remapping; `HDM_DarkColor` likely marks the darkest separation so marks can print on that ink only. Confidence: Low (user observation; not vendor-documented). Evidence: `Signa_Samples/SingleSheet-Sheetwise.jdf`, `Signa_Samples/Job_JDFs_with_descriptions/PrivateSample_09.jdf`.
 - User-sourced rule (observation): Signa exposes process colors as remappable placeholders and uses `HDM_DarkColor` to target the darkest ink for specific marks.
 - Toggling “Allow Spot Colors to BCMY” does not appear to change the JDF separation placeholder list; `B/C/M/Y/X/Z/U/V/S1...S8` remain present in the marks RunList with the same `HDM:IsMapRel` pattern, and no explicit flag is emitted in the JDF. Evidence: `Signa_Samples/NoSpotsToBCMYSample.jdf`, `Signa_Samples/SpotsToBCMYSample.jdf`.
 - When the source PDF includes explicit spot colors, Signa emits the actual spot names in `ColorantControl/ColorantParams` and `ColorPool`, but the marks RunList still uses placeholder separations (`B/C/M/Y/X/Z/U/V/S1...S8`). Evidence: `Signa_Samples/SpotsSample.jdf`.
@@ -1014,6 +1064,7 @@ These inferences are based on patterns across the Signa samples. They are best-e
 - `HDM:OFW="1.0"` on RunList is likely a workflow or output format tag used by Signa. Confidence: Low. Evidence: `Signa_Samples/SingleSheet-Sheetwise.jdf`, `Signa_Samples/SingleSheet-WorkandTurn.jdf`. Converter corroboration: `Old_Code/metrix_to_signa.py` (Marks RunList normalization uses BCMY).
 - `HDM:LeadingEdge` on plate media equals the plate height from `Media/@Dimension`. Confidence: High. Evidence: `Signa_Samples/SingleSheet-Sheetwise.jdf`, `Signa_Samples/SS-BookText-Perfecting.jdf`. Converter corroboration: `Old_Code/metrix_to_signa.py`.
 
+<a id="Signa-ImplementationEvidence"></a>
 ### Implementation evidence (converter behavior)
 These notes come from `Old_Code/metrix_to_signa.py` (a working Metrix→Signa converter). They are not vendor documentation, but they reflect behaviors that successfully produce Prinect‑accepted JDFs.
 
@@ -1027,6 +1078,7 @@ These notes come from `Old_Code/metrix_to_signa.py` (a working Metrix→Signa co
 - `HDM:Purpose` appears in some layouts or resources and may indicate Signa workflow intent. Confidence: Low. Evidence: `Signa_Samples/SingleSheet-SingleSide.jdf`, `Signa_Samples/SS-BookText-Perfecting.jdf`.
 - `HDM:RunlistIndex` appears in multi-job-part layouts and may map a sheet or job part to a RunList index. Confidence: Low. Evidence: `Signa_Samples/PB-BookText2Versions-Perfecting.jdf`, `Signa_Samples/PB-BookCover2Versions-Ganged-Sheetwise.jdf`.
 
+<a id="Signa-Validation"></a>
 ## Quick conformance checklist (imposition-focused)
 - JDF root is `Type="ProcessGroup"` with `Types` including `Imposition`.
 - `ResourcePool/Layout` exists with `PartIDKeys="SignatureName SheetName Side"`.
@@ -1035,8 +1087,21 @@ These notes come from `Old_Code/metrix_to_signa.py` (a working Metrix→Signa co
 - `ConventionalPrintingParams` and `Component` side parts match the expected work style (front/back vs front-only).
 - `ResourceLinkPool` links Layout, RunList, Media, and printing resources with `CombinedProcessIndex` aligned to `Types`.
 
+## Appendix
+
+## Glossary (AI aliases)
+- WorkAndBack = Sheetwise
+- WorkAndTurn = WAT
+- WorkAndTumble = WTT
+- Simplex = Single-Sided
+
 ## Glossary (project-local terms)
 - Signature: A logical grouping of pages imposed together (JDF `SignatureName`).
 - Sheet: The press sheet layout within a signature (JDF `SheetName`).
 - Side: A plate side in the layout (`Front` or `Back`).
 - WorkStyle: Signa's print-side model for the sheet (Perfecting, WorkAndBack, WorkAndTurn, WorkAndTumble, Simplex).
+
+## Change log (summary)
+- Sanitized sample references for public sharing and added data-policy notes.
+- Added Cockpit behavior notes and multi-product observations.
+- Expanded normalization/validation guidance and quick conformance checklist.

@@ -1,12 +1,14 @@
 using Signa.Jdf;
 using Signa.Jdf.Cli.Validate;
 
+// Default = heuristic + schema (optional); --schema-only is strict schema validation.
 if (args.Length < 1 || args.Contains("--help", StringComparer.OrdinalIgnoreCase))
 {
     PrintUsage();
     return 1;
 }
 
+// "Strict" mode = schema-only. Default mode combines schema issues + Signa heuristics.
 if (args.Contains("--batch", StringComparer.OrdinalIgnoreCase))
 {
     return RunBatch(args);
@@ -26,6 +28,7 @@ static int RunSingle(string[] args)
     var validator = new SignaJdfValidator();
     var issues = validator.Validate(document).ToList();
     var schemaPath = GetSchemaPath(args);
+    // --schema-only is strict; default includes heuristic Signa checks.
     var schemaOnly = args.Contains("--schema-only", StringComparer.OrdinalIgnoreCase);
     if (schemaPath is not null && !File.Exists(schemaPath))
     {

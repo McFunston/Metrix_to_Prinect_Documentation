@@ -4,6 +4,7 @@ namespace Metrix.Jdf;
 
 public static class MetrixMxmlParser
 {
+    // Parses Metrix MXML companion data that fills gaps in the JDF (paper, marks, products).
     public static MetrixMxmlDocument Parse(string path)
     {
         if (string.IsNullOrWhiteSpace(path))
@@ -11,12 +12,14 @@ public static class MetrixMxmlParser
             throw new ArgumentException("Path is required.", nameof(path));
         }
 
+        // Preserve whitespace so numeric strings remain exactly as exported.
         var document = XDocument.Load(path, LoadOptions.PreserveWhitespace);
         var root = document.Root ?? throw new InvalidDataException("Missing MetrixXML root element.");
         var ns = root.Name.Namespace;
         var units = Attr(root, "Units");
 
         var resourcePool = new MetrixMxmlResourcePool();
+        // ResourcePool carries folding schemes, marks files, and stock definitions.
         var resourcePoolElement = root.Element(ns + "ResourcePool");
         if (resourcePoolElement is not null)
         {
@@ -58,6 +61,7 @@ public static class MetrixMxmlParser
 
                 foreach (var stockSheetElement in stockElement.Elements(ns + "StockSheet"))
                 {
+                    // StockSheet references usually carry buy-sheet size and grain info.
                     stock.StockSheets.Add(new MetrixMxmlStockSheet
                     {
                         Id = Attr(stockSheetElement, "ID"),
@@ -74,6 +78,7 @@ public static class MetrixMxmlParser
             }
         }
 
+        // Project holds products, layouts, and identifiers used to build job parts.
         var projectElement = root.Element(ns + "Project") ?? throw new InvalidDataException("Missing Project element.");
         var project = new MetrixMxmlProject
         {
@@ -85,6 +90,7 @@ public static class MetrixMxmlParser
         var productPool = projectElement.Element(ns + "ProductPool");
         if (productPool is not null)
         {
+            // ProductPool drives page labels and multi-product job-part ranges.
             foreach (var productElement in productPool.Elements(ns + "Product"))
             {
                 var product = new MetrixMxmlProduct
@@ -102,6 +108,7 @@ public static class MetrixMxmlParser
                 var pagePool = productElement.Element(ns + "PagePool");
                 if (pagePool is not null)
                 {
+                    // Page numbers/folios are used for ContentObject labeling in Cockpit.
                     foreach (var page in pagePool.Elements(ns + "Page"))
                     {
                         product.Pages.Add(new MetrixMxmlPage
@@ -119,6 +126,7 @@ public static class MetrixMxmlParser
         var layoutPool = projectElement.Element(ns + "LayoutPool");
         if (layoutPool is not null)
         {
+            // LayoutPool encodes printing methods and links to stock sheets.
             foreach (var layoutElement in layoutPool.Elements(ns + "Layout"))
             {
                 var stockSheetRef = layoutElement.Element(ns + "StockSheetRef");

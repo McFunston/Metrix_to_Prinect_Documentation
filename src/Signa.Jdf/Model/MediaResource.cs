@@ -2,6 +2,7 @@ namespace Signa.Jdf;
 
 public sealed class MediaResource
 {
+    // Media resource with optional per-sheet partitions.
     public string? Id { get; init; }
     public string? MediaType { get; init; }
     public string? Dimension { get; init; }

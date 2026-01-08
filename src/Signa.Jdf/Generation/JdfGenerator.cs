@@ -5,6 +5,7 @@ namespace Signa.Jdf;
 
 public static class JdfGenerator
 {
+    // Generates a Signa-style JDF with just enough structure for Cockpit import tests.
     public static XDocument Generate(GeneratorOptions options)
     {
         if (options is null)
@@ -12,6 +13,7 @@ public static class JdfGenerator
             throw new ArgumentNullException(nameof(options));
         }
 
+        // Canonical namespaces used by Signa JDF exports.
         var ns = XNamespace.Get("http://www.CIP4.org/JDFSchema_1_1");
         var hdm = XNamespace.Get("www.heidelberg.com/schema/HDM");
         var ssi = XNamespace.Get("http://www.creo.com/SSI/JDFExtensions.xsd");
@@ -35,6 +37,7 @@ public static class JdfGenerator
         var resourcePool = new XElement(ns + "ResourcePool");
         root.Add(resourcePool);
 
+        // Layout is the imposition geometry container with signature/sheet/side partitions.
         var layout = new XElement(ns + "Layout",
             new XAttribute("Class", "Parameter"),
             new XAttribute("ID", "r_layout"),
@@ -92,6 +95,7 @@ public static class JdfGenerator
             layout.Add(signaContext);
         }
 
+        // Prefer explicit signature definitions when provided; fall back to single signature/sheet.
         var signatureDefinitions = options.Signatures.Count > 0
             ? options.Signatures
             : new[]
@@ -128,6 +132,7 @@ public static class JdfGenerator
                     sheet.SetAttributeValue("SurfaceContentsBox", $"0 0 {options.PlateWidth} {options.PlateHeight}");
                 }
 
+                // Side layout nodes carry marks/content geometry and PaperRect.
                 sheet.Add(CreateSide(ns, hdm, "Front", options, sheetLayouts.Count, signatureDef.Name, sheetName));
                 if (options.IncludeBackSide)
                 {
@@ -149,6 +154,7 @@ public static class JdfGenerator
             .ToList();
 
         XElement? documentRunList = null;
+        // Document RunList is optional; when enabled it can carry page mapping hints.
         if (options.IncludeDocumentRunList)
         {
             documentRunList = new XElement(ns + "RunList",
@@ -193,6 +199,7 @@ public static class JdfGenerator
         }
 
         var marksRunLists = new List<XElement>();
+        // Marks RunList drives Cockpit preview and color bar mapping behavior.
         if (options.MarksSplitRunListPerSignature && options.IncludeMarksPartitions)
         {
             var perSheetPages = Math.Max(1, options.MarksPagesPerSide)
@@ -330,6 +337,7 @@ public static class JdfGenerator
             new XElement(ns + "LayoutElement",
                 new XAttribute("ElementType", "Reservation")));
 
+        // Printing params communicate WorkStyle; partitions mirror signature/sheet/side.
         var printingParams = new XElement(ns + "ConventionalPrintingParams",
             new XAttribute("Class", "Parameter"),
             new XAttribute("ID", "r_print"),
@@ -363,6 +371,7 @@ public static class JdfGenerator
         }
 
         XElement? transferCurvePool = null;
+        // TransferCurvePool carries Paper/Plate CTM offsets; per-signature partitions avoid cross-sheet bleed.
         if (options.IncludeTransferCurvePool)
         {
             transferCurvePool = new XElement(ns + "TransferCurvePool",
@@ -436,6 +445,7 @@ public static class JdfGenerator
         }
 
         XElement? strippingParams = null;
+        // StrippingParams are optional but can be required by downstream folding/assembly logic.
         if (options.IncludeStrippingParams)
         {
             var workStyle = options.StrippingWorkStyle ?? options.WorkStyle;
@@ -487,6 +497,7 @@ public static class JdfGenerator
         }
 
         XElement? assembly = null;
+        // Assembly sections can be used to expose per-slot block identifiers for multi-up layouts.
         if (options.IncludeAssembly)
         {
             assembly = new XElement(ns + "Assembly",
@@ -518,6 +529,7 @@ public static class JdfGenerator
             resourcePool.Add(assembly);
         }
         XElement? paperMedia = null;
+        // Media resources supply paper/plate dimensions and optional descriptive fields.
         if (options.IncludePaperMedia)
         {
             paperMedia = new XElement(ns + "Media",
@@ -639,6 +651,7 @@ public static class JdfGenerator
         }
         resourcePool.Add(printingParams);
 
+        // ResourceLinkPool wiring mirrors the Types process chain for Cockpit import.
         var resourceLinkPool = new XElement(ns + "ResourceLinkPool",
             new XElement(ns + "LayoutLink",
                 new XAttribute("CombinedProcessIndex", "0 1"),
@@ -739,6 +752,7 @@ public static class JdfGenerator
 
     private static XElement CreateSide(XNamespace ns, XNamespace hdm, string side, GeneratorOptions options, int sheetIndex, string signatureName, string sheetName)
     {
+        // PaperRect defines the sheet origin used for preview placement.
         var paperLeft = options.PaperRectOffsetX;
         var paperBottom = options.PaperRectOffsetY;
         var paperRight = options.PaperRectOffsetX + options.PaperWidth;
@@ -753,6 +767,7 @@ public static class JdfGenerator
         layoutSide.Add(BuildMarkObject(ns, options));
         if (options.IncludeContentPlacement || options.IncludeBackContentPlacement)
         {
+            // Content grid lets us generate multi-up layouts without fold data.
             var isBack = string.Equals(side, "Back", StringComparison.OrdinalIgnoreCase);
             var jobPart = ResolveJobPart(options, signatureName, sheetName);
             if (options.ContentJobPartSignatures.Count > 0
@@ -791,6 +806,7 @@ public static class JdfGenerator
 
     private static XElement BuildContentObject(XNamespace ns, XNamespace hdm, GeneratorOptions options, string side, int sheetIndex, int slotIndex, decimal x, decimal y, string? jobPart)
     {
+        // ContentObject geometry uses CTM/TrimCTM + FinalPageBox for Cockpit placement.
         var content = new XElement(ns + "ContentObject");
         if (!options.IncludeContentPlacement)
         {
@@ -813,6 +829,7 @@ public static class JdfGenerator
 
         if (isBack && options.MirrorBackContent)
         {
+            // Mirror placement for back sides when a work-and-back style is needed.
             var tx = x + w;
             var ty = y + h;
             content.SetAttributeValue("CTM", $"-1 0 0 -1 {tx} {ty}");
@@ -902,6 +919,7 @@ public static class JdfGenerator
         int totalPages,
         int logicalPageStart)
     {
+        // Builds a RunList partitioned per signature/sheet/side to align marks pages with sheets.
         var runList = new XElement(ns + "RunList",
             new XAttribute("Class", "Parameter"),
             new XAttribute("ID", id),
@@ -1004,6 +1022,7 @@ public static class JdfGenerator
             return;
         }
 
+        // BCMY placeholders enable Cockpit spot-color remapping when marks are present.
         var mapRelNames = new[] { "B", "C", "M", "Y", "X", "Z" };
         foreach (var name in mapRelNames)
         {

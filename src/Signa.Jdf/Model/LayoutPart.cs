@@ -2,6 +2,7 @@ namespace Signa.Jdf;
 
 public sealed class LayoutPart
 {
+    // Recursive layout partition: Signature -> Sheet -> Side with ContentObject summaries.
     public string? SignatureName { get; init; }
     public string? SheetName { get; init; }
     public string? Side { get; init; }

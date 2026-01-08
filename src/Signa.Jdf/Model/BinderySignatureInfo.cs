@@ -2,6 +2,7 @@ namespace Signa.Jdf;
 
 public sealed class BinderySignatureInfo
 {
+    // Bindery signature metadata (fold scheme + per-side orientations).
     public string? Id { get; init; }
     public string? SignatureName { get; init; }
     public string? SheetName { get; init; }

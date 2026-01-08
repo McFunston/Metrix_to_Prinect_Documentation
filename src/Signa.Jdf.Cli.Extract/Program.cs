@@ -1,5 +1,6 @@
 using Signa.Jdf;
 
+// Extraction CLI prints high-level signals (types/workstyles/separations).
 if (args.Length < 1)
 {
     Console.WriteLine("Usage: signa-jdf-extract <path-to-jdf> [--types] [--work-styles] [--sheet-sizes] [--separations] [--finishing]");
@@ -20,6 +21,7 @@ if (!showTypes && !showWorkStyles && !showSheetSizes && !showSeparations && !sho
     showTypes = showWorkStyles = showSheetSizes = showSeparations = showFinishing = true;
 }
 
+// Extractor surfaces summary signals; it does not validate or normalize.
 var document = JdfParser.Parse(path);
 
 if (showTypes)

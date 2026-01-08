@@ -6,6 +6,7 @@ namespace Signa.Jdf.Cli.Validate;
 
 public static class BatchValidator
 {
+    // Batch validator for corpus-wide scans; emits CSV/text summaries.
     public static int Run(
         string rootPath,
         string csvPath,

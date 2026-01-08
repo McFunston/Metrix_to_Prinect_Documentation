@@ -6,6 +6,7 @@ namespace Signa.Jdf.Cli.Validate;
 
 public static class SchemaValidator
 {
+    // XSD validation helper; used for strict schema checks and comparisons.
     private static readonly Dictionary<string, XmlSchemaSet> SchemaCache = new(StringComparer.OrdinalIgnoreCase);
 
     public static List<ValidationIssue> Validate(XDocument document, string schemaPath)

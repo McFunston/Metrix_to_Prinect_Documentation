@@ -4,6 +4,7 @@ namespace Signa.Jdf.Cli.Validate;
 
 public static class SchemaComparer
 {
+    // Compares schema violations across JDF 1.3 vs 1.7 to highlight deltas.
     public static SchemaComparisonResult Compare(
         XDocument document,
         string schema13Path,

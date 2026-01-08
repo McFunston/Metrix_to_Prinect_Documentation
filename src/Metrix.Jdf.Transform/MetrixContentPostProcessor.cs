@@ -6,6 +6,7 @@ namespace Metrix.Jdf.Transform;
 
 public static class MetrixContentPostProcessor
 {
+    // Normalizes a generated Signa-style JDF using Metrix layout geometry and optional MXML metadata.
     public static void ApplyContentPlacement(XDocument signaDocument, MetrixJdfDocument metrixDocument, MetrixMxmlDocument? metrixMxml)
     {
         if (signaDocument.Root is null)
@@ -13,6 +14,7 @@ public static class MetrixContentPostProcessor
             throw new InvalidOperationException("Missing JDF root element.");
         }
 
+        // Resolve core namespaces and the resource pools we will patch.
         var ns = signaDocument.Root.Name.Namespace;
         var hdm = signaDocument.Root.GetNamespaceOfPrefix("HDM") ?? XNamespace.Get("www.heidelberg.com/schema/HDM");
 
@@ -34,6 +36,7 @@ public static class MetrixContentPostProcessor
             return;
         }
 
+        // Job-part ranges allow multi-product layouts to label ContentObjects correctly.
         var useMetrixLayout = false;
         var jobPartRanges = BuildJobPartRanges(metrixMxml);
         if (useMetrixLayout)
@@ -51,6 +54,7 @@ public static class MetrixContentPostProcessor
 
         foreach (var signature in metrixLayout.Signatures)
         {
+            // Map Metrix signature/sheet hierarchy onto Signa layout partitions.
             var signatureNode = useMetrixLayout
                 ? layoutRoot.Elements(ns + "Signature")
                     .FirstOrDefault(element => IsMatch(element, "SignatureName", signature.Name) || IsMatch(element, "Name", signature.Name))
@@ -70,6 +74,7 @@ public static class MetrixContentPostProcessor
 
             foreach (var sheet in signature.Sheets)
             {
+                // Resolve paper/plate sizes from Metrix surfaces and write into Signa media + layout.
                 var sheetNode = useMetrixLayout
                     ? signatureNode.Elements(ns + "Sheet")
                         .FirstOrDefault(element => IsMatch(element, "SheetName", sheet.Name) || IsMatch(element, "Name", sheet.Name))
@@ -97,6 +102,7 @@ public static class MetrixContentPostProcessor
                 var paperSize = ResolvePaperSize(firstSurface);
                 if (paperSize is not null)
                 {
+                    // PaperRect drives trim alignment and preview positioning in Cockpit.
                     var paperOffset = ResolvePaperOffset(firstSurface, plateSize, paperSize.Value);
                     paperOffsets[(signature.Name ?? string.Empty, sheet.Name ?? string.Empty)] = paperOffset;
                     if (plateSize is not null)
@@ -130,6 +136,7 @@ public static class MetrixContentPostProcessor
 
                 if (IsSingleSideLayout(sheet.WorkStyle))
                 {
+                    // Work-and-turn/tumble in Signa is modeled as a single-sided layout.
                     var sideElements = useMetrixLayout
                         ? sheetNode.Elements(ns + "Surface")
                         : sheetNode.Elements(ns + "Layout");
@@ -145,6 +152,7 @@ public static class MetrixContentPostProcessor
             var applyMarkGeometry = true;
                 if (!useMetrixLayout && (applyContentGeometry || applyMarkGeometry))
                 {
+                    // Rebuild ContentObject/MarkObject geometry from Metrix surfaces.
                     foreach (var surface in sheet.Surfaces)
                     {
                         if (IsSingleSideLayout(sheet.WorkStyle) &&

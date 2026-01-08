@@ -4,6 +4,7 @@ namespace Signa.Jdf;
 
 public sealed class JdfDocument
 {
+    // Parsed JDF wrapper used by validator/generator tests; preserves namespaces and raw XML.
     public JdfDocument(
         string sourcePath,
         JdfNode root,

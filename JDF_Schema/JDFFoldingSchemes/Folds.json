@@ -1,0 +1,10201 @@
+[
+  {
+    "id": "F2-1",
+    "pages": 2,
+    "grid": {
+      "cols": 1,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        }
+      ]
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F4-1",
+    "pages": 4,
+    "grid": {
+      "cols": 2,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F4-2",
+    "pages": 4,
+    "grid": {
+      "cols": 2,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F6-1",
+    "pages": 6,
+    "grid": {
+      "cols": 3,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F6-2",
+    "pages": 6,
+    "grid": {
+      "cols": 3,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F6-4",
+    "pages": 6,
+    "grid": {
+      "cols": 3,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F6-5",
+    "pages": 6,
+    "grid": {
+      "cols": 3,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F6-8",
+    "pages": 6,
+    "grid": {
+      "cols": 3,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F8-1",
+    "pages": 8,
+    "grid": {
+      "cols": 4,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F8-2",
+    "pages": 8,
+    "grid": {
+      "cols": 4,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F8-3",
+    "pages": 8,
+    "grid": {
+      "cols": 4,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F8-4",
+    "pages": 8,
+    "grid": {
+      "cols": 4,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F8-5",
+    "pages": 8,
+    "grid": {
+      "cols": 4,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F8-6",
+    "pages": 8,
+    "grid": {
+      "cols": 4,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F8-7",
+    "pages": 8,
+    "grid": {
+      "cols": 2,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 6,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 5,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F10-1",
+    "pages": 10,
+    "grid": {
+      "cols": 5,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F10-2",
+    "pages": 10,
+    "grid": {
+      "cols": 5,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 4
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F10-3",
+    "pages": 10,
+    "grid": {
+      "cols": 5,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F12-1",
+    "pages": 12,
+    "grid": {
+      "cols": 6,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F12-2",
+    "pages": 12,
+    "grid": {
+      "cols": 6,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F12-3",
+    "pages": 12,
+    "grid": {
+      "cols": 6,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F12-4",
+    "pages": 12,
+    "grid": {
+      "cols": 6,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F12-5",
+    "pages": 12,
+    "grid": {
+      "cols": 6,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F12-6",
+    "pages": 12,
+    "grid": {
+      "cols": 6,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F12-7",
+    "pages": 12,
+    "grid": {
+      "cols": 3,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 11,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 12,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F12-8",
+    "pages": 12,
+    "grid": {
+      "cols": 3,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 8,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 7,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F12-9",
+    "pages": 12,
+    "grid": {
+      "cols": 3,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F12-10",
+    "pages": 12,
+    "grid": {
+      "cols": 3,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F12-11",
+    "pages": 12,
+    "grid": {
+      "cols": 3,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 180
+        },
+        {
+          "page": 11,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 12,
+          "rot": 180
+        },
+        {
+          "page": 9,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F12-12",
+    "pages": 12,
+    "grid": {
+      "cols": 2,
+      "rows": 3
+    },
+    "front": [
+      [
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F12-13",
+    "pages": 12,
+    "grid": {
+      "cols": 2,
+      "rows": 3
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 6,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 5,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F12-14",
+    "pages": 12,
+    "grid": {
+      "cols": 2,
+      "rows": 3
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 90
+        },
+        {
+          "page": 3,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 4,
+          "rot": 90
+        },
+        {
+          "page": 1,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F14-1",
+    "pages": 14,
+    "grid": {
+      "cols": 7,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F16-1",
+    "pages": 16,
+    "grid": {
+      "cols": 8,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 4
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-2",
+    "pages": 16,
+    "grid": {
+      "cols": 8,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 4
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-3",
+    "pages": 16,
+    "grid": {
+      "cols": 8,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 4
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-4",
+    "pages": 16,
+    "grid": {
+      "cols": 8,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 4
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-5",
+    "pages": 16,
+    "grid": {
+      "cols": 8,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-6",
+    "pages": 16,
+    "grid": {
+      "cols": 4,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 14,
+          "rot": 180
+        },
+        {
+          "page": 15,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 16,
+          "rot": 180
+        },
+        {
+          "page": 13,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-7",
+    "pages": 16,
+    "grid": {
+      "cols": 4,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 11,
+          "rot": 180
+        },
+        {
+          "page": 6,
+          "rot": 180
+        },
+        {
+          "page": 7,
+          "rot": 180
+        },
+        {
+          "page": 10,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 9,
+          "rot": 180
+        },
+        {
+          "page": 8,
+          "rot": 180
+        },
+        {
+          "page": 5,
+          "rot": 180
+        },
+        {
+          "page": 12,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-8",
+    "pages": 16,
+    "grid": {
+      "cols": 4,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 15,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        },
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 14,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 13,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        },
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 16,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-9",
+    "pages": 16,
+    "grid": {
+      "cols": 4,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-10",
+    "pages": 16,
+    "grid": {
+      "cols": 4,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-11",
+    "pages": 16,
+    "grid": {
+      "cols": 4,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-12",
+    "pages": 16,
+    "grid": {
+      "cols": 4,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-13",
+    "pages": 16,
+    "grid": {
+      "cols": 2,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 6,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 5,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F16-14",
+    "pages": 16,
+    "grid": {
+      "cols": 2,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 6,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 5,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F18-1",
+    "pages": 18,
+    "grid": {
+      "cols": 9,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F18-2",
+    "pages": 18,
+    "grid": {
+      "cols": 9,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 6
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F18-3",
+    "pages": 18,
+    "grid": {
+      "cols": 9,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F18-4",
+    "pages": 18,
+    "grid": {
+      "cols": 9,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F18-5",
+    "pages": 18,
+    "grid": {
+      "cols": 3,
+      "rows": 3
+    },
+    "front": [
+      [
+        {
+          "page": 5,
+          "rot": 270
+        },
+        {
+          "page": 4,
+          "rot": 90
+        },
+        {
+          "page": 1,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 2,
+          "rot": 90
+        },
+        {
+          "page": 3,
+          "rot": 270
+        },
+        {
+          "page": 6,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F18-6",
+    "pages": 18,
+    "grid": {
+      "cols": 3,
+      "rows": 3
+    },
+    "front": [
+      [
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 900
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F18-7",
+    "pages": 18,
+    "grid": {
+      "cols": 3,
+      "rows": 3
+    },
+    "front": [
+      [
+        {
+          "page": 3,
+          "rot": 270
+        },
+        {
+          "page": 2,
+          "rot": 90
+        },
+        {
+          "page": 5,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 10,
+          "rot": 270
+        },
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 6,
+          "rot": 90
+        },
+        {
+          "page": 1,
+          "rot": 270
+        },
+        {
+          "page": 4,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        },
+        {
+          "page": 9,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F18-8",
+    "pages": 18,
+    "grid": {
+      "cols": 3,
+      "rows": 3
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 270
+        },
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        },
+        {
+          "page": 9,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F18-9",
+    "pages": 18,
+    "grid": {
+      "cols": 3,
+      "rows": 3
+    },
+    "front": [
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 8,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 13,
+          "rot": 90
+        },
+        {
+          "page": 16,
+          "rot": 270
+        },
+        {
+          "page": 17,
+          "rot": 90
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 7,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 18,
+          "rot": 270
+        },
+        {
+          "page": 15,
+          "rot": 90
+        },
+        {
+          "page": 14,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": false
+  },
+  {
+    "id": "F20-1",
+    "pages": 20,
+    "grid": {
+      "cols": 5,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F20-2",
+    "pages": 20,
+    "grid": {
+      "cols": 5,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 19,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 20,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-1",
+    "pages": 24,
+    "grid": {
+      "cols": 6,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 23,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        },
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 22,
+          "rot": 180
+        },
+        {
+          "page": 19,
+          "rot": 180
+        },
+        {
+          "page": 6,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 5,
+          "rot": 180
+        },
+        {
+          "page": 20,
+          "rot": 180
+        },
+        {
+          "page": 21,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        },
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 24,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-2",
+    "pages": 24,
+    "grid": {
+      "cols": 6,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 21,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        },
+        {
+          "page": 5,
+          "rot": 180
+        },
+        {
+          "page": 20,
+          "rot": 180
+        },
+        {
+          "page": 23,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 24,
+          "rot": 180
+        },
+        {
+          "page": 19,
+          "rot": 180
+        },
+        {
+          "page": 6,
+          "rot": 180
+        },
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 22,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-3",
+    "pages": 24,
+    "grid": {
+      "cols": 6,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 23,
+          "rot": 270
+        },
+        {
+          "page": 22,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 21,
+          "rot": 270
+        },
+        {
+          "page": 24,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-4",
+    "pages": 24,
+    "grid": {
+      "cols": 6,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 21,
+          "rot": 270
+        },
+        {
+          "page": 24,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 23,
+          "rot": 270
+        },
+        {
+          "page": 22,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-5",
+    "pages": 24,
+    "grid": {
+      "cols": 6,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 22,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 23,
+          "rot": 270
+        },
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        },
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        },
+        {
+          "page": 24,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 21,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        },
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-6",
+    "pages": 24,
+    "grid": {
+      "cols": 6,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        },
+        {
+          "page": 22,
+          "rot": 90
+        },
+        {
+          "page": 23,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 24,
+          "rot": 90
+        },
+        {
+          "page": 21,
+          "rot": 270
+        },
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-7",
+    "pages": 24,
+    "grid": {
+      "cols": 6,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 22,
+          "rot": 180
+        },
+        {
+          "page": 23,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        },
+        {
+          "page": 11,
+          "rot": 180
+        },
+        {
+          "page": 14,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 19,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 13,
+          "rot": 180
+        },
+        {
+          "page": 12,
+          "rot": 180
+        },
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 24,
+          "rot": 180
+        },
+        {
+          "page": 21,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 20,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-8",
+    "pages": 24,
+    "grid": {
+      "cols": 3,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 11,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 14,
+          "rot": 270
+        },
+        {
+          "page": 15,
+          "rot": 90
+        },
+        {
+          "page": 18,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 23,
+          "rot": 270
+        },
+        {
+          "page": 22,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 12,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 17,
+          "rot": 90
+        },
+        {
+          "page": 16,
+          "rot": 270
+        },
+        {
+          "page": 13,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 21,
+          "rot": 270
+        },
+        {
+          "page": 24,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-9",
+    "pages": 24,
+    "grid": {
+      "cols": 3,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 8,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 13,
+          "rot": 90
+        },
+        {
+          "page": 16,
+          "rot": 270
+        },
+        {
+          "page": 17,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 24,
+          "rot": 90
+        },
+        {
+          "page": 21,
+          "rot": 270
+        },
+        {
+          "page": 20,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 7,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 18,
+          "rot": 270
+        },
+        {
+          "page": 15,
+          "rot": 90
+        },
+        {
+          "page": 14,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 19,
+          "rot": 270
+        },
+        {
+          "page": 22,
+          "rot": 90
+        },
+        {
+          "page": 23,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-10",
+    "pages": 24,
+    "grid": {
+      "cols": 3,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 16,
+          "rot": 270
+        },
+        {
+          "page": 17,
+          "rot": 90
+        },
+        {
+          "page": 14,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 21,
+          "rot": 270
+        },
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 23,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 13,
+          "rot": 90
+        },
+        {
+          "page": 18,
+          "rot": 270
+        },
+        {
+          "page": 15,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 24,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        },
+        {
+          "page": 22,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F24-11",
+    "pages": 24,
+    "grid": {
+      "cols": 4,
+      "rows": 3
+    },
+    "front": [
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 19,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 22,
+          "rot": 180
+        },
+        {
+          "page": 23,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 20,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 24,
+          "rot": 180
+        },
+        {
+          "page": 21,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F28-1",
+    "pages": 28,
+    "grid": {
+      "cols": 7,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 27,
+          "rot": 270
+        },
+        {
+          "page": 26,
+          "rot": 90
+        },
+        {
+          "page": 23,
+          "rot": 270
+        },
+        {
+          "page": 22,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        },
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 14,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 21,
+          "rot": 270
+        },
+        {
+          "page": 24,
+          "rot": 900
+        },
+        {
+          "page": 25,
+          "rot": 270
+        },
+        {
+          "page": 28,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 13,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        },
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F32-1",
+    "pages": 32,
+    "grid": {
+      "cols": 16,
+      "rows": 1
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 23,
+          "rot": 0
+        },
+        {
+          "page": 26,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 31,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 19,
+          "rot": 0
+        },
+        {
+          "page": 30,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 27,
+          "rot": 0
+        },
+        {
+          "page": 22,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 21,
+          "rot": 0
+        },
+        {
+          "page": 28,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 29,
+          "rot": 0
+        },
+        {
+          "page": 20,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 32,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 25,
+          "rot": 0
+        },
+        {
+          "page": 24,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        }
+      ]
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F32-2",
+    "pages": 32,
+    "grid": {
+      "cols": 8,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 7,
+          "rot": 180
+        },
+        {
+          "page": 26,
+          "rot": 180
+        },
+        {
+          "page": 31,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        },
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 30,
+          "rot": 180
+        },
+        {
+          "page": 27,
+          "rot": 180
+        },
+        {
+          "page": 6,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 23,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 19,
+          "rot": 0
+        },
+        {
+          "page": 22,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 5,
+          "rot": 180
+        },
+        {
+          "page": 28,
+          "rot": 180
+        },
+        {
+          "page": 29,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        },
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 32,
+          "rot": 180
+        },
+        {
+          "page": 25,
+          "rot": 180
+        },
+        {
+          "page": 8,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 21,
+          "rot": 0
+        },
+        {
+          "page": 20,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 24,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 4
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F32-3",
+    "pages": 32,
+    "grid": {
+      "cols": 8,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 23,
+          "rot": 180
+        },
+        {
+          "page": 10,
+          "rot": 180
+        },
+        {
+          "page": 15,
+          "rot": 180
+        },
+        {
+          "page": 18,
+          "rot": 180
+        },
+        {
+          "page": 19,
+          "rot": 180
+        },
+        {
+          "page": 14,
+          "rot": 180
+        },
+        {
+          "page": 11,
+          "rot": 180
+        },
+        {
+          "page": 22,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 26,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 2,
+          "rot": 0
+        },
+        {
+          "page": 31,
+          "rot": 0
+        },
+        {
+          "page": 30,
+          "rot": 0
+        },
+        {
+          "page": 3,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 27,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 21,
+          "rot": 180
+        },
+        {
+          "page": 12,
+          "rot": 180
+        },
+        {
+          "page": 13,
+          "rot": 180
+        },
+        {
+          "page": 20,
+          "rot": 180
+        },
+        {
+          "page": 17,
+          "rot": 180
+        },
+        {
+          "page": 16,
+          "rot": 180
+        },
+        {
+          "page": 9,
+          "rot": 180
+        },
+        {
+          "page": 24,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 28,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 4,
+          "rot": 0
+        },
+        {
+          "page": 29,
+          "rot": 0
+        },
+        {
+          "page": 32,
+          "rot": 0
+        },
+        {
+          "page": 1,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 25,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 4
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F32-4",
+    "pages": 32,
+    "grid": {
+      "cols": 4,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 30,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 31,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 14,
+          "rot": 270
+        },
+        {
+          "page": 15,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 6,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 27,
+          "rot": 90
+        },
+        {
+          "page": 22,
+          "rot": 270
+        },
+        {
+          "page": 23,
+          "rot": 90
+        },
+        {
+          "page": 26,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 32,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 29,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 16,
+          "rot": 270
+        },
+        {
+          "page": 13,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 5,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 25,
+          "rot": 90
+        },
+        {
+          "page": 24,
+          "rot": 270
+        },
+        {
+          "page": 21,
+          "rot": 90
+        },
+        {
+          "page": 28,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F32-5",
+    "pages": 32,
+    "grid": {
+      "cols": 4,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 6,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        },
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 7,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 27,
+          "rot": 90
+        },
+        {
+          "page": 22,
+          "rot": 270
+        },
+        {
+          "page": 23,
+          "rot": 90
+        },
+        {
+          "page": 26,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 30,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 31,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 14,
+          "rot": 270
+        },
+        {
+          "page": 15,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 8,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        },
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 5,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 25,
+          "rot": 90
+        },
+        {
+          "page": 24,
+          "rot": 270
+        },
+        {
+          "page": 21,
+          "rot": 90
+        },
+        {
+          "page": 28,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 32,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 29,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 16,
+          "rot": 270
+        },
+        {
+          "page": 13,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F32-6",
+    "pages": 32,
+    "grid": {
+      "cols": 4,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 3,
+          "rot": 270
+        },
+        {
+          "page": 2,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 19,
+          "rot": 90
+        },
+        {
+          "page": 30,
+          "rot": 270
+        },
+        {
+          "page": 31,
+          "rot": 90
+        },
+        {
+          "page": 18,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 22,
+          "rot": 90
+        },
+        {
+          "page": 27,
+          "rot": 270
+        },
+        {
+          "page": 26,
+          "rot": 90
+        },
+        {
+          "page": 23,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 1,
+          "rot": 270
+        },
+        {
+          "page": 4,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 17,
+          "rot": 90
+        },
+        {
+          "page": 32,
+          "rot": 270
+        },
+        {
+          "page": 29,
+          "rot": 90
+        },
+        {
+          "page": 20,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 24,
+          "rot": 90
+        },
+        {
+          "page": 25,
+          "rot": 270
+        },
+        {
+          "page": 28,
+          "rot": 90
+        },
+        {
+          "page": 21,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F32-7",
+    "pages": 32,
+    "grid": {
+      "cols": 4,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 23,
+          "rot": 90
+        },
+        {
+          "page": 22,
+          "rot": 270
+        },
+        {
+          "page": 19,
+          "rot": 90
+        },
+        {
+          "page": 18,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 26,
+          "rot": 90
+        },
+        {
+          "page": 27,
+          "rot": 270
+        },
+        {
+          "page": 30,
+          "rot": 90
+        },
+        {
+          "page": 31,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 17,
+          "rot": 90
+        },
+        {
+          "page": 20,
+          "rot": 270
+        },
+        {
+          "page": 21,
+          "rot": 90
+        },
+        {
+          "page": 24,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 32,
+          "rot": 90
+        },
+        {
+          "page": 29,
+          "rot": 270
+        },
+        {
+          "page": 28,
+          "rot": 90
+        },
+        {
+          "page": 25,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F32-8",
+    "pages": 32,
+    "grid": {
+      "cols": 4,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 23,
+          "rot": 90
+        },
+        {
+          "page": 18,
+          "rot": 270
+        },
+        {
+          "page": 19,
+          "rot": 90
+        },
+        {
+          "page": 22,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 26,
+          "rot": 90
+        },
+        {
+          "page": 31,
+          "rot": 270
+        },
+        {
+          "page": 30,
+          "rot": 90
+        },
+        {
+          "page": 27,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 21,
+          "rot": 90
+        },
+        {
+          "page": 20,
+          "rot": 270
+        },
+        {
+          "page": 17,
+          "rot": 90
+        },
+        {
+          "page": 24,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 28,
+          "rot": 90
+        },
+        {
+          "page": 29,
+          "rot": 270
+        },
+        {
+          "page": 32,
+          "rot": 90
+        },
+        {
+          "page": 25,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F32-9",
+    "pages": 32,
+    "grid": {
+      "cols": 4,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 11,
+          "rot": 180
+        },
+        {
+          "page": 22,
+          "rot": 180
+        },
+        {
+          "page": 23,
+          "rot": 180
+        },
+        {
+          "page": 10,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 27,
+          "rot": 0
+        },
+        {
+          "page": 26,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 30,
+          "rot": 180
+        },
+        {
+          "page": 31,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 19,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 9,
+          "rot": 180
+        },
+        {
+          "page": 24,
+          "rot": 180
+        },
+        {
+          "page": 21,
+          "rot": 180
+        },
+        {
+          "page": 12,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 25,
+          "rot": 0
+        },
+        {
+          "page": 28,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 32,
+          "rot": 180
+        },
+        {
+          "page": 29,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 20,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F36-1",
+    "pages": 36,
+    "grid": {
+      "cols": 9,
+      "rows": 2
+    },
+    "front": [
+      [
+        {
+          "page": 35,
+          "rot": 270
+        },
+        {
+          "page": 26,
+          "rot": 90
+        },
+        {
+          "page": 23,
+          "rot": 270
+        },
+        {
+          "page": 22,
+          "rot": 90
+        },
+        {
+          "page": 27,
+          "rot": 270
+        },
+        {
+          "page": 34,
+          "rot": 90
+        },
+        {
+          "page": 31,
+          "rot": 270
+        },
+        {
+          "page": 30,
+          "rot": 90
+        },
+        {
+          "page": 19,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 11,
+          "rot": 90
+        },
+        {
+          "page": 14,
+          "rot": 270
+        },
+        {
+          "page": 15,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 18,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 20,
+          "rot": 90
+        },
+        {
+          "page": 29,
+          "rot": 270
+        },
+        {
+          "page": 32,
+          "rot": 90
+        },
+        {
+          "page": 33,
+          "rot": 270
+        },
+        {
+          "page": 28,
+          "rot": 90
+        },
+        {
+          "page": 21,
+          "rot": 270
+        },
+        {
+          "page": 24,
+          "rot": 90
+        },
+        {
+          "page": 25,
+          "rot": 270
+        },
+        {
+          "page": 36,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 17,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 16,
+          "rot": 270
+        },
+        {
+          "page": 13,
+          "rot": 90
+        },
+        {
+          "page": 12,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 3
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F36-2",
+    "pages": 36,
+    "grid": {
+      "cols": 6,
+      "rows": 3
+    },
+    "front": [
+      [
+        {
+          "page": 23,
+          "rot": 180
+        },
+        {
+          "page": 14,
+          "rot": 180
+        },
+        {
+          "page": 15,
+          "rot": 180
+        },
+        {
+          "page": 22,
+          "rot": 180
+        },
+        {
+          "page": 19,
+          "rot": 180
+        },
+        {
+          "page": 18,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 26,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 27,
+          "rot": 0
+        },
+        {
+          "page": 30,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 35,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        },
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 34,
+          "rot": 180
+        },
+        {
+          "page": 31,
+          "rot": 180
+        },
+        {
+          "page": 6,
+          "rot": 180
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 17,
+          "rot": 180
+        },
+        {
+          "page": 20,
+          "rot": 180
+        },
+        {
+          "page": 21,
+          "rot": 180
+        },
+        {
+          "page": 16,
+          "rot": 180
+        },
+        {
+          "page": 13,
+          "rot": 180
+        },
+        {
+          "page": 24,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 29,
+          "rot": 0
+        },
+        {
+          "page": 28,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 25,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 5,
+          "rot": 180
+        },
+        {
+          "page": 32,
+          "rot": 180
+        },
+        {
+          "page": 33,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        },
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 36,
+          "rot": 180
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F40-1",
+    "pages": 40,
+    "grid": {
+      "cols": 5,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 19,
+          "rot": 270
+        },
+        {
+          "page": 18,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 22,
+          "rot": 270
+        },
+        {
+          "page": 23,
+          "rot": 90
+        },
+        {
+          "page": 26,
+          "rot": 270
+        },
+        {
+          "page": 27,
+          "rot": 90
+        },
+        {
+          "page": 30,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 39,
+          "rot": 270
+        },
+        {
+          "page": 38,
+          "rot": 90
+        },
+        {
+          "page": 35,
+          "rot": 270
+        },
+        {
+          "page": 34,
+          "rot": 90
+        },
+        {
+          "page": 31,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 2,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 10,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 17,
+          "rot": 270
+        },
+        {
+          "page": 20,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 29,
+          "rot": 90
+        },
+        {
+          "page": 28,
+          "rot": 270
+        },
+        {
+          "page": 25,
+          "rot": 90
+        },
+        {
+          "page": 24,
+          "rot": 270
+        },
+        {
+          "page": 21,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 32,
+          "rot": 90
+        },
+        {
+          "page": 33,
+          "rot": 270
+        },
+        {
+          "page": 36,
+          "rot": 90
+        },
+        {
+          "page": 37,
+          "rot": 270
+        },
+        {
+          "page": 40,
+          "rot": 90
+        }
+      ],
+      [
+        {
+          "page": 9,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 1,
+          "rot": 90
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F48-1",
+    "pages": 48,
+    "grid": {
+      "cols": 6,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 47,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        },
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 46,
+          "rot": 180
+        },
+        {
+          "page": 43,
+          "rot": 180
+        },
+        {
+          "page": 6,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 38,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 39,
+          "rot": 0
+        },
+        {
+          "page": 42,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 35,
+          "rot": 180
+        },
+        {
+          "page": 14,
+          "rot": 180
+        },
+        {
+          "page": 15,
+          "rot": 180
+        },
+        {
+          "page": 34,
+          "rot": 180
+        },
+        {
+          "page": 31,
+          "rot": 180
+        },
+        {
+          "page": 18,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 26,
+          "rot": 0
+        },
+        {
+          "page": 23,
+          "rot": 0
+        },
+        {
+          "page": 22,
+          "rot": 0
+        },
+        {
+          "page": 27,
+          "rot": 0
+        },
+        {
+          "page": 30,
+          "rot": 0
+        },
+        {
+          "page": 19,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 5,
+          "rot": 180
+        },
+        {
+          "page": 44,
+          "rot": 180
+        },
+        {
+          "page": 45,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        },
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 48,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 41,
+          "rot": 0
+        },
+        {
+          "page": 40,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 37,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 17,
+          "rot": 180
+        },
+        {
+          "page": 32,
+          "rot": 180
+        },
+        {
+          "page": 33,
+          "rot": 180
+        },
+        {
+          "page": 16,
+          "rot": 180
+        },
+        {
+          "page": 13,
+          "rot": 180
+        },
+        {
+          "page": 36,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 20,
+          "rot": 0
+        },
+        {
+          "page": 29,
+          "rot": 0
+        },
+        {
+          "page": 28,
+          "rot": 0
+        },
+        {
+          "page": 21,
+          "rot": 0
+        },
+        {
+          "page": 24,
+          "rot": 0
+        },
+        {
+          "page": 25,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F48-2",
+    "pages": 48,
+    "grid": {
+      "cols": 4,
+      "rows": 6
+    },
+    "front": [
+      [
+        {
+          "page": 26,
+          "rot": 90
+        },
+        {
+          "page": 27,
+          "rot": 270
+        },
+        {
+          "page": 30,
+          "rot": 90
+        },
+        {
+          "page": 31,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 23,
+          "rot": 90
+        },
+        {
+          "page": 22,
+          "rot": 270
+        },
+        {
+          "page": 19,
+          "rot": 90
+        },
+        {
+          "page": 18,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 10,
+          "rot": 90
+        },
+        {
+          "page": 11,
+          "rot": 270
+        },
+        {
+          "page": 14,
+          "rot": 90
+        },
+        {
+          "page": 15,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 39,
+          "rot": 90
+        },
+        {
+          "page": 38,
+          "rot": 270
+        },
+        {
+          "page": 35,
+          "rot": 90
+        },
+        {
+          "page": 34,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 42,
+          "rot": 90
+        },
+        {
+          "page": 43,
+          "rot": 270
+        },
+        {
+          "page": 46,
+          "rot": 90
+        },
+        {
+          "page": 47,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 7,
+          "rot": 90
+        },
+        {
+          "page": 6,
+          "rot": 270
+        },
+        {
+          "page": 3,
+          "rot": 90
+        },
+        {
+          "page": 2,
+          "rot": 270
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 32,
+          "rot": 90
+        },
+        {
+          "page": 29,
+          "rot": 270
+        },
+        {
+          "page": 28,
+          "rot": 90
+        },
+        {
+          "page": 25,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 17,
+          "rot": 90
+        },
+        {
+          "page": 20,
+          "rot": 270
+        },
+        {
+          "page": 21,
+          "rot": 90
+        },
+        {
+          "page": 24,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 16,
+          "rot": 90
+        },
+        {
+          "page": 13,
+          "rot": 270
+        },
+        {
+          "page": 12,
+          "rot": 90
+        },
+        {
+          "page": 9,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 33,
+          "rot": 90
+        },
+        {
+          "page": 36,
+          "rot": 270
+        },
+        {
+          "page": 37,
+          "rot": 90
+        },
+        {
+          "page": 40,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 48,
+          "rot": 90
+        },
+        {
+          "page": 45,
+          "rot": 270
+        },
+        {
+          "page": 44,
+          "rot": 90
+        },
+        {
+          "page": 41,
+          "rot": 270
+        }
+      ],
+      [
+        {
+          "page": 1,
+          "rot": 90
+        },
+        {
+          "page": 4,
+          "rot": 270
+        },
+        {
+          "page": 5,
+          "rot": 90
+        },
+        {
+          "page": 8,
+          "rot": 270
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F64-1",
+    "pages": 64,
+    "grid": {
+      "cols": 8,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 35,
+          "rot": 180
+        },
+        {
+          "page": 30,
+          "rot": 180
+        },
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 62,
+          "rot": 180
+        },
+        {
+          "page": 63,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        },
+        {
+          "page": 31,
+          "rot": 180
+        },
+        {
+          "page": 34,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 38,
+          "rot": 0
+        },
+        {
+          "page": 27,
+          "rot": 0
+        },
+        {
+          "page": 6,
+          "rot": 0
+        },
+        {
+          "page": 59,
+          "rot": 0
+        },
+        {
+          "page": 58,
+          "rot": 0
+        },
+        {
+          "page": 7,
+          "rot": 0
+        },
+        {
+          "page": 26,
+          "rot": 0
+        },
+        {
+          "page": 39,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 43,
+          "rot": 180
+        },
+        {
+          "page": 22,
+          "rot": 180
+        },
+        {
+          "page": 11,
+          "rot": 180
+        },
+        {
+          "page": 54,
+          "rot": 180
+        },
+        {
+          "page": 55,
+          "rot": 180
+        },
+        {
+          "page": 10,
+          "rot": 180
+        },
+        {
+          "page": 23,
+          "rot": 180
+        },
+        {
+          "page": 42,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 46,
+          "rot": 0
+        },
+        {
+          "page": 19,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 51,
+          "rot": 0
+        },
+        {
+          "page": 50,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        },
+        {
+          "page": 18,
+          "rot": 0
+        },
+        {
+          "page": 47,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 33,
+          "rot": 180
+        },
+        {
+          "page": 32,
+          "rot": 180
+        },
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 64,
+          "rot": 180
+        },
+        {
+          "page": 61,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        },
+        {
+          "page": 29,
+          "rot": 180
+        },
+        {
+          "page": 36,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 40,
+          "rot": 0
+        },
+        {
+          "page": 25,
+          "rot": 0
+        },
+        {
+          "page": 8,
+          "rot": 0
+        },
+        {
+          "page": 57,
+          "rot": 0
+        },
+        {
+          "page": 60,
+          "rot": 0
+        },
+        {
+          "page": 5,
+          "rot": 0
+        },
+        {
+          "page": 28,
+          "rot": 0
+        },
+        {
+          "page": 37,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 41,
+          "rot": 180
+        },
+        {
+          "page": 24,
+          "rot": 180
+        },
+        {
+          "page": 9,
+          "rot": 180
+        },
+        {
+          "page": 56,
+          "rot": 180
+        },
+        {
+          "page": 53,
+          "rot": 180
+        },
+        {
+          "page": 12,
+          "rot": 180
+        },
+        {
+          "page": 21,
+          "rot": 180
+        },
+        {
+          "page": 44,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 48,
+          "rot": 0
+        },
+        {
+          "page": 17,
+          "rot": 0
+        },
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 49,
+          "rot": 0
+        },
+        {
+          "page": 52,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 20,
+          "rot": 0
+        },
+        {
+          "page": 45,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 4
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  },
+  {
+    "id": "F64-2",
+    "pages": 64,
+    "grid": {
+      "cols": 8,
+      "rows": 4
+    },
+    "front": [
+      [
+        {
+          "page": 7,
+          "rot": 180
+        },
+        {
+          "page": 58,
+          "rot": 180
+        },
+        {
+          "page": 59,
+          "rot": 180
+        },
+        {
+          "page": 6,
+          "rot": 180
+        },
+        {
+          "page": 3,
+          "rot": 180
+        },
+        {
+          "page": 62,
+          "rot": 180
+        },
+        {
+          "page": 63,
+          "rot": 180
+        },
+        {
+          "page": 2,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 10,
+          "rot": 0
+        },
+        {
+          "page": 55,
+          "rot": 0
+        },
+        {
+          "page": 54,
+          "rot": 0
+        },
+        {
+          "page": 11,
+          "rot": 0
+        },
+        {
+          "page": 14,
+          "rot": 0
+        },
+        {
+          "page": 51,
+          "rot": 0
+        },
+        {
+          "page": 50,
+          "rot": 0
+        },
+        {
+          "page": 15,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 23,
+          "rot": 180
+        },
+        {
+          "page": 42,
+          "rot": 180
+        },
+        {
+          "page": 43,
+          "rot": 180
+        },
+        {
+          "page": 22,
+          "rot": 180
+        },
+        {
+          "page": 19,
+          "rot": 180
+        },
+        {
+          "page": 46,
+          "rot": 180
+        },
+        {
+          "page": 47,
+          "rot": 180
+        },
+        {
+          "page": 18,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 26,
+          "rot": 0
+        },
+        {
+          "page": 39,
+          "rot": 0
+        },
+        {
+          "page": 38,
+          "rot": 0
+        },
+        {
+          "page": 27,
+          "rot": 0
+        },
+        {
+          "page": 30,
+          "rot": 0
+        },
+        {
+          "page": 35,
+          "rot": 0
+        },
+        {
+          "page": 34,
+          "rot": 0
+        },
+        {
+          "page": 31,
+          "rot": 0
+        }
+      ]
+    ],
+    "back": [
+      [
+        {
+          "page": 1,
+          "rot": 180
+        },
+        {
+          "page": 64,
+          "rot": 180
+        },
+        {
+          "page": 61,
+          "rot": 180
+        },
+        {
+          "page": 4,
+          "rot": 180
+        },
+        {
+          "page": 5,
+          "rot": 180
+        },
+        {
+          "page": 60,
+          "rot": 180
+        },
+        {
+          "page": 57,
+          "rot": 180
+        },
+        {
+          "page": 8,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 16,
+          "rot": 0
+        },
+        {
+          "page": 49,
+          "rot": 0
+        },
+        {
+          "page": 52,
+          "rot": 0
+        },
+        {
+          "page": 13,
+          "rot": 0
+        },
+        {
+          "page": 12,
+          "rot": 0
+        },
+        {
+          "page": 53,
+          "rot": 0
+        },
+        {
+          "page": 56,
+          "rot": 0
+        },
+        {
+          "page": 9,
+          "rot": 0
+        }
+      ],
+      [
+        {
+          "page": 17,
+          "rot": 180
+        },
+        {
+          "page": 48,
+          "rot": 180
+        },
+        {
+          "page": 45,
+          "rot": 180
+        },
+        {
+          "page": 20,
+          "rot": 180
+        },
+        {
+          "page": 21,
+          "rot": 180
+        },
+        {
+          "page": 44,
+          "rot": 180
+        },
+        {
+          "page": 41,
+          "rot": 180
+        },
+        {
+          "page": 24,
+          "rot": 180
+        }
+      ],
+      [
+        {
+          "page": 32,
+          "rot": 0
+        },
+        {
+          "page": 33,
+          "rot": 0
+        },
+        {
+          "page": 36,
+          "rot": 0
+        },
+        {
+          "page": 29,
+          "rot": 0
+        },
+        {
+          "page": 28,
+          "rot": 0
+        },
+        {
+          "page": 37,
+          "rot": 0
+        },
+        {
+          "page": 40,
+          "rot": 0
+        },
+        {
+          "page": 25,
+          "rot": 0
+        }
+      ]
+    ],
+    "folds": [
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Down",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 2
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Down",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Bottom",
+        "Position": 1
+      },
+      {
+        "Direction": "Up",
+        "From": "Left",
+        "Position": 1
+      }
+    ],
+    "bookCapable": true
+  }
+]

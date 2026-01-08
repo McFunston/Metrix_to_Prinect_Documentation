@@ -2,6 +2,7 @@ namespace Signa.Jdf;
 
 public sealed class JdfNode
 {
+    // Root-level attributes extracted from the JDF header.
     public string? Type { get; init; }
     public string? Types { get; init; }
     public string? JobId { get; init; }

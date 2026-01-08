@@ -1,5 +1,6 @@
 using Signa.Jdf;
 
+// Generator defaults are "safe" for minimal Cockpit import; flags opt into strict details.
 if (args.Length == 0 || args.Contains("--help", StringComparer.OrdinalIgnoreCase))
 {
     PrintUsage();
@@ -7,6 +8,7 @@ if (args.Length == 0 || args.Contains("--help", StringComparer.OrdinalIgnoreCase
 }
 
 string? outputPath = null;
+// Defaults favor a minimal, Cockpit-importable Signa-style ticket.
 var jobId = "Job001";
 var jobPartId = "Part001";
 var status = "Waiting";
@@ -18,8 +20,10 @@ var signatureName = "Sig001";
 var sheetName = "Sheet1";
 var sheetNames = new List<string>();
 var includeBackSide = true;
+// "Safe" defaults: keep PagePool/Output links unless explicitly disabled.
 var includePagePool = true;
 var includeOutputRunList = true;
+// "Safe" defaults: include Signa transport metadata unless testing a non-Signa JDF.
 var includeSignaMetadata = true;
 var includeSignaBlob = true;
 var includeSignaJdf = true;
@@ -33,6 +37,7 @@ var signaJdfUrl = "data.jdf";
 var documentPdf = "data.pdf";
 var marksPdf = "data.pdf";
 var fileSpecMimeType = "application/pdf";
+// Paper/plate/media options are opt-in to keep baseline minimal.
 var includePaperMedia = false;
 var paperMediaId = "r_media_paper";
 var paperWidth = 2592m;
@@ -49,6 +54,7 @@ var plateMediaId = "r_media_plate";
 var plateWidth = 2592m;
 var plateHeight = 1728m;
 decimal? plateLeadingEdge = null;
+// Content placement is opt-in; it drives page list creation in Cockpit.
 var includeContentPlacement = false;
 var includeContentJobPart = false;
 var includeContentRunlistIndex = false;
@@ -58,13 +64,16 @@ var contentWidth = 612m;
 var contentHeight = 792m;
 var contentOffsetX = 0m;
 var contentOffsetY = 0m;
+// Document page mapping is opt-in; enable when ContentObject labels are needed.
 var includeDocumentPageMapping = false;
+// Marks partitions are opt-in; use when marks PDFs are multi-page.
 var includeMarksPartitions = false;
 var marksPageCount = 2;
 var marksPagesPerSide = 2;
 var marksIncludeBackSide = false;
 var documentPageCount = 1;
 var documentPagesPerSheet = false;
+// BCMY placeholders are opt-in; enable for Cockpit marks remapping.
 var includeMarksSeparations = false;
 var includeDocumentFileSpec = true;
 var includeDocumentRunList = true;

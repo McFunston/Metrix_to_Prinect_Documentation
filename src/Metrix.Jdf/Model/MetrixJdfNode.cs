@@ -2,6 +2,7 @@ namespace Metrix.Jdf;
 
 public sealed class MetrixJdfNode
 {
+    // Root-level attributes extracted from the Metrix JDF header.
     public string? Type { get; set; }
     public string? JobId { get; set; }
     public string? JobPartId { get; set; }

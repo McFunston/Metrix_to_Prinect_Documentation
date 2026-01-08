@@ -1,9 +1,44 @@
-# Metrix vs Signa JDF Differences (Working Draft)
+# Metrix vs Signa JDF Differences
 
+## Status
+- Audience: Metrix→Prinect normalization and Prinect Cockpit import work.
+- Maturity: Living reference; sections use Stability tags and sample anchors.
+- Sample policy: filenames are sanitized placeholders; private samples live outside this repo.
+- Change log: see Appendix.
+
+## AI quick summary
+- Metrix exports imposition as `Type="Imposition"` with minimal resources; Signa expects `ProcessGroup`.
+- MXML fills critical gaps (paper, workstyle, folding, marks metadata).
+- Converter prioritizes geometry, press behavior, and page assignment over full semantics.
+- Marks PDF must be preserved; document PDF should not be injected via layout import.
+- Cockpit issues correlate with missing printing params, PaperRect, or inconsistent partitions.
+
+## Anchor index
+- Scope: Purpose and scope (id: Metrix-Scope)
+- Samples: Evidence set + Sample metadata (id: Metrix-Samples)
+- Geometry: Layout and imposition geometry (id: Metrix-Layout)
+- Gaps: Missing or reduced data in Metrix (id: Metrix-Gaps)
+- Normalization: Metrix -> Signa normalization deltas (id: Metrix-Normalization)
+- Testing: Prinect importability notes + observed iterations (id: Metrix-Testing)
+- Wins: What now works (id: Metrix-WhatWorks)
+- Recipe: Current normalization recipe (id: Metrix-Recipe)
+- Defaults: Defaults (id: Metrix-Defaults)
+- Preview crash: Layout Preview crash notes (id: Metrix-PreviewCrash)
+- Strategy: Conversion strategies (id: Metrix-Strategies)
+- Mapping: MXML -> Signa JDF field mapping (id: Metrix-Mapping)
+
+## Key invariants (normalized output)
+- `JDF/@Type="ProcessGroup"` with `Types` chain and `CombinedProcessIndex`.
+- `ConventionalPrintingParams` partitions per Signature/Sheet/Side with correct WorkStyle.
+- `Media` includes paper/plate dimensions and `HDM:PaperRect` for preview alignment.
+- Marks RunList `FileSpec` points to marks PDF; BCMY placeholders present.
+- Page list labels and `HDM:JobPart` remain consistent in multi-product jobs.
+
+<a id="Metrix-Scope"></a>
 ## Purpose and scope
 - Document structural and semantic differences between JDFs produced by EPS Metrix and Heidelberg Signa 21.x.
 - Focus on imposition-related resources and Prinect Cockpit importability.
-- This is a living comparison; details will be added as Metrix samples arrive.
+- This is a living comparison; details evolve as Metrix samples arrive.
 - Signa is the reference dialect; see `docs/Signa-JDF-Dialect.md` for baseline behavior.
 - Metrix exports imposition as a dedicated JDF file; other Metrix JDF types are separate files and are out of scope for this document.
 - Current Metrix samples use prepress workflow "Heidelberg Printready" with JDF export set to "Impose To: Plate".
@@ -12,6 +47,10 @@
 - Full CIP4 JDF coverage beyond imposition and printing handoff.
 - JMF workflows, device integration, or MIS/ERP automation.
 - Formal vendor documentation or reverse-engineering of proprietary algorithms.
+
+## Data policy
+- Private sample data, marks PDFs, and customer metadata are kept outside this repo.
+- Sample names in this document are placeholders; real identifiers are mapped in private notes.
 
 ## Evidence model
 - Metrix samples are the evidence corpus and will be cited explicitly as anchors.
@@ -26,8 +65,9 @@
 - **Transport-only** — required for handoff; not part of logical model.
 - **Decorative** — preserve verbatim; do not interpret.
 
+<a id="Metrix-Samples"></a>
 ## Evidence set (Metrix samples)
-Placeholder for the Metrix sample index.
+Sample index for the Metrix evidence set.
 - `Sample_A.jdf` (imposition)
 - `Sample_A.mxml` (companion mxml)
 - `Sample_B.jdf` (imposition)
@@ -40,13 +80,14 @@ Placeholder for the Metrix sample index.
 - `Ganged_Postcards.mxml` (companion mxml)
 - `MetrixMXML.xsd` (mxml schema)
 
-Sample metadata table (to be filled as samples arrive):
-Sample set assumptions (current samples):
+## Sample metadata
+### Sample set assumptions (current samples)
 - Metrix 24.1
 - mxml 2.1
 - Prepress workflow: Heidelberg Printready
 - JDF export: Impose To: Plate
 
+### Sample metadata table
 | Sample ID | JDF file | MXML file | Metrix version/build | Export settings | Job type | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | Sample_A | `Sample_A.jdf` | `Sample_A.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=OneSided + Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound book, 8.5 x 11 trim, qty 3000, perfect bound (cover SS, text PE) | Mixed work styles (SS + PE), JDF Type=Imposition, Bound type meaning TBD |
@@ -55,11 +96,12 @@ Sample set assumptions (current samples):
 | Sample_D | `Sample_D.jdf` | `Sample_D.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound magazine, 8.5 x 11 trim, qty 1000, saddle stitch | JDF Type=Imposition, WorkStyle=PE, Bound type meaning TBD |
 | Ganged_Postcards | `Ganged_Postcards.jdf` | `Ganged_Postcards.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Ganged postcards, 5x7 and 6x9, mixed quantities | Multiple flat products, JDF Type=Imposition, WorkStyle=PE |
 
+<a id="Metrix-Intake"></a>
 ## Metrix sample intake checklist
 Use this when adding a new Metrix sample set.
 
-- Add the imposition JDF to `` and note its filename here.
-- Add the companion mxml to `` and note its filename here.
+- Add the imposition JDF to the private samples folder (see `docs/samples/README.md`) and note its filename here.
+- Add the companion mxml to the private samples folder (see `docs/samples/README.md`) and note its filename here.
 - Prefer Signa-style bundles: create a folder like `Sample_A.jdf/` containing the JDF file and a `Content/` folder with the marks PDF; set `FileSpec/@URL` to `./Content/<marks>.pdf`.
 - If using centralized marks storage (`marks/`), ensure the JDF `FileSpec/@URL` points to the correct path.
 - Record the Metrix version/build and export settings used.
@@ -88,6 +130,7 @@ Stability: **Advisory** (single sample).
 ## Resource-by-resource differences (placeholder)
 Each subsection will capture observed Metrix behavior and the corresponding Signa baseline.
 
+<a id="Metrix-MXML"></a>
 ### MXML companion (metrix-specific context)
 Observed in `Sample_A.mxml`, `Sample_B.mxml`, `Sample_C.mxml`, `Sample_D.mxml`, and `Ganged_Postcards.mxml`:
 
@@ -101,6 +144,7 @@ Observed in `Sample_A.mxml`, `Sample_B.mxml`, `Sample_C.mxml`, `Sample_D.mxml`, 
 
 Stability: **Advisory** (five samples).
 
+<a id="Metrix-Layout"></a>
 ### Layout and imposition geometry
 Observed in `Sample_A.jdf`, `Sample_B.jdf`, `Sample_C.jdf`, `Sample_D.jdf`, and `Ganged_Postcards.jdf`:
 
@@ -153,6 +197,7 @@ Observed in `Sample_A.jdf`:
 
 Stability: **Advisory** (single sample).
 
+<a id="Metrix-Gaps"></a>
 ## Missing or reduced data in Metrix (candidate list)
 These are hypotheses to verify against samples.
 Observed gaps in `Sample_A.jdf`, `Sample_B.jdf`, `Sample_C.jdf`, `Sample_D.jdf`, and `Ganged_Postcards.jdf` (relative to Signa exports):
@@ -164,6 +209,7 @@ Observed gaps in `Sample_A.jdf`, `Sample_B.jdf`, `Sample_C.jdf`, `Sample_D.jdf`,
 
 Stability: **Advisory** (five samples).
 
+<a id="Metrix-Testing"></a>
 ## Prinect importability notes (placeholder)
 Observed in Cockpit with vanilla Metrix JDFs:
 
@@ -398,6 +444,7 @@ Observed in Cockpit with normalized MultiProduct_2Books bundle (deduped label pr
 
 Stability: **Advisory** (single sample run).
 
+<a id="Metrix-WhatWorks"></a>
 ## What now works (current normalization)
 Observed in Cockpit across normalized samples (Sample_A, Ganged_Postcards, Sample_D, Sample_C, Sample_B):
 
@@ -411,6 +458,7 @@ Observed in Cockpit across normalized samples (Sample_A, Ganged_Postcards, Sampl
 
 Stability: **Advisory** (single runs per sample; cross-check against Metrix previews pending).
 
+<a id="Metrix-Recipe"></a>
 ### Current normalization recipe (summary)
 - Build per-sheet Media (Paper/Plate) partitions with `Dimension`, plus signature-level `MediaRef`.
 - Populate `HDM:PaperRect` per side from `SSi:MediaOrigin` (or centered fallback) and align TransferCurvePool CTMs.
@@ -424,6 +472,7 @@ Stability: **Advisory** (single runs per sample; cross-check against Metrix prev
 - Apply MXML paper metadata to Paper Media attributes.
 - Remove `HDM:SignaBLOB` URL; preserve other Signa/HDM/SSi metadata.
 
+<a id="Metrix-Defaults"></a>
 ### Defaults
 - The transformer emits Cockpit‑ready JDFs without requiring CLI flags.
 - Work-and-Turn/Work-and-Tumble are treated as single-side layouts by default.
@@ -431,6 +480,7 @@ Stability: **Advisory** (single runs per sample; cross-check against Metrix prev
 - Multi-product jobs emit `HDM:SignaJobPart` + `HDM:JobPart` with per-product labels.
 - `content.pdf` FileSpec is omitted by default (marks remain included).
 
+<a id="Metrix-PreviewCrash"></a>
 ### Layout Preview crash notes
 Observed behaviors so far:
 
@@ -486,6 +536,7 @@ Validation checklist (testable items):
 | Normalize `TransferCurvePool` per signature | Pass | Mixed sheet sizes center correctly (cover vs text). | Use `Sample_A.jdf` (cover + text sizes). |
 | Normalize marks RunList structure + BCMY `SeparationSpec` placeholders | Pass | "Allow spot colors for BCMY" is enabled and spot mapping works. | Verified with Sample_A (non-blank content). |
 
+<a id="Metrix-Strategies"></a>
 ## Conversion strategies (Metrix -> Prinect-ready JDF)
 This section will formalize a practical normalization plan.
 
@@ -537,6 +588,7 @@ Note: This project does not attempt to generate bindery-executable JDF (folding 
 - **TrimBox missing on some sheets in multi-signature jobs.** Reset marks logical pages per sheet when trim boxes disappear.
 - **Missing paper metadata.** Populate Paper Media attributes from MXML stock sheets (Brand/ProductID/Weight/Thickness/etc).
 
+<a id="Metrix-Normalization"></a>
 ## Metrix -> Signa normalization deltas (checklist)
 Based on observed gaps in current Metrix samples.
 
@@ -552,6 +604,7 @@ Based on observed gaps in current Metrix samples.
 - Map MXML `PagePool` inks/bleeds to JDF `SeparationSpec` and page metadata when required.
 - Preserve vendor-specific namespaces (`SSi`, `HDM`) while avoiding interpretation of opaque values.
 
+<a id="Metrix-Mapping"></a>
 ## MXML -> Signa JDF field mapping (draft)
 This appendix lists candidate mappings from Metrix MXML to Signa-style JDF constructs. Treat as a working guide.
 
@@ -576,3 +629,23 @@ Evidence anchors: `Sample_A.mxml`, `Sample_B.mxml`, `Sample_C.mxml`, `Sample_D.m
 
 ## Resolved questions (current samples)
 - MXML `Product/@Type="Bound"` appears on saddle-stitched products (e.g., Sample_C, Sample_D), so it is not exclusive to perfect binding.
+
+## Appendix
+
+## Glossary (AI aliases)
+- WorkAndBack = Sheetwise
+- WorkAndTurn = WAT
+- WorkAndTumble = WTT
+- Simplex = Single-Sided
+
+## Glossary (Metrix/Prinect terms)
+- WorkStyle: Print-side model (Perfecting, WorkAndBack, WorkAndTurn, WorkAndTumble, Simplex).
+- SurfaceContentsBox: Sheet coordinate box used by Metrix for layout geometry.
+- PaperRect: Signa/HDM sheet rectangle used for TrimBox alignment in Cockpit previews.
+- RunList: JDF resource linking marks/document PDFs and separation specs.
+- JobPart: Product-part grouping used for multi-product/ganged layouts.
+
+## Change log (summary)
+- Added data policy and sample intake guidance aligned to private sample storage.
+- Consolidated normalization notes (defaults, design philosophy, deltas, mappings).
+- Sanitized sample references for public sharing.

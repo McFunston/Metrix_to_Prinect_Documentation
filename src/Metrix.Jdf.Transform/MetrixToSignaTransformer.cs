@@ -4,6 +4,7 @@ namespace Metrix.Jdf.Transform;
 
 public sealed class MetrixToSignaTransformer
 {
+    // Builds Signa generator defaults from Metrix JDF + MXML metadata.
     public GeneratorOptions BuildGeneratorOptions(
         MetrixJdfDocument jdf,
         MetrixMxmlDocument? mxml,
@@ -51,6 +52,7 @@ public sealed class MetrixToSignaTransformer
             (paperOffsetX, paperOffsetY) = ResolvePaperOffset(firstSurface, plateWidth, plateHeight, paperWidth, paperHeight);
         }
 
+        // Capture signature names and per-signature work style to preserve mixed layouts.
         var signatures = layout is null
             ? new List<SignatureDefinition>()
             : layout.Signatures
@@ -66,6 +68,7 @@ public sealed class MetrixToSignaTransformer
         var uniformWorkStyle = ResolveUniformWorkStyle(layout, mxml);
         var signaJobPartNames = ResolveSignaJobPartNames(mxml);
 
+        // GeneratorOptions defaults favor cockpit importability over completeness.
         var generatorOptions = new GeneratorOptions
         {
             JobId = jdf.Root.JobId ?? options.FallbackJobId,
@@ -121,6 +124,7 @@ public sealed class MetrixToSignaTransformer
 
     private static string MapWorkStyle(string? ssiWorkStyle, MetrixMxmlDocument? mxml)
     {
+        // Prefer explicit SSI work style; fall back to the MXML printing method.
         if (!string.IsNullOrWhiteSpace(ssiWorkStyle))
         {
             return ssiWorkStyle switch
@@ -149,6 +153,7 @@ public sealed class MetrixToSignaTransformer
 
     private static List<string> ResolveSignaJobPartNames(MetrixMxmlDocument? mxml)
     {
+        // Multi-product Metrix jobs become Signa job parts to keep page labels separated.
         if (mxml is null || mxml.Project.Products.Count <= 1)
         {
             return new List<string>();

@@ -4,6 +4,7 @@ namespace Signa.Jdf;
 
 public sealed class SignaJdfValidator
 {
+    // Validates a Signa-style JDF against empirical Cockpit/Signa expectations.
     public IReadOnlyList<ValidationIssue> Validate(JdfDocument document)
     {
         var issues = new List<ValidationIssue>();
@@ -52,6 +53,7 @@ public sealed class SignaJdfValidator
                 "Missing ResourceLinkPool or no ResourceLink entries found.");
         }
 
+        // RunList links are the minimum wiring required for importability checks.
         RequireRunListUsage(document, issues, "Document", ValidationSeverity.Error);
         RequireRunListUsage(document, issues, "Marks", ValidationSeverity.Error);
         if (HasPagePoolRunListOrLink(document))
@@ -91,6 +93,7 @@ public sealed class SignaJdfValidator
 
     private static void ValidateRunListLinkConsistency(JdfDocument document, List<ValidationIssue> issues)
     {
+        // Heuristics reflect common Signa partitions; mismatches are warnings, not fatal errors.
         var runListById = document.RunLists
             .Where(list => !string.IsNullOrWhiteSpace(list.Id))
             .ToDictionary(list => list.Id!, StringComparer.OrdinalIgnoreCase);
@@ -174,6 +177,7 @@ public sealed class SignaJdfValidator
                 "Signa usually uses PartIDKeys='Run' on PagePool RunLists; missing keys appear in some builds.");
         }
 
+        // PagePool presence is used as a signal for assigned PDF usage.
         var documentRunListResource = document.FindRunListById(document.GetRunListRef("Document"));
         var pagePoolRunListResource = document.FindRunListById(document.GetRunListRef("PagePool"));
         var hasDocumentPdf = RunListHasFileSpec(documentRunListResource);
@@ -203,6 +207,7 @@ public sealed class SignaJdfValidator
 
     private static void ValidateMinimalCockpitImportability(JdfDocument document, List<ValidationIssue> issues)
     {
+        // Minimal checklist is derived from Cockpit import experiments and may evolve.
         var summaryFailures = new List<string>();
         var root = document.XmlDocument.Root;
         if (root is null)
@@ -247,6 +252,7 @@ public sealed class SignaJdfValidator
             return;
         }
 
+        // SurfaceContentsBox drives sheet placement; missing values cause offset previews.
         var sheetLayouts = resourcePool?.Descendants(ns + "Layout")
             .Where(element => !string.IsNullOrWhiteSpace(element.Attribute("SheetName")?.Value))
             .ToList() ?? new List<XElement>();
@@ -262,6 +268,7 @@ public sealed class SignaJdfValidator
                 "Layout SurfaceContentsBox is missing on sheet-level Layout; Cockpit may reject or misplace sheets.");
         }
 
+        // PaperRect anchors pages to sheet origin; missing values lead to plate-relative placements.
         var sideLayouts = resourcePool?.Descendants(ns + "Layout")
             .Where(element => !string.IsNullOrWhiteSpace(element.Attribute("Side")?.Value))
             .ToList() ?? new List<XElement>();
@@ -277,6 +284,7 @@ public sealed class SignaJdfValidator
                 "Layout HDM:PaperRect is missing on side-level Layout; page placement may be relative to the plate instead of the sheet.");
         }
 
+        // Marks geometry is required for imposed PDF generation in Cockpit.
         var markObjects = root.Descendants(ns + "MarkObject").ToList();
         if (markObjects.Count == 0)
         {
@@ -299,6 +307,7 @@ public sealed class SignaJdfValidator
                 "MarkObject entries missing CTM or ClipBox; imposed PDF generation can fail.");
         }
 
+        // ContentObjects drive page lists and assignment labels.
         var contentObjects = root.Descendants(ns + "ContentObject").ToList();
         if (contentObjects.Count == 0)
         {
@@ -404,6 +413,7 @@ public sealed class SignaJdfValidator
 
     private static void ValidateRequiredHdmFields(JdfDocument document, List<ValidationIssue> issues)
     {
+        // HDM extensions are vendor-specific but are essential for Signa/Cockpit behavior.
         var ns = document.JdfNamespace;
         var hdm = document.HdmNamespace;
         var root = document.XmlDocument.Root;
@@ -425,6 +435,7 @@ public sealed class SignaJdfValidator
             return;
         }
 
+        // Signa transport metadata is required for layout edit round-trips.
         var signaBlob = layout.Element(hdm + "SignaBLOB");
         var signaJdf = layout.Element(hdm + "SignaJDF");
         var signaContext = layout.Element(hdm + "SignaGenContext");
@@ -542,6 +553,7 @@ public sealed class SignaJdfValidator
             }
         }
 
+        // ContentObject tags are checked against Signa job-part declarations.
         var contentObjects = root.Descendants(ns + "ContentObject").ToList();
         var contentJobParts = contentObjects
             .Select(element => element.Attribute(hdm + "JobPart")?.Value)
@@ -650,6 +662,7 @@ public sealed class SignaJdfValidator
                 $"HDM:PaperRect does not match derived Paper Media + TransferCurveSet on {mismatchedPaperRect} side Layout elements.");
         }
 
+        // FinalPageBox + PageOrientation consistency is critical for Cockpit preview.
         var missingFinalPageBox = contentObjects.Count(element => element.Attribute(hdm + "FinalPageBox") is null);
         if (missingFinalPageBox > 0)
         {
@@ -731,6 +744,7 @@ public sealed class SignaJdfValidator
                 "HDM_PAGEORIENTATION_DERIVED",
                 $"HDM:PageOrientation does not match derived orientation on {mismatchedPageOrientation} ContentObject elements.");
         }
+        // Perfecting layouts expect mirrored back-side geometry unless a symmetric fold scheme is used.
         var perfectingBackGeometryMismatch = CountPerfectingBackGeometryMismatches(root, ns, hdm);
         if (perfectingBackGeometryMismatch > 0)
         {
@@ -785,6 +799,7 @@ public sealed class SignaJdfValidator
         var sheetLayouts = root.Descendants(ns + "Layout")
             .Where(element => element.Attribute("SheetName") is not null)
             .ToList();
+        // SurfaceContentsBox is derived from plate media + transfer curves.
         var mismatchedSurfaceBox = sheetLayouts.Count(element =>
             SurfaceContentsBoxMismatch(element));
         if (mismatchedSurfaceBox > 0)
@@ -821,6 +836,7 @@ public sealed class SignaJdfValidator
                     BuildLeadingEdgeHint(layout, ns)));
         }
 
+        // CIP3 transforms are derived by offsetting BlockTrf with PaperRect.
         var cutBlocks = root.Descendants(ns + "CutBlock").ToList();
         var missingBlockTrf = cutBlocks.Count(element => element.Attribute(hdm + "CIP3BlockTrf") is null);
         var mismatchedBlockTrf = 0;
@@ -855,6 +871,7 @@ public sealed class SignaJdfValidator
                 "CIP3 transforms can be omitted when downstream folding/cutting data is not generated.");
         }
 
+        // Fold dimensions are only required for non-montage layouts with real folding data.
         var foldingParams = root.Descendants(ns + "FoldingParams").ToList();
         var isMontage = IsMontageLayout(root, ns);
         var missingFoldIn1 = 0;

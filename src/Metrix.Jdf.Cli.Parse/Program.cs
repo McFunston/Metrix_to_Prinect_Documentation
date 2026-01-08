@@ -7,6 +7,7 @@ if (args.Length < 1)
 }
 
 var jdfPath = args[0];
+// Parse is diagnostic-only; no normalization is applied here.
 var jdfDocument = MetrixJdfParser.Parse(jdfPath);
 
 Console.WriteLine($"JDF File: {jdfDocument.SourcePath}");

@@ -4,6 +4,7 @@ namespace Metrix.Jdf;
 
 public sealed class MetrixJdfDocument
 {
+    // Parsed JDF wrapper used by the transformer; preserves namespaces and raw XML.
     public MetrixJdfDocument(
         string sourcePath,
         MetrixJdfNode root,

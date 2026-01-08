@@ -2,6 +2,7 @@ using Metrix.Jdf;
 using Metrix.Jdf.Transform;
 using Signa.Jdf;
 
+// Pipeline: parse Metrix JDF/MXML -> generate Signa-style skeleton -> postprocess geometry -> write bundle.
 if (args.Length < 2)
 {
     Console.WriteLine("Usage: metrix-jdf-transform <path-to-jdf> <output-bundle-dir> [path-to-mxml]");
@@ -12,26 +13,36 @@ var jdfPath = args[0];
 var outputDir = args[1];
 var mxmlPath = args.Length > 2 ? args[2] : null;
 
+// Safe defaults: keep marks PDF wiring, omit content PDF injection (Cockpit normalizes content separately).
 var metrixJdf = MetrixJdfParser.Parse(jdfPath);
 var metrixMxml = !string.IsNullOrWhiteSpace(mxmlPath) ? MetrixMxmlParser.Parse(mxmlPath!) : null;
 
 var marksFileName = ResolveMarksFileName(metrixJdf);
 var transformer = new MetrixToSignaTransformer();
+// "Safe" normalization flags favor Cockpit importability over full semantic coverage.
 var options = transformer.BuildGeneratorOptions(metrixJdf, metrixMxml, new MetrixToSignaOptions
 {
     MarksFileName = marksFileName is null ? "./Content/marks.pdf" : $"./Content/{marksFileName}",
     DocumentFileName = "./Content/content.pdf",
+    // Safe: avoid bypassing Cockpit's content normalization by injecting a document PDF.
     IncludeDocumentFileSpec = false,
+    // Safe: provide page mapping so Cockpit can build page lists.
     IncludeDocumentPageMapping = true,
+    // Safe: partitions communicate WorkStyle per Signature/Sheet/Side.
     IncludePrintingParamsPartitions = true,
+    // Safe: media dimensions drive plate/trim geometry and preview placement.
     IncludePaperMedia = true,
     IncludePlateMedia = true,
+    // Safe: BCMY placeholders + partitions enable marks mapping in Cockpit.
     IncludeMarksSeparations = true,
     IncludeMarksPartitions = true,
+    // Safe: PaperRect anchors previews to sheet rather than plate origin.
     IncludePaperRect = true,
+    // Safe: omit SignaBLOB reference (no SignaStation data is available).
     IncludeSignaBlob = false
 });
 
+// Post-process: replace layout geometry + labels with Metrix-derived placements.
 var document = JdfGenerator.Generate(options);
 MetrixContentPostProcessor.ApplyContentPlacement(document, metrixJdf, metrixMxml);
 

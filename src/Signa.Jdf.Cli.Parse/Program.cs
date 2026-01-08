@@ -1,5 +1,6 @@
 using Signa.Jdf;
 
+// Parse-only CLI for quick inspection; does not modify JDFs.
 if (args.Length < 1)
 {
     Console.WriteLine("Usage: signa-jdf-parse <path-to-jdf>");
@@ -7,6 +8,7 @@ if (args.Length < 1)
 }
 
 var path = args[0];
+// Parser is read-only; use for quick stats + sanity checks.
 var document = JdfParser.Parse(path);
 
 Console.WriteLine($"File: {document.SourcePath}");

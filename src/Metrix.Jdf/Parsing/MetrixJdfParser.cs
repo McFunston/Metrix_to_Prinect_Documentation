@@ -4,6 +4,7 @@ namespace Metrix.Jdf;
 
 public static class MetrixJdfParser
 {
+    // Parses the Metrix imposition JDF into a minimal in-memory model used for normalization.
     public static MetrixJdfDocument Parse(string path)
     {
         if (string.IsNullOrWhiteSpace(path))
@@ -11,6 +12,7 @@ public static class MetrixJdfParser
             throw new ArgumentException("Path is required.", nameof(path));
         }
 
+        // Preserve whitespace so CTM/box strings remain byte-for-byte as exported.
         var document = XDocument.Load(path, LoadOptions.PreserveWhitespace);
         var root = document.Root ?? throw new InvalidDataException("Missing JDF root element.");
         var ns = root.Name.Namespace;
@@ -32,6 +34,7 @@ public static class MetrixJdfParser
         MetrixLayout? layout = null;
         var runLists = new List<MetrixRunListResource>();
 
+        // Metrix imposition JDFs tend to keep layout and RunList resources only.
         var resourcePool = root.Element(ns + "ResourcePool");
         if (resourcePool is not null)
         {
@@ -63,6 +66,7 @@ public static class MetrixJdfParser
 
     private static MetrixLayout ParseLayout(XElement layoutElement, XNamespace ns, XNamespace ssi)
     {
+        // Metrix layout uses Signature → Sheet → Surface rather than nested Layout partitions.
         var layout = new MetrixLayout
         {
             Id = Attr(layoutElement, "ID"),
@@ -111,6 +115,7 @@ public static class MetrixJdfParser
                     {
                         surface.ContentObjects.Add(new MetrixContentObject
                         {
+                            // Preserve raw CTM/TrimCTM strings for downstream matrix calculations.
                             Ord = Attr(contentObject, "Ord"),
                             Ctm = Attr(contentObject, "CTM"),
                             TrimCtm = Attr(contentObject, "TrimCTM"),
@@ -135,6 +140,7 @@ public static class MetrixJdfParser
 
     private static MetrixRunListResource ParseRunList(XElement runListElement, XNamespace ns, XNamespace hdm)
     {
+        // RunList entries include marks and (optionally) document/page list references.
         var resource = new MetrixRunListResource
         {
             Id = Attr(runListElement, "ID"),
@@ -182,6 +188,7 @@ public static class MetrixJdfParser
         var pageList = runListElement.Element(ns + "PageList");
         if (pageList is not null)
         {
+            // Page list labels drive Cockpit page assignments after normalization.
             foreach (var pageData in pageList.Elements(ns + "PageData"))
             {
                 resource.PageList.Add(new MetrixPageData

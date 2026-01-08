@@ -5,6 +5,7 @@ namespace Signa.Jdf.Cli.Validate;
 
 internal static class ValidationContextBuilder
 {
+    // Builds compact summaries for batch reports and issue clustering.
     public static bool IsMontage(JdfDocument document)
     {
         var root = document.XmlDocument.Root;

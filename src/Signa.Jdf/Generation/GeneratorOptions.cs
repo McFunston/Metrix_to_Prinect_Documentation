@@ -2,6 +2,7 @@ namespace Signa.Jdf;
 
 public sealed class GeneratorOptions
 {
+    // Defaults are tuned for Cockpit importability, not full JDF completeness.
     public string JobId { get; init; } = "Job001";
     public string JobPartId { get; init; } = "Part001";
     public string Status { get; init; } = "Waiting";

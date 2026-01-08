@@ -2,6 +2,7 @@ namespace Signa.Jdf;
 
 public sealed class ContentObjectInfo
 {
+    // Lightweight content object metadata used for page list validation.
     public string? SignatureName { get; init; }
     public string? SheetName { get; init; }
     public string? Side { get; init; }

@@ -2,6 +2,7 @@ namespace Signa.Jdf;
 
 public sealed class ComponentInfo
 {
+    // Component tree entries used for finishing outputs and folding dimensions.
     public string? Id { get; init; }
     public string? Class { get; init; }
     public string? ComponentType { get; init; }

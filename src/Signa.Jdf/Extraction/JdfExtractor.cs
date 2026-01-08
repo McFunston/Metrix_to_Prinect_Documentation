@@ -2,6 +2,7 @@ namespace Signa.Jdf;
 
 public static class JdfExtractor
 {
+    // Convenience helpers for summarizing layout/RunList data without validation.
     public static IReadOnlyList<SheetSizeInfo> GetSheetSizes(JdfDocument document)
     {
         var results = new List<SheetSizeInfo>();
@@ -32,6 +33,7 @@ public static class JdfExtractor
 
     public static IReadOnlyCollection<string> GetWorkStyles(JdfDocument document)
     {
+        // Merge WorkStyle signals from layout, printing, and stripping params.
         var styles = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
         foreach (var part in FlattenLayout(document.Layout))
@@ -63,6 +65,7 @@ public static class JdfExtractor
 
     public static IReadOnlyCollection<string> GetSeparationNames(JdfDocument document)
     {
+        // Collect separation placeholders across top-level RunLists and partitions.
         var names = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach (var runList in document.RunLists)
         {
