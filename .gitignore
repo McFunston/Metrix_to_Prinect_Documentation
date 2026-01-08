@@ -1,1 +1,7 @@
 .DS_Store
+Metrix_Samples/
+Signa_Samples/
+GeneratedJDFs/
+**/*.bak-*
+**/*.pdf
+**/marks/
