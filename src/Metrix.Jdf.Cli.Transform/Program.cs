@@ -21,7 +21,7 @@ var options = transformer.BuildGeneratorOptions(metrixJdf, metrixMxml, new Metri
 {
     MarksFileName = marksFileName is null ? "./Content/marks.pdf" : $"./Content/{marksFileName}",
     DocumentFileName = "./Content/content.pdf",
-    IncludeDocumentFileSpec = true,
+    IncludeDocumentFileSpec = false,
     IncludeDocumentPageMapping = true,
     IncludePrintingParamsPartitions = true,
     IncludePaperMedia = true,
@@ -40,9 +40,13 @@ var contentDir = Path.Combine(outputDir, "Content");
 Directory.CreateDirectory(contentDir);
 
 var outputJdfPath = Path.Combine(outputDir, "data.jdf");
+BackupExistingJdf(outputJdfPath);
 document.Save(outputJdfPath);
 
-WriteMinimalPdf(Path.Combine(contentDir, "content.pdf"));
+if (options.IncludeDocumentFileSpec)
+{
+    WriteMinimalPdf(Path.Combine(contentDir, "content.pdf"));
+}
 
 if (!string.IsNullOrWhiteSpace(marksFileName))
 {
@@ -63,6 +67,19 @@ if (!string.IsNullOrWhiteSpace(marksFileName))
 
 Console.WriteLine($"Wrote: {outputJdfPath}");
 return 0;
+
+static void BackupExistingJdf(string outputJdfPath)
+{
+    if (!File.Exists(outputJdfPath))
+    {
+        return;
+    }
+
+    var timestamp = DateTime.Now.ToString("yyyyMMdd-HHmmss");
+    var backupPath = $"{outputJdfPath}.bak-{timestamp}";
+    File.Copy(outputJdfPath, backupPath, true);
+    Console.WriteLine($"Backed up: {backupPath}");
+}
 
 static string? ResolveMarksFileName(MetrixJdfDocument document)
 {
