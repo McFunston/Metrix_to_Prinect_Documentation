@@ -1022,7 +1022,7 @@ public static class JdfGenerator
             return;
         }
 
-        // BCMY placeholders enable Cockpit spot-color remapping when marks are present.
+        // BCMYXZ placeholders mirror Signa/Python marks behavior for 6-slot color bars.
         var mapRelNames = new[] { "B", "C", "M", "Y", "X", "Z" };
         foreach (var name in mapRelNames)
         {

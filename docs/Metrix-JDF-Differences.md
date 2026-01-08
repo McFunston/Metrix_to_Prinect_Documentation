@@ -469,6 +469,7 @@ Stability: **Advisory** (single runs per sample; cross-check against Metrix prev
 - For multi-product jobs, emit `HDM:SignaJobPart` entries and tag each `ContentObject` with `HDM:JobPart` based on MXML product page ranges.
 - Reset per-product labels for multi-product jobs (e.g., `Book 2 Cover-1`).
 - Normalize marks RunList structure + SeparationSpec placeholders.
+- Include X/Z as map-rel placeholders in marks RunList for 6-slot color bars (BCMYXZ).
 - Apply MXML paper metadata to Paper Media attributes.
 - Remove `HDM:SignaBLOB` URL; preserve other Signa/HDM/SSi metadata.
 
@@ -587,6 +588,8 @@ Note: This project does not attempt to generate bindery-executable JDF (folding 
 - **Layout Preview crashes Acrobat.** Avoid injecting CuttingParams/StrippingParams preview helpers; ensure PaperRect + TransferCurvePool alignment.
 - **TrimBox missing on some sheets in multi-signature jobs.** Reset marks logical pages per sheet when trim boxes disappear.
 - **Missing paper metadata.** Populate Paper Media attributes from MXML stock sheets (Brand/ProductID/Weight/Thickness/etc).
+- **X/Z marks mapped to 20% black.** On a 6-slot bar (BCMYXZ), mapping X/Z as map-rel placeholders matches Python/Signa behavior and prevents unintended 20% black fills on 4‑color presses.
+- **Implicit mapping can work, but is inconsistent.** Some Signa/Python tickets omit explicit X/Z separations yet Cockpit still maps correctly, likely from the marks PDF/press defaults. We still emit X/Z as map-rel placeholders to avoid fallback remapping.
 
 <a id="Metrix-Normalization"></a>
 ## Metrix -> Signa normalization deltas (checklist)

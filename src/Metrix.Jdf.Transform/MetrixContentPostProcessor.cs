@@ -1115,6 +1115,8 @@ public static class MetrixContentPostProcessor
                 "C",
                 "M",
                 "Y",
+                "X",
+                "Z",
                 "ProofColor"
             };
 
