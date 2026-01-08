@@ -28,17 +28,17 @@
 
 ## Evidence set (Metrix samples)
 Placeholder for the Metrix sample index.
-- `Metrix_Samples/jdf/S2328.jdf` (imposition)
-- `Metrix_Samples/mxml/S2328.mxml` (companion mxml)
-- `Metrix_Samples/jdf/S2326.jdf` (imposition)
-- `Metrix_Samples/mxml/S2326.mxml` (companion mxml)
-- `Metrix_Samples/jdf/S2309.jdf` (imposition)
-- `Metrix_Samples/mxml/S2309.mxml` (companion mxml)
-- `Metrix_Samples/jdf/S2271.jdf` (imposition)
-- `Metrix_Samples/mxml/S2271.mxml` (companion mxml)
-- `Metrix_Samples/jdf/S2313.jdf` (imposition)
-- `Metrix_Samples/mxml/S2313.mxml` (companion mxml)
-- `Metrix_Samples/MetrixMXML.xsd` (mxml schema)
+- `Sample_A.jdf` (imposition)
+- `Sample_A.mxml` (companion mxml)
+- `Sample_B.jdf` (imposition)
+- `Sample_B.mxml` (companion mxml)
+- `Sample_C.jdf` (imposition)
+- `Sample_C.mxml` (companion mxml)
+- `Sample_D.jdf` (imposition)
+- `Sample_D.mxml` (companion mxml)
+- `Ganged_Postcards.jdf` (imposition)
+- `Ganged_Postcards.mxml` (companion mxml)
+- `MetrixMXML.xsd` (mxml schema)
 
 Sample metadata table (to be filled as samples arrive):
 Sample set assumptions (current samples):
@@ -49,19 +49,19 @@ Sample set assumptions (current samples):
 
 | Sample ID | JDF file | MXML file | Metrix version/build | Export settings | Job type | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| S2328 | `Metrix_Samples/jdf/S2328.jdf` | `Metrix_Samples/mxml/S2328.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=OneSided + Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound book, 8.5 x 11 trim, qty 3000, perfect bound (cover SS, text PE) | Mixed work styles (SS + PE), JDF Type=Imposition, Bound type meaning TBD |
-| S2326 | `Metrix_Samples/jdf/S2326.jdf` | `Metrix_Samples/mxml/S2326.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Folded product, 8.5 x 11 trim, qty 25000, 3-panel folder | Unbound, JDF Type=Imposition, WorkStyle=PE |
-| S2309 | `Metrix_Samples/jdf/S2309.jdf` | `Metrix_Samples/mxml/S2309.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=WorkAndTurn + Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound calendar, 8.5 x 11 trim, qty 3500, saddle stitch | JDF Type=Imposition, WorkStyle=TN + PE, Bound type meaning TBD |
-| S2271 | `Metrix_Samples/jdf/S2271.jdf` | `Metrix_Samples/mxml/S2271.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound magazine, 8.5 x 11 trim, qty 1000, saddle stitch | JDF Type=Imposition, WorkStyle=PE, Bound type meaning TBD |
-| S2313 | `Metrix_Samples/jdf/S2313.jdf` | `Metrix_Samples/mxml/S2313.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Ganged postcards, 5x7 and 6x9, mixed quantities | Multiple flat products, JDF Type=Imposition, WorkStyle=PE |
+| Sample_A | `Sample_A.jdf` | `Sample_A.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=OneSided + Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound book, 8.5 x 11 trim, qty 3000, perfect bound (cover SS, text PE) | Mixed work styles (SS + PE), JDF Type=Imposition, Bound type meaning TBD |
+| Sample_B | `Sample_B.jdf` | `Sample_B.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Folded product, 8.5 x 11 trim, qty 25000, 3-panel folder | Unbound, JDF Type=Imposition, WorkStyle=PE |
+| Sample_C | `Sample_C.jdf` | `Sample_C.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=WorkAndTurn + Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound calendar, 8.5 x 11 trim, qty 3500, saddle stitch | JDF Type=Imposition, WorkStyle=TN + PE, Bound type meaning TBD |
+| Sample_D | `Sample_D.jdf` | `Sample_D.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound magazine, 8.5 x 11 trim, qty 1000, saddle stitch | JDF Type=Imposition, WorkStyle=PE, Bound type meaning TBD |
+| Ganged_Postcards | `Ganged_Postcards.jdf` | `Ganged_Postcards.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Ganged postcards, 5x7 and 6x9, mixed quantities | Multiple flat products, JDF Type=Imposition, WorkStyle=PE |
 
 ## Metrix sample intake checklist
 Use this when adding a new Metrix sample set.
 
-- Add the imposition JDF to `Metrix_Samples/jdf/` and note its filename here.
-- Add the companion mxml to `Metrix_Samples/mxml/` and note its filename here.
-- Prefer Signa-style bundles: create a folder like `Metrix_Samples/S2328.jdf/` containing the JDF file and a `Content/` folder with the marks PDF; set `FileSpec/@URL` to `./Content/<marks>.pdf`.
-- If using centralized marks storage (`Metrix_Samples/marks/`), ensure the JDF `FileSpec/@URL` points to the correct path.
+- Add the imposition JDF to `` and note its filename here.
+- Add the companion mxml to `` and note its filename here.
+- Prefer Signa-style bundles: create a folder like `Sample_A.jdf/` containing the JDF file and a `Content/` folder with the marks PDF; set `FileSpec/@URL` to `./Content/<marks>.pdf`.
+- If using centralized marks storage (`marks/`), ensure the JDF `FileSpec/@URL` points to the correct path.
 - Record the Metrix version/build and export settings used.
 - Note any external assets referenced (PDFs, marks, etc.) and whether they are included.
 - Summarize the job type (simplex/perfecting, work style, ganged, finishing).
@@ -74,7 +74,7 @@ Use this when adding a new Metrix sample set.
 - `SSi` namespace is ignored by Heidelberg Cockpit but contains useful data (e.g., WorkStyle).
 
 ## High-level structural comparison (placeholder)
-Observed in `Metrix_Samples/jdf/S2328.jdf`:
+Observed in `Sample_A.jdf`:
 
 - Root `JDF` is `Type="Imposition"` with `xsi:type="Imposition"` and no `Types` process chain (Signa uses `ProcessGroup` + `Types` list).
 - `Version="1.2"` and `MaxVersion="1.2"` (Signa samples are typically 1.3 with MaxVersion 1.6/1.7).
@@ -89,7 +89,7 @@ Stability: **Advisory** (single sample).
 Each subsection will capture observed Metrix behavior and the corresponding Signa baseline.
 
 ### MXML companion (metrix-specific context)
-Observed in `Metrix_Samples/mxml/S2328.mxml`, `Metrix_Samples/mxml/S2326.mxml`, `Metrix_Samples/mxml/S2309.mxml`, `Metrix_Samples/mxml/S2271.mxml`, and `Metrix_Samples/mxml/S2313.mxml`:
+Observed in `Sample_A.mxml`, `Sample_B.mxml`, `Sample_C.mxml`, `Sample_D.mxml`, and `Ganged_Postcards.mxml`:
 
 - MXML carries job-level identity (`ProjectID`, MIS IDs) and product metadata (trim size, quantity, binding intent).
 - PagePool data includes per-page inks and bleed defaults, which are not present in the JDF.
@@ -102,52 +102,52 @@ Observed in `Metrix_Samples/mxml/S2328.mxml`, `Metrix_Samples/mxml/S2326.mxml`, 
 Stability: **Advisory** (five samples).
 
 ### Layout and imposition geometry
-Observed in `Metrix_Samples/jdf/S2328.jdf`, `Metrix_Samples/jdf/S2326.jdf`, `Metrix_Samples/jdf/S2309.jdf`, `Metrix_Samples/jdf/S2271.jdf`, and `Metrix_Samples/jdf/S2313.jdf`:
+Observed in `Sample_A.jdf`, `Sample_B.jdf`, `Sample_C.jdf`, `Sample_D.jdf`, and `Ganged_Postcards.jdf`:
 
 - Layout hierarchy uses `Signature` elements with `Name`, each containing `Sheet` with `Name` and `SSi:WorkStyle` (e.g., `SS`, `PE`).
 - `Surface` elements are explicitly labeled with `Side="Front"` / `Side="Back"`, and carry `SSi:Dimension`, `SSi:MediaOrigin`, and `SurfaceContentsBox`.
 - `ContentObject` instances carry `CTM`, `TrimCTM`, `TrimSize`, `ClipBox`, and `SSi:TrimBox1`; no `DescriptiveName` or `HDM:FinalPageBox`.
 - `MarkObject` instances exist but are minimal (CTM + ClipBox + Ord), without per-mark metadata.
-- `S2326` shows repeated `ContentObject` placements on each side with a 270-degree rotation (`CTM` with `0 -1 1 0`), indicating folded panel orientation.
-- `S2309` mixes work styles across signatures (`SSi:WorkStyle="TN"` and `SSi:WorkStyle="PE"`) with 180-degree flips and 90/270-degree rotations, matching a saddle-stitch calendar layout.
-- `S2271` uses consistent 270-degree rotations on the first signature and standard perfecting-style rotations on later signatures, matching a conventional saddle-stitch magazine layout.
-- `S2313` mixes multiple `TrimSize` values (5x7 and 6x9) in one layout, indicating ganged products on the same sheet.
-- In `S2326`, MXML `ComponentPool` describes a 3-up layout with rotated component instances, matching the repeated three-panel `ContentObject` geometry in the JDF.
+- `Sample_B` shows repeated `ContentObject` placements on each side with a 270-degree rotation (`CTM` with `0 -1 1 0`), indicating folded panel orientation.
+- `Sample_C` mixes work styles across signatures (`SSi:WorkStyle="TN"` and `SSi:WorkStyle="PE"`) with 180-degree flips and 90/270-degree rotations, matching a saddle-stitch calendar layout.
+- `Sample_D` uses consistent 270-degree rotations on the first signature and standard perfecting-style rotations on later signatures, matching a conventional saddle-stitch magazine layout.
+- `Ganged_Postcards` mixes multiple `TrimSize` values (5x7 and 6x9) in one layout, indicating ganged products on the same sheet.
+- In `Sample_B`, MXML `ComponentPool` describes a 3-up layout with rotated component instances, matching the repeated three-panel `ContentObject` geometry in the JDF.
 
 Stability: **Advisory** (five samples).
 
 ### RunList / FileSpec
-Observed in `Metrix_Samples/jdf/S2328.jdf`, `Metrix_Samples/jdf/S2326.jdf`, `Metrix_Samples/jdf/S2309.jdf`, `Metrix_Samples/jdf/S2271.jdf`, and `Metrix_Samples/jdf/S2313.jdf`:
+Observed in `Sample_A.jdf`, `Sample_B.jdf`, `Sample_C.jdf`, `Sample_D.jdf`, and `Ganged_Postcards.jdf`:
 
 - Document RunList includes `NPage="520"` with a `PageList` of `PageData` entries; `LayoutElement` is present with `IsBlank="true"` and no `FileSpec`.
-- Marks RunList includes a `LayoutElement` with `FileSpec` pointing to `./Content/S2328_Marks.pdf`.
+- Marks RunList includes a `LayoutElement` with `FileSpec` pointing to `./Content/Sample_A_Marks.pdf`.
 - Marks RunList contains a `SeparationSpec` with `HDM:Type="DieLine"` and `Name="ProofColor"`.
 
 Stability: **Advisory** (single sample).
 
 ### Media (paper/plate)
-Observed in `Metrix_Samples/jdf/S2328.jdf`:
+Observed in `Sample_A.jdf`:
 
 - No `Media` resources present; sheet sizing appears embedded on `Surface` via `SSi:Dimension` and `SSi:MediaOrigin`.
 
 Stability: **Advisory** (single sample).
 
 ### ConventionalPrintingParams
-Observed in `Metrix_Samples/jdf/S2328.jdf`:
+Observed in `Sample_A.jdf`:
 
 - No `ConventionalPrintingParams` resource; work style appears encoded on `Sheet` via `SSi:WorkStyle`.
 
 Stability: **Advisory** (single sample).
 
 ### StrippingParams / BinderySignature / FoldingParams
-Observed in `Metrix_Samples/jdf/S2328.jdf`:
+Observed in `Sample_A.jdf`:
 
 - No `StrippingParams`, `BinderySignature`, or `FoldingParams` resources (folding intent appears in MXML instead).
 
 Stability: **Advisory** (five samples).
 
 ### Component / Assembly / CuttingParams
-Observed in `Metrix_Samples/jdf/S2328.jdf`:
+Observed in `Sample_A.jdf`:
 
 - No `Component`, `Assembly`, or `CuttingParams` resources.
 
@@ -155,7 +155,7 @@ Stability: **Advisory** (single sample).
 
 ## Missing or reduced data in Metrix (candidate list)
 These are hypotheses to verify against samples.
-Observed gaps in `Metrix_Samples/jdf/S2328.jdf`, `Metrix_Samples/jdf/S2326.jdf`, `Metrix_Samples/jdf/S2309.jdf`, `Metrix_Samples/jdf/S2271.jdf`, and `Metrix_Samples/jdf/S2313.jdf` (relative to Signa exports):
+Observed gaps in `Sample_A.jdf`, `Sample_B.jdf`, `Sample_C.jdf`, `Sample_D.jdf`, and `Ganged_Postcards.jdf` (relative to Signa exports):
 
 - Signa-specific HDM metadata (SignaBLOB, SignaJob, SignaGenContext) is absent.
 - No Media resources; sheet sizes appear only on `Surface`.
@@ -177,7 +177,7 @@ Observed in Cockpit with vanilla Metrix JDFs:
 
 Stability: **Advisory** (operator observation, not yet tied to specific samples).
 
-Observed in Cockpit with normalized S2328 bundle (`Metrix_Samples/S2328.jdf/data.jdf`):
+Observed in Cockpit with normalized Sample_A bundle (`Sample_A.jdf/data.jdf`):
 
 - Import errors: “The layout to be imported is empty.” and “Can’t copy the Signa Station data file.”
 - Previews render fronts at bottom-left and backs at bottom-right of the plate.
@@ -185,7 +185,7 @@ Observed in Cockpit with normalized S2328 bundle (`Metrix_Samples/S2328.jdf/data
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 2 with content PDF, no SignaBLOB URL):
+Observed in Cockpit with normalized Sample_A bundle (iteration 2 with content PDF, no SignaBLOB URL):
 
 - Import warning: “The layout to be imported is empty.”
 - WorkStyle shows as Sheetwise for all sheets.
@@ -198,19 +198,19 @@ Observed in Cockpit with normalized S2328 bundle (iteration 2 with content PDF, 
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 3 with Document page mapping enabled):
+Observed in Cockpit with normalized Sample_A bundle (iteration 3 with Document page mapping enabled):
 
 - No observable changes from iteration 2 (same errors, previews, and missing page list).
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 4 with PagePool/Output RunLists enabled):
+Observed in Cockpit with normalized Sample_A bundle (iteration 4 with PagePool/Output RunLists enabled):
 
 - No observable changes from iteration 3.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 5 with content placement grid):
+Observed in Cockpit with normalized Sample_A bundle (iteration 5 with content placement grid):
 
 - “Layout is valid.”
 - Page list created, but only one position (label “1”) repeated 612 times.
@@ -219,14 +219,14 @@ Observed in Cockpit with normalized S2328 bundle (iteration 5 with content place
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 6 with Metrix Ord mapping):
+Observed in Cockpit with normalized Sample_A bundle (iteration 6 with Metrix Ord mapping):
 
 - Page list now contains positions 0, 2, 4, 6, 8, 10, 12, 14, 16 (each repeated 68 times).
 - No other observable changes.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 7 with Metrix CTM/TrimBox placement):
+Observed in Cockpit with normalized Sample_A bundle (iteration 7 with Metrix CTM/TrimBox placement):
 
 - Page list expands to 518 positions with uneven duplication counts (e.g., 0×3, 2×2, 4×2, 98–101×4).
 - Cover front placements look closer to correct; cover back appears but should not, and runs off sheet.
@@ -234,68 +234,68 @@ Observed in Cockpit with normalized S2328 bundle (iteration 7 with Metrix CTM/Tr
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 8 with simplex back suppression + WorkStyle mapping):
+Observed in Cockpit with normalized Sample_A bundle (iteration 8 with simplex back suppression + WorkStyle mapping):
 
 - No observable changes from iteration 7.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 9 with MediaOrigin offset applied to content placement):
+Observed in Cockpit with normalized Sample_A bundle (iteration 9 with MediaOrigin offset applied to content placement):
 
 - Cover layout may have shifted slightly.
 - No other observable changes.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 10 with PaperRect centering + TransferCurvePool CTM):
+Observed in Cockpit with normalized Sample_A bundle (iteration 10 with PaperRect centering + TransferCurvePool CTM):
 
 - Sheet previews appear correctly centered in thumbnails and Layout Preview.
 - No other problems resolved.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 11 with uniform WorkStyle rule):
+Observed in Cockpit with normalized Sample_A bundle (iteration 11 with uniform WorkStyle rule):
 
 - WorkStyle shows Perfecting on all sheets except the first, which shows Single-Sided.
 - The first sheet still contains two sides despite Single-Sided WorkStyle.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 12 with per-sheet simplex back suppression):
+Observed in Cockpit with normalized Sample_A bundle (iteration 12 with per-sheet simplex back suppression):
 
 - Sheet 1 is truly single-sided; sheets 2+ are perfecting.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 13 with label mapping from MXML/PageList):
+Observed in Cockpit with normalized Sample_A bundle (iteration 13 with label mapping from MXML/PageList):
 
 - Page list appears correct.
 - Sheet and plate sizes still incorrect.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 14 with per-sheet Media + PaperRect + TransferCurvePool partitions):
+Observed in Cockpit with normalized Sample_A bundle (iteration 14 with per-sheet Media + PaperRect + TransferCurvePool partitions):
 
 - Sheet and plate sizes now appear correct.
 - Page blocks are offset to the right and high, running off the top edge of the sheet.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 15 with ContentObject placement aligned to Metrix CTM, no MediaOrigin shift):
+Observed in Cockpit with normalized Sample_A bundle (iteration 15 with ContentObject placement aligned to Metrix CTM, no MediaOrigin shift):
 
 - Layout previews appear correct (subject to visual confirmation against Metrix).
 - Page blocks no longer appear offset in the preview.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 16 with paper metadata injected from MXML):
+Observed in Cockpit with normalized Sample_A bundle (iteration 16 with paper metadata injected from MXML):
 
 - Imposed PDF generation fails with “No PDF file created” and “Error during imposition”.
 - Failure occurs for both bundled `content.pdf` and external PDFs.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 17 with MarkObject geometry from Metrix):
+Observed in Cockpit with normalized Sample_A bundle (iteration 17 with MarkObject geometry from Metrix):
 
 - Imposed PDF generation succeeds (no imposition error).
 - Marks PDF pages are only merged on Sheet 1 (page 1) and Sheet 2 front (page 3); remaining sheets have no marks.
@@ -304,21 +304,21 @@ Observed in Cockpit with normalized S2328 bundle (iteration 17 with MarkObject g
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 18 with non-blank content assignment):
+Observed in Cockpit with normalized Sample_A bundle (iteration 18 with non-blank content assignment):
 
 - Marks that rely on process/BCMY separations appear correctly when non-blank PDFs are assigned.
 - Prior missing marks were caused by assigning blanks (no separations to map).
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2328 bundle (iteration 19 with CuttingParams/StrippingParams preview helpers):
+Observed in Cockpit with normalized Sample_A bundle (iteration 19 with CuttingParams/StrippingParams preview helpers):
 
 - Layout Preview still crashes Acrobat.
 - Imposed PDF fails again with "Error during imposition".
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2313 bundle (ganged postcards):
+Observed in Cockpit with normalized Ganged_Postcards bundle (ganged postcards):
 
 - Page list labels are correct and count matches expectation.
 - Thumbnail Preview and Layout Preview do not crash Acrobat and look correct.
@@ -329,7 +329,7 @@ Observed in Cockpit with normalized S2313 bundle (ganged postcards):
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2313 bundle (no `HDM:PageOrientation`/`HDM:FinalPageBox` on ContentObjects):
+Observed in Cockpit with normalized Ganged_Postcards bundle (no `HDM:PageOrientation`/`HDM:FinalPageBox` on ContentObjects):
 
 - All pages assign correctly.
 - Previews look correct.
@@ -337,7 +337,7 @@ Observed in Cockpit with normalized S2313 bundle (no `HDM:PageOrientation`/`HDM:
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2313 bundle (`HDM:FinalPageBox` present, `HDM:PageOrientation` forced to 0 for rotated CTMs):
+Observed in Cockpit with normalized Ganged_Postcards bundle (`HDM:FinalPageBox` present, `HDM:PageOrientation` forced to 0 for rotated CTMs):
 
 - No complaints on page assignment.
 - Previews look normal.
@@ -345,7 +345,7 @@ Observed in Cockpit with normalized S2313 bundle (`HDM:FinalPageBox` present, `H
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2271 bundle (saddle stitch):
+Observed in Cockpit with normalized Sample_D bundle (saddle stitch):
 
 - No complaints on page assignment.
 - Layout previews and imposed PDF look correct.
@@ -354,7 +354,7 @@ Observed in Cockpit with normalized S2271 bundle (saddle stitch):
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2309 bundle:
+Observed in Cockpit with normalized Sample_C bundle:
 
 - Pages assign without complaint.
 - Sheet 1 (cover) should be Work-and-Turn but shows a back; both sides are set to Work-and-Turn.
@@ -363,19 +363,19 @@ Observed in Cockpit with normalized S2309 bundle:
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2309 bundle (Work-and-Turn treated as single-side layout):
+Observed in Cockpit with normalized Sample_C bundle (Work-and-Turn treated as single-side layout):
 
 - All now appears normal.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized S2326 bundle:
+Observed in Cockpit with normalized Sample_B bundle:
 
 - All looks normal.
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized Estimate_141665_1 bundle (multi-product):
+Observed in Cockpit with normalized MultiProduct_2Books bundle (multi-product):
 
 - Two products created (Book 1, Book 2).
 - Two page lists created.
@@ -384,7 +384,7 @@ Observed in Cockpit with normalized Estimate_141665_1 bundle (multi-product):
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized Estimate_141665_1 bundle (multi-product, per-product label reset):
+Observed in Cockpit with normalized MultiProduct_2Books bundle (multi-product, per-product label reset):
 
 - Page list looks as expected; labels reset per product with product name prefix.
 - Products are correctly separated.
@@ -392,14 +392,14 @@ Observed in Cockpit with normalized Estimate_141665_1 bundle (multi-product, per
 
 Stability: **Advisory** (single sample run).
 
-Observed in Cockpit with normalized Estimate_141665_1 bundle (deduped label prefixes):
+Observed in Cockpit with normalized MultiProduct_2Books bundle (deduped label prefixes):
 
 - Labels remain correct after de-duplicating product prefixes.
 
 Stability: **Advisory** (single sample run).
 
 ## What now works (current normalization)
-Observed in Cockpit across normalized samples (S2328, S2313, S2271, S2309, S2326):
+Observed in Cockpit across normalized samples (Sample_A, Ganged_Postcards, Sample_D, Sample_C, Sample_B):
 
 - Import succeeds without errors.
 - Page assignment works without complaints (including ganged postcards).
@@ -450,7 +450,7 @@ Working theory (PageOrientation vs TrimBox):
 
 - `HDM:PageOrientation` communicates the intended logical page rotation (0/90/180/270) so downstream tools can interpret trim/clip geometry consistently.
 - In Metrix ganged layouts, CTM already rotates the page while TrimBox remains in the original orientation; Cockpit appears to apply `PageOrientation` again, effectively swapping expected trim dimensions (e.g., 7x5 → 5x7).
-- Forcing `PageOrientation="0"` for 90/270 CTMs avoids the double-rotation signal and restores page assignment without harming previews/imposed PDFs (S2313).
+- Forcing `PageOrientation="0"` for 90/270 CTMs avoids the double-rotation signal and restores page assignment without harming previews/imposed PDFs (Ganged_Postcards).
 
 ### Normalization changes that enabled the current wins
 These map specific normalization steps to the observed Cockpit outcomes across samples.
@@ -462,8 +462,8 @@ These map specific normalization steps to the observed Cockpit outcomes across s
 | Normalize `TransferCurvePool` per signature + `TransferCurvePoolRef` at signature-level `Layout` | Mixed sheet sizes (cover vs text) center correctly; avoids text sheets anchoring to cover offset. | Iteration 22 (signature-level transfer curves). |
 | Use Metrix `ContentObject` geometry (CTM/TrimCTM/ClipBox/TrimBox1) without applying `MediaOrigin` shift | Page blocks align on sheets; no offset to the right/top. | Iteration 15 (page blocks no longer offset). |
 | Map `SSi:WorkStyle` to Signa WorkStyle + suppress back side for simplex sheets | WorkStyle correct per sheet; cover is single-sided. | Iteration 12 (simplex back suppression works). |
-| Treat Work-and-Turn/Work-and-Tumble as single-side layouts | Removes erroneous back side and extra page placements on WAT/WTT sheets. | S2309 (cover fixed). |
-| Normalize `HDM:PageOrientation` to `0` for 90/270 CTMs | Avoids TrimBox size mismatch during page assignment in ganged layouts. | S2313 (page assignment fixed). |
+| Treat Work-and-Turn/Work-and-Tumble as single-side layouts | Removes erroneous back side and extra page placements on WAT/WTT sheets. | Sample_C (cover fixed). |
+| Normalize `HDM:PageOrientation` to `0` for 90/270 CTMs | Avoids TrimBox size mismatch during page assignment in ganged layouts. | Ganged_Postcards (page assignment fixed). |
 | Remove `HDM:SignaBLOB` URL; keep Signa metadata otherwise | Avoid “Can’t copy the Signa Station data file.” | Iteration 2 (missing Signa Station error resolved). |
 | Normalize marks RunList structure + `SeparationSpec` placeholders | "Allow spot colors for BCMY" enabled. | Iteration 2 onward (BCMY enabled). |
 | Page labels from Metrix `Ord` + MXML `PagePool` | Page list appears correct. | Iteration 13 (page list correct). |
@@ -481,10 +481,10 @@ Validation checklist (testable items):
 
 | Item | Status | Validation | Test setup |
 | --- | --- | --- | --- |
-| Add `ConventionalPrintingParams` with `WorkStyle` partitions | Failed | WorkStyle appears and is editable in Cockpit. | Use `Metrix_Samples/jdf/S2328.jdf` (mixed SS/PE) for coverage. |
-| Add `Media` resources + `HDM:PaperRect` alignment | Pass | Previews are centered and match sheet dimensions. | Verified on S2328/S2271/S2326. |
-| Normalize `TransferCurvePool` per signature | Pass | Mixed sheet sizes center correctly (cover vs text). | Use `Metrix_Samples/jdf/S2328.jdf` (cover + text sizes). |
-| Normalize marks RunList structure + BCMY `SeparationSpec` placeholders | Pass | "Allow spot colors for BCMY" is enabled and spot mapping works. | Verified with S2328 (non-blank content). |
+| Add `ConventionalPrintingParams` with `WorkStyle` partitions | Failed | WorkStyle appears and is editable in Cockpit. | Use `Sample_A.jdf` (mixed SS/PE) for coverage. |
+| Add `Media` resources + `HDM:PaperRect` alignment | Pass | Previews are centered and match sheet dimensions. | Verified on Sample_A/Sample_D/Sample_B. |
+| Normalize `TransferCurvePool` per signature | Pass | Mixed sheet sizes center correctly (cover vs text). | Use `Sample_A.jdf` (cover + text sizes). |
+| Normalize marks RunList structure + BCMY `SeparationSpec` placeholders | Pass | "Allow spot colors for BCMY" is enabled and spot mapping works. | Verified with Sample_A (non-blank content). |
 
 ## Conversion strategies (Metrix -> Prinect-ready JDF)
 This section will formalize a practical normalization plan.
@@ -531,8 +531,8 @@ Note: This project does not attempt to generate bindery-executable JDF (folding 
 - Confirm page assignment, page lists, workstyles, previews, and imposed PDFs across representative samples.
 
 ### Known pitfalls (and mitigations)
-- **Work-and-Turn backs appear unexpectedly.** Treat WAT/WTT as single-side layouts to avoid extra back-side placements (fixed in S2309).
-- **Page assignment fails on rotated ganged layouts.** Force `HDM:PageOrientation=0` for 90/270 CTMs to avoid TrimBox size swaps (fixed in S2313).
+- **Work-and-Turn backs appear unexpectedly.** Treat WAT/WTT as single-side layouts to avoid extra back-side placements (fixed in Sample_C).
+- **Page assignment fails on rotated ganged layouts.** Force `HDM:PageOrientation=0` for 90/270 CTMs to avoid TrimBox size swaps (fixed in Ganged_Postcards).
 - **Layout Preview crashes Acrobat.** Avoid injecting CuttingParams/StrippingParams preview helpers; ensure PaperRect + TransferCurvePool alignment.
 - **TrimBox missing on some sheets in multi-signature jobs.** Reset marks logical pages per sheet when trim boxes disappear.
 - **Missing paper metadata.** Populate Paper Media attributes from MXML stock sheets (Brand/ProductID/Weight/Thickness/etc).
@@ -567,7 +567,7 @@ This appendix lists candidate mappings from Metrix MXML to Signa-style JDF const
 - Marks: MXML `MarkPool` + `MarkFile` -> preserve marks PDF `RunList` and keep mark geometry as advisory.
 - BCMY mapping: ensure marks RunList structure and `SeparationSpec` placeholders follow Signa conventions (see `docs/Signa-JDF-Dialect.md` BCMY normalization notes).
 
-Evidence anchors: `Metrix_Samples/mxml/S2328.mxml`, `Metrix_Samples/mxml/S2326.mxml`, `Metrix_Samples/mxml/S2309.mxml`, `Metrix_Samples/mxml/S2271.mxml`, `Metrix_Samples/mxml/S2313.mxml`.
+Evidence anchors: `Sample_A.mxml`, `Sample_B.mxml`, `Sample_C.mxml`, `Sample_D.mxml`, `Ganged_Postcards.mxml`.
 
 ## Open questions
 - Which Metrix versions/builds beyond 24.1 are in scope?
@@ -575,4 +575,4 @@ Evidence anchors: `Metrix_Samples/mxml/S2328.mxml`, `Metrix_Samples/mxml/S2326.m
 - Are there Metrix-specific vendor namespaces that need preserving?
 
 ## Resolved questions (current samples)
-- MXML `Product/@Type="Bound"` appears on saddle-stitched products (e.g., S2309, S2271), so it is not exclusive to perfect binding.
+- MXML `Product/@Type="Bound"` appears on saddle-stitched products (e.g., Sample_C, Sample_D), so it is not exclusive to perfect binding.
