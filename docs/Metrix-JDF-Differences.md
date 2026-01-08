@@ -90,10 +90,10 @@ Sample index for the Metrix evidence set.
 ### Sample metadata table
 | Sample ID | JDF file | MXML file | Metrix version/build | Export settings | Job type | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| Sample_A | `Sample_A.jdf` | `Sample_A.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=OneSided + Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound book, 8.5 x 11 trim, qty 3000, perfect bound (cover SS, text PE) | Mixed work styles (SS + PE), JDF Type=Imposition, Bound type meaning TBD |
+| Sample_A | `Sample_A.jdf` | `Sample_A.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=OneSided + Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound book, 8.5 x 11 trim, qty 3000, perfect bound (cover SS, text PE) | Mixed work styles (SS + PE), JDF Type=Imposition, Bound type covers perfect bound and saddle stitch |
 | Sample_B | `Sample_B.jdf` | `Sample_B.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Folded product, 8.5 x 11 trim, qty 25000, 3-panel folder | Unbound, JDF Type=Imposition, WorkStyle=PE |
-| Sample_C | `Sample_C.jdf` | `Sample_C.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=WorkAndTurn + Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound calendar, 8.5 x 11 trim, qty 3500, saddle stitch | JDF Type=Imposition, WorkStyle=TN + PE, Bound type meaning TBD |
-| Sample_D | `Sample_D.jdf` | `Sample_D.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound magazine, 8.5 x 11 trim, qty 1000, saddle stitch | JDF Type=Imposition, WorkStyle=PE, Bound type meaning TBD |
+| Sample_C | `Sample_C.jdf` | `Sample_C.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=WorkAndTurn + Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound calendar, 8.5 x 11 trim, qty 3500, saddle stitch | JDF Type=Imposition, WorkStyle=TN + PE, Bound type covers perfect bound and saddle stitch |
+| Sample_D | `Sample_D.jdf` | `Sample_D.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Bound magazine, 8.5 x 11 trim, qty 1000, saddle stitch | JDF Type=Imposition, WorkStyle=PE, Bound type covers perfect bound and saddle stitch |
 | Ganged_Postcards | `Ganged_Postcards.jdf` | `Ganged_Postcards.mxml` | 2024.1 (202410884) [Heidelberg Printready] | PrintingMethod=Perfected (mxml LayoutPool), Units=Inches (mxml) | Ganged postcards, 5x7 and 6x9, mixed quantities | Multiple flat products, JDF Type=Imposition, WorkStyle=PE |
 
 <a id="Metrix-Intake"></a>
