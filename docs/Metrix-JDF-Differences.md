@@ -424,6 +424,13 @@ Stability: **Advisory** (single runs per sample; cross-check against Metrix prev
 - Apply MXML paper metadata to Paper Media attributes.
 - Remove `HDM:SignaBLOB` URL; preserve other Signa/HDM/SSi metadata.
 
+### Defaults
+- The transformer emits Cockpit‑ready JDFs without requiring CLI flags.
+- Work-and-Turn/Work-and-Tumble are treated as single-side layouts by default.
+- `HDM:PageOrientation` is normalized for rotated CTMs (90/270 → 0).
+- Multi-product jobs emit `HDM:SignaJobPart` + `HDM:JobPart` with per-product labels.
+- `content.pdf` FileSpec is omitted by default (marks remain included).
+
 ### Layout Preview crash notes
 Observed behaviors so far:
 
