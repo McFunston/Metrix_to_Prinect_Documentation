@@ -5,3 +5,5 @@ GeneratedJDFs/
 **/*.bak-*
 **/*.pdf
 **/marks/
+**/bin/
+**/obj/
