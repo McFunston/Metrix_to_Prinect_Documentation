@@ -95,7 +95,7 @@ public static class MetrixContentPostProcessor
                     var plateDim = SetMediaDimension(plateMedia, ns, signature.Name, sheet.Name, plateSize.Value.Width, plateSize.Value.Height);
                     if (!string.IsNullOrWhiteSpace(plateDim))
                     {
-                        plateDimensions.Add(plateDim);
+                        plateDimensions.Add(plateDim!);
                     }
                 }
 
@@ -130,7 +130,7 @@ public static class MetrixContentPostProcessor
                     var paperDim = SetMediaDimension(paperMedia, ns, signature.Name, sheet.Name, paperSize.Value.Width, paperSize.Value.Height);
                     if (!string.IsNullOrWhiteSpace(paperDim))
                     {
-                        paperDimensions.Add(paperDim);
+                        paperDimensions.Add(paperDim!);
                     }
                 }
 
@@ -259,11 +259,11 @@ public static class MetrixContentPostProcessor
 
         if (!string.IsNullOrWhiteSpace(content.Ctm))
         {
-            element.SetAttributeValue("CTM", ShiftTransform(content.Ctm, originOffset));
+            element.SetAttributeValue("CTM", ShiftTransform(content.Ctm!, originOffset));
         }
         if (!string.IsNullOrWhiteSpace(content.TrimCtm))
         {
-            element.SetAttributeValue("TrimCTM", ShiftTransform(content.TrimCtm, originOffset));
+            element.SetAttributeValue("TrimCTM", ShiftTransform(content.TrimCtm!, originOffset));
         }
         if (!string.IsNullOrWhiteSpace(content.TrimSize))
         {
@@ -271,7 +271,7 @@ public static class MetrixContentPostProcessor
         }
         if (!string.IsNullOrWhiteSpace(content.ClipBox))
         {
-            element.SetAttributeValue("ClipBox", ShiftBox(content.ClipBox, originOffset));
+            element.SetAttributeValue("ClipBox", ShiftBox(content.ClipBox!, originOffset));
         }
         if (!string.IsNullOrWhiteSpace(content.TrimBox1))
         {
@@ -372,7 +372,7 @@ public static class MetrixContentPostProcessor
                 var firstSurface = sheet.Surfaces.FirstOrDefault();
                 if (!string.IsNullOrWhiteSpace(firstSurface?.MediaOrigin))
                 {
-                    sheetElement.SetAttributeValue(ssi + "MediaOrigin", firstSurface.MediaOrigin);
+                    sheetElement.SetAttributeValue(ssi + "MediaOrigin", firstSurface!.MediaOrigin);
                 }
 
                 foreach (var surface in sheet.Surfaces)
@@ -465,7 +465,7 @@ public static class MetrixContentPostProcessor
             return "0";
         }
 
-        var parts = ctm.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var parts = ctm!.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (parts.Length < 4)
         {
             return "0";
@@ -548,7 +548,7 @@ public static class MetrixContentPostProcessor
 
     private static string FormatBox(decimal width, decimal height)
     {
-        return string.Join(' ', new[]
+        return string.Join(" ", new[]
         {
             "0",
             "0",
@@ -561,7 +561,7 @@ public static class MetrixContentPostProcessor
     {
         var right = offsetX + width;
         var top = offsetY + height;
-        return string.Join(' ', new[]
+        return string.Join(" ", new[]
         {
             offsetX.ToString(CultureInfo.InvariantCulture),
             offsetY.ToString(CultureInfo.InvariantCulture),
@@ -659,11 +659,11 @@ public static class MetrixContentPostProcessor
                 continue;
             }
 
-            if (!signatureParts.TryGetValue(signatureName, out var signaturePart))
+            if (!signatureParts.TryGetValue(signatureName!, out var signaturePart))
             {
                 signaturePart = new XElement(ns + "Media", new XAttribute("SignatureName", signatureName));
                 media.Add(signaturePart);
-                signatureParts[signatureName] = signaturePart;
+                signatureParts[signatureName!] = signaturePart;
             }
 
             leaf.Remove();
@@ -1009,7 +1009,7 @@ public static class MetrixContentPostProcessor
             return 0;
         }
 
-        var parts = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var parts = value!.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (parts.Length == 1 && int.TryParse(parts[0], out var single))
         {
             return single + 1;
@@ -1385,13 +1385,13 @@ public static class MetrixContentPostProcessor
         foreach (var element in resourcePool.Elements().ToList())
         {
             var id = Attr(element, "ID");
-            if (!string.IsNullOrWhiteSpace(id) && removeIds.Contains(id))
+            if (!string.IsNullOrWhiteSpace(id) && removeIds.Contains(id!))
             {
                 element.Remove();
                 continue;
             }
 
-            if (!string.IsNullOrWhiteSpace(id) && idMap.TryGetValue(id, out var replacement))
+            if (!string.IsNullOrWhiteSpace(id) && idMap.TryGetValue(id!, out var replacement))
             {
                 element.SetAttributeValue("ID", replacement);
             }
@@ -1668,7 +1668,7 @@ public static class MetrixContentPostProcessor
             var right = (entry.Value.X + entry.Value.Width) / entry.Value.PlateWidth;
             var top = (entry.Value.Y + entry.Value.Height) / entry.Value.PlateHeight;
             sigPart.Add(new XElement(ns + "Position",
-                new XAttribute("RelativeBox", string.Join(' ', new[]
+                new XAttribute("RelativeBox", string.Join(" ", new[]
                 {
                     left.ToString(CultureInfo.InvariantCulture),
                     bottom.ToString(CultureInfo.InvariantCulture),
@@ -1776,13 +1776,13 @@ public static class MetrixContentPostProcessor
             return productId;
         }
 
-        var underscoreIndex = productId.IndexOf('_');
+        var underscoreIndex = productId!.IndexOf('_');
         if (underscoreIndex < 0 || underscoreIndex >= productId.Length - 1)
         {
             return productId;
         }
 
-        return productId[(underscoreIndex + 1)..];
+        return productId.Substring(underscoreIndex + 1);
     }
 
     private static List<StockSheetInfo> BuildStockSequence(MetrixMxmlDocument metrixMxml)
@@ -1823,7 +1823,7 @@ public static class MetrixContentPostProcessor
                 var thicknessMicron = ResolveThicknessMicrons(sheet.Thickness, stock.Thickness) ?? DefaultThicknessMicrons;
 
                 var info = new StockSheetInfo(
-                    sheet.Id,
+                    sheet.Id!,
                     widthPoints,
                     heightPoints,
                     grainDirection,
@@ -1835,7 +1835,7 @@ public static class MetrixContentPostProcessor
                     weightGsm,
                     thicknessMicron);
 
-                sheetById[sheet.Id] = info;
+                sheetById[sheet.Id!] = info;
                 stockSheets.Add(info);
             }
         }
@@ -1844,7 +1844,7 @@ public static class MetrixContentPostProcessor
         foreach (var layout in metrixMxml.Project.Layouts)
         {
             if (!string.IsNullOrWhiteSpace(layout.StockSheetRefId) &&
-                sheetById.TryGetValue(layout.StockSheetRefId, out var info))
+                sheetById.TryGetValue(layout.StockSheetRefId!, out var info))
             {
                 sequence.Add(info);
             }
@@ -1872,7 +1872,7 @@ public static class MetrixContentPostProcessor
 
     private static decimal ConvertToPoints(decimal value, string units)
     {
-        if (units.Contains("mm", StringComparison.OrdinalIgnoreCase))
+        if (units.IndexOf("mm", StringComparison.OrdinalIgnoreCase) >= 0)
         {
             return value * 72m / 25.4m;
         }
@@ -1892,7 +1892,7 @@ public static class MetrixContentPostProcessor
             return null;
         }
 
-        var grain = sheet.Grain.Trim().ToLowerInvariant();
+        var grain = sheet.Grain!.Trim().ToLowerInvariant();
         if (grain is "horizontal" or "horiz" or "h")
         {
             return width >= height;
@@ -1914,7 +1914,7 @@ public static class MetrixContentPostProcessor
             return false;
         }
 
-        var normalized = value.Trim().ToLowerInvariant();
+        var normalized = value!.Trim().ToLowerInvariant();
         if (normalized is "true" or "yes" or "1")
         {
             parsed = true;
@@ -1955,7 +1955,11 @@ public static class MetrixContentPostProcessor
         }
 
         var gradeKey = grade?.Trim().ToUpperInvariant();
-        if (string.IsNullOrWhiteSpace(gradeKey) || !LbToGsmFactors.ContainsKey(gradeKey))
+        if (string.IsNullOrWhiteSpace(gradeKey))
+        {
+            gradeKey = InferGradeFromName(descriptive) ?? InferGradeFromName(brand);
+        }
+        else if (!LbToGsmFactors.ContainsKey(gradeKey!))
         {
             gradeKey = InferGradeFromName(descriptive) ?? InferGradeFromName(brand);
         }
@@ -1975,10 +1979,12 @@ public static class MetrixContentPostProcessor
             return null;
         }
 
-        var lowered = value.ToLowerInvariant();
-        foreach (var (grade, keywords) in GradeKeywords)
+        var lowered = value!.ToLowerInvariant();
+        foreach (var entry in GradeKeywords)
         {
-            if (keywords.Any(keyword => lowered.Contains(keyword, StringComparison.Ordinal)))
+            var grade = entry.Key;
+            var keywords = entry.Value;
+            if (keywords.Any(keyword => lowered.IndexOf(keyword, StringComparison.Ordinal) >= 0))
             {
                 return grade;
             }
@@ -2085,7 +2091,7 @@ public static class MetrixContentPostProcessor
             return false;
         }
 
-        var parts = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var parts = value!.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (parts.Length < 4)
         {
             return false;
@@ -2117,7 +2123,7 @@ public static class MetrixContentPostProcessor
             return false;
         }
 
-        var parts = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var parts = value!.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (parts.Length < 2)
         {
             return false;
@@ -2129,7 +2135,7 @@ public static class MetrixContentPostProcessor
 
     private static string ShiftTransform(string ctm, (decimal X, decimal Y) offset)
     {
-        var parts = ctm.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList();
+        var parts = ctm!.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
         if (parts.Count < 6)
         {
             return ctm;
@@ -2147,12 +2153,12 @@ public static class MetrixContentPostProcessor
         parts[4] = x.ToString(CultureInfo.InvariantCulture);
         parts[5] = y.ToString(CultureInfo.InvariantCulture);
 
-        return string.Join(' ', parts);
+        return string.Join(" ", parts);
     }
 
     private static string ShiftBox(string box, (decimal X, decimal Y) offset)
     {
-        var parts = box.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList();
+        var parts = box!.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
         if (parts.Count < 4)
         {
             return box;
@@ -2171,7 +2177,7 @@ public static class MetrixContentPostProcessor
         bottom += offset.Y;
         top += offset.Y;
 
-        return string.Join(' ', new[]
+        return string.Join(" ", new[]
         {
             left.ToString(CultureInfo.InvariantCulture),
             bottom.ToString(CultureInfo.InvariantCulture),
@@ -2195,7 +2201,7 @@ public static class MetrixContentPostProcessor
             .Where(value => value is not null)
             .Select(value => value!.Value)
             .Distinct()
-            .Order()
+            .OrderBy(value => value)
             .ToList();
 
         if (ords is null || ords.Count == 0)
@@ -2319,21 +2325,21 @@ public static class MetrixContentPostProcessor
                 continue;
             }
 
-            var token = page.PageIndex.Replace(" ", "", StringComparison.Ordinal);
+            var token = page.PageIndex!.Replace(" ", "");
             if (token.Contains("~"))
             {
-                var parts = token.Split('~', 2);
+                var parts = token.Split(new[] { '~' }, 2, StringSplitOptions.None);
                 if (int.TryParse(parts[0], out var start) && int.TryParse(parts[1], out var end))
                 {
                     for (var i = start; i <= end; i++)
                     {
-                        baseMap[i] = page.DescriptiveName;
+                        baseMap[i] = page.DescriptiveName!;
                     }
                 }
             }
             else if (int.TryParse(token, out var index))
             {
-                baseMap[index] = page.DescriptiveName;
+                baseMap[index] = page.DescriptiveName!;
             }
         }
 

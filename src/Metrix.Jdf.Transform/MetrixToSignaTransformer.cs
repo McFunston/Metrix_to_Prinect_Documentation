@@ -127,7 +127,8 @@ public sealed class MetrixToSignaTransformer
         // Prefer explicit SSI work style; fall back to the MXML printing method.
         if (!string.IsNullOrWhiteSpace(ssiWorkStyle))
         {
-            return ssiWorkStyle switch
+            var workStyle = ssiWorkStyle!;
+            return workStyle switch
             {
                 "PE" => "Perfecting",
                 "TN" => "WorkAndTurn",
@@ -136,7 +137,7 @@ public sealed class MetrixToSignaTransformer
                 "SF" => "Simplex",
                 "SS" => "Simplex",
                 "SW" => "Sheetwise",
-                _ => ssiWorkStyle
+                _ => workStyle
             };
         }
 
@@ -184,7 +185,7 @@ public sealed class MetrixToSignaTransformer
             return false;
         }
 
-        var parts = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var parts = value!.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (parts.Length < 4)
         {
             return false;
@@ -216,7 +217,7 @@ public sealed class MetrixToSignaTransformer
             return false;
         }
 
-        var parts = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var parts = value!.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (parts.Length < 2)
         {
             return false;
@@ -333,7 +334,7 @@ public sealed class MetrixToSignaTransformer
             .Where(ord => ord is not null)
             .Select(ord => ord!.Value)
             .Distinct()
-            .Order()
+            .OrderBy(value => value)
             .ToList();
 
         var ordBase = ords.Count > 0 ? ords.Min() : 0;

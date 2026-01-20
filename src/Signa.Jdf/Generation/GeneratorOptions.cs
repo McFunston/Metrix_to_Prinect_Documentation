@@ -51,7 +51,7 @@ public sealed class GeneratorOptions
     public bool IncludeContentPlacement { get; init; }
     public bool IncludeContentJobPart { get; init; }
     public bool IncludeContentRunlistIndex { get; init; }
-    public IReadOnlySet<string> ContentJobPartSignatures { get; init; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+    public ISet<string> ContentJobPartSignatures { get; init; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
     public IReadOnlyDictionary<string, string> ContentJobPartSheets { get; init; } = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
     public decimal ContentTrimWidth { get; init; } = 612;
     public decimal ContentTrimHeight { get; init; } = 792;

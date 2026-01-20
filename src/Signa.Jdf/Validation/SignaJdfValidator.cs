@@ -926,7 +926,7 @@ public sealed class SignaJdfValidator
         var blockComponents = root.Descendants(ns + "Component")
             .Where(element =>
                 (element.Attribute("ComponentType")?.Value ?? string.Empty)
-                .Contains("Block", StringComparison.OrdinalIgnoreCase))
+                .IndexOf("Block", StringComparison.OrdinalIgnoreCase) >= 0)
             .ToList();
         var blockComponentsWithAssembly = blockComponents
             .Where(element => !string.IsNullOrWhiteSpace(element.Attribute("AssemblyIDs")?.Value))
@@ -1115,7 +1115,7 @@ public sealed class SignaJdfValidator
             .Where(element =>
                 string.Equals(element.Attribute("AssemblyIDs")?.Value, assemblyIds, StringComparison.OrdinalIgnoreCase) &&
                 (element.Attribute("ComponentType")?.Value ?? string.Empty)
-                    .Contains("Block", StringComparison.OrdinalIgnoreCase))
+                    .IndexOf("Block", StringComparison.OrdinalIgnoreCase) >= 0)
             .ToList();
 
         var matchingComponents = components
@@ -1285,7 +1285,7 @@ public sealed class SignaJdfValidator
             .Descendants(ns + "ContentObject")
             .Select(element => element.Attribute("AssemblyIDs")?.Value)
             .Where(value => !string.IsNullOrWhiteSpace(value))
-            .SelectMany(value => value!.Split(' ', StringSplitOptions.RemoveEmptyEntries))
+            .SelectMany(value => value!.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
             .ToList();
 
         var foldToken = tokens.FirstOrDefault(LooksLikeFoldScheme);
@@ -1363,7 +1363,7 @@ public sealed class SignaJdfValidator
         var build = context?.Attribute("Build")?.Value;
         if (!string.IsNullOrWhiteSpace(build))
         {
-            var numericPart = build.Split(' ', StringSplitOptions.RemoveEmptyEntries)[0];
+            var numericPart = build.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0];
             if (int.TryParse(numericPart.Split('.')[0], out var buildNumber) && buildNumber < 10000)
             {
                 return $"priority=low; older Signa build ({build}) may omit SignaJob";
@@ -1462,7 +1462,7 @@ public sealed class SignaJdfValidator
             .Descendants(ns + "Component")
             .Count(element =>
                 (element.Attribute("ComponentType")?.Value ?? string.Empty)
-                .Contains("Block", StringComparison.OrdinalIgnoreCase));
+                .IndexOf("Block", StringComparison.OrdinalIgnoreCase) >= 0);
         var foldingParamsCount = root.Descendants(ns + "FoldingParams").Count();
 
         return $"componentBlocks={blockCount}; foldingParams={foldingParamsCount}";
@@ -1533,7 +1533,7 @@ public sealed class SignaJdfValidator
             return false;
         }
 
-        var tokens = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var tokens = value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (tokens.Length != expectedCount)
         {
             return false;
@@ -1739,8 +1739,12 @@ public sealed class SignaJdfValidator
 
     private static string NormalizeOrientationList(string value)
     {
-        var parts = value.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-        return string.Join(' ', parts);
+        var parts = value
+            .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            .Select(part => part.Trim())
+            .Where(part => part.Length > 0)
+            .ToArray();
+        return string.Join(" ", parts);
     }
 
     private static string? ResolveSheetWorkStyle(XElement layout, XElement root, XNamespace ns)
@@ -2441,7 +2445,7 @@ public sealed class SignaJdfValidator
             return false;
         }
 
-        var tokens = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var tokens = value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (tokens.Length != 6)
         {
             return false;
@@ -2469,7 +2473,7 @@ public sealed class SignaJdfValidator
             return false;
         }
 
-        var tokens = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var tokens = value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (tokens.Length != 4)
         {
             return false;
@@ -2497,7 +2501,7 @@ public sealed class SignaJdfValidator
             return false;
         }
 
-        var tokens = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var tokens = value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         if (tokens.Length < 2)
         {
             return false;

@@ -53,7 +53,7 @@ public sealed class JdfDocument
     public IReadOnlyList<ComponentInfo> Components { get; }
 
     public IEnumerable<string> Types =>
-        (Root.Types ?? string.Empty).Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        (Root.Types ?? string.Empty).Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
     public string? GetRunListRef(string processUsage)
     {

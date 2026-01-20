@@ -19,7 +19,7 @@ public static class JdfGenerator
         var ssi = XNamespace.Get("http://www.creo.com/SSI/JDFExtensions.xsd");
         var xsi = XNamespace.Get("http://www.w3.org/2001/XMLSchema-instance");
 
-        var types = string.Join(' ', options.Types);
+        var types = string.Join(" ", options.Types);
 
         var root = new XElement(ns + "JDF",
             new XAttribute("Type", "ProcessGroup"),
