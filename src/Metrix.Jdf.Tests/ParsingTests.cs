@@ -1,5 +1,6 @@
 using Metrix.Jdf;
 using Metrix.Jdf.Transform;
+using System.Xml.Linq;
 using Xunit;
 using Xunit.Sdk;
 
@@ -71,6 +72,45 @@ public sealed class ParsingTests
         Assert.InRange(options.PlateHeight, 2238.7m, 2238.8m);
     }
 
+    [Fact]
+    public void Transform_MapsSheetwiseCodeToWorkAndBack()
+    {
+        var layout = new MetrixLayout();
+        var signature = new MetrixSignature { Name = "Sig001" };
+        var sheet = new MetrixSheet { Name = "Sheet1", WorkStyle = "SH" };
+        sheet.Surfaces.Add(new MetrixSurface { Side = "Front" });
+        signature.Sheets.Add(sheet);
+        layout.Signatures.Add(signature);
+
+        var jdf = CreateMinimalJdf(layout);
+        var transformer = new MetrixToSignaTransformer();
+        var options = transformer.BuildGeneratorOptions(jdf, null, new MetrixToSignaOptions());
+
+        Assert.Equal("WorkAndBack", options.WorkStyle);
+        Assert.Single(options.Signatures);
+        Assert.Equal("WorkAndBack", options.Signatures[0].WorkStyle);
+    }
+
+    [Fact]
+    public void Transform_MapsOneSidedPrintingMethodToSimplex()
+    {
+        var layout = new MetrixLayout();
+        var signature = new MetrixSignature { Name = "Sig001" };
+        var sheet = new MetrixSheet { Name = "Sheet1" };
+        sheet.Surfaces.Add(new MetrixSurface { Side = "Front" });
+        signature.Sheets.Add(sheet);
+        layout.Signatures.Add(signature);
+
+        var jdf = CreateMinimalJdf(layout);
+        var mxml = CreateMinimalMxml("OneSided");
+        var transformer = new MetrixToSignaTransformer();
+        var options = transformer.BuildGeneratorOptions(jdf, mxml, new MetrixToSignaOptions());
+
+        Assert.Equal("Simplex", options.WorkStyle);
+        Assert.Single(options.Signatures);
+        Assert.Equal("Simplex", options.Signatures[0].WorkStyle);
+    }
+
     private static string ResolveSamplePathOrSkip(params string[] parts)
     {
         static string? ResolveIfExists(string root, string[] parts)
@@ -125,5 +165,38 @@ public sealed class ParsingTests
         }
 
         throw SkipException.ForSkip($"Private samples not found starting from {baseDir}.");
+    }
+
+    private static MetrixJdfDocument CreateMinimalJdf(MetrixLayout layout)
+    {
+        return new MetrixJdfDocument(
+            sourcePath: "in-memory",
+            root: new MetrixJdfNode
+            {
+                JobId = "Job001",
+                JobPartId = "Part001",
+                DescriptiveName = "Test"
+            },
+            jdfNamespace: XNamespace.Get("http://www.CIP4.org/JDFSchema_1_1"),
+            hdmNamespace: XNamespace.Get("www.heidelberg.com/schema/HDM"),
+            ssiNamespace: XNamespace.Get("http://www.creo.com/SSI/JDFExtensions.xsd"),
+            xmlDocument: new XDocument(new XElement("JDF")),
+            layout: layout,
+            runLists: new List<MetrixRunListResource>(),
+            resourceLinks: new List<MetrixResourceLink>());
+    }
+
+    private static MetrixMxmlDocument CreateMinimalMxml(string printingMethod)
+    {
+        var project = new MetrixMxmlProject();
+        project.Layouts.Add(new MetrixMxmlLayout { PrintingMethod = printingMethod });
+
+        return new MetrixMxmlDocument(
+            sourcePath: "in-memory",
+            mxmlNamespace: XNamespace.Get("https://www.imposition.com"),
+            xmlDocument: new XDocument(new XElement("MetrixProject")),
+            units: null,
+            resourcePool: new MetrixMxmlResourcePool(),
+            project: project);
     }
 }

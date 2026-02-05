@@ -1699,16 +1699,19 @@ public static class MetrixContentPostProcessor
             return null;
         }
 
-        return ssiWorkStyle switch
+        var workStyle = ssiWorkStyle!.Trim();
+        return workStyle switch
         {
             "PE" => "Perfecting",
             "TN" => "WorkAndTurn",
             "TO" => "WorkAndTumble",
-            "SH" => "Sheetwise",
+            "SH" => "WorkAndBack",
             "SF" => "Simplex",
             "SS" => "Simplex",
-            "SW" => "Sheetwise",
-            _ => ssiWorkStyle
+            "SW" => "WorkAndBack",
+            "Sheetwise" => "WorkAndBack",
+            "SingleSided" => "Simplex",
+            _ => workStyle
         };
     }
 
@@ -2443,7 +2446,8 @@ public static class MetrixContentPostProcessor
     {
         return string.Equals(workStyle, "SS", StringComparison.OrdinalIgnoreCase)
                || string.Equals(workStyle, "SF", StringComparison.OrdinalIgnoreCase)
-               || string.Equals(workStyle, "Simplex", StringComparison.OrdinalIgnoreCase);
+               || string.Equals(workStyle, "Simplex", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "SingleSided", StringComparison.OrdinalIgnoreCase);
     }
 
     private static bool IsSingleSideLayout(string? workStyle)

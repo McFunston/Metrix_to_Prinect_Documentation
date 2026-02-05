@@ -127,16 +127,18 @@ public sealed class MetrixToSignaTransformer
         // Prefer explicit SSI work style; fall back to the MXML printing method.
         if (!string.IsNullOrWhiteSpace(ssiWorkStyle))
         {
-            var workStyle = ssiWorkStyle!;
+            var workStyle = ssiWorkStyle!.Trim();
             return workStyle switch
             {
                 "PE" => "Perfecting",
                 "TN" => "WorkAndTurn",
                 "TO" => "WorkAndTumble",
-                "SH" => "Sheetwise",
+                "SH" => "WorkAndBack",
                 "SF" => "Simplex",
                 "SS" => "Simplex",
-                "SW" => "Sheetwise",
+                "SW" => "WorkAndBack",
+                "Sheetwise" => "WorkAndBack",
+                "SingleSided" => "Simplex",
                 _ => workStyle
             };
         }
@@ -144,7 +146,7 @@ public sealed class MetrixToSignaTransformer
         var printingMethod = mxml?.Project.Layouts.FirstOrDefault()?.PrintingMethod;
         return printingMethod switch
         {
-            "OneSided" => "SingleSided",
+            "OneSided" => "Simplex",
             "Perfected" => "Perfecting",
             "WorkAndTurn" => "WorkAndTurn",
             "WorkAndBack" => "WorkAndBack",
