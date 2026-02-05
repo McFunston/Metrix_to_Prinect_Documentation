@@ -27,4 +27,4 @@ jobs:
         run: dotnet build Metrix_to_Cockpit.sln --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test Metrix_to_Cockpit.sln --configuration Release --no-build --verbosity minimal
+        run: dotnet test Metrix_to_Cockpit.sln --configuration Release --no-build --verbosity minimal --filter "Category!=PrivateSamples"

@@ -14,6 +14,7 @@ public sealed class ParsingTests
 
     // Integration-style tests that rely on private sample bundles (not committed to repo).
     [Fact]
+    [Trait("Category", "PrivateSamples")]
     public void ParseJdf_SampleA_LoadsLayoutAndRunLists()
     {
         var path = ResolveSamplePathOrSkip("Metrix_Samples", "jdf", $"{SampleAId}.jdf");
@@ -29,6 +30,7 @@ public sealed class ParsingTests
     }
 
     [Fact]
+    [Trait("Category", "PrivateSamples")]
     public void ParseMxml_SampleB_LoadsProjectAndLayouts()
     {
         var path = ResolveSamplePathOrSkip("Metrix_Samples", "mxml", $"{SampleBId}.mxml");
@@ -41,6 +43,7 @@ public sealed class ParsingTests
     }
 
     [Fact]
+    [Trait("Category", "PrivateSamples")]
     public void Transform_UsesFirstSheetWorkStyle_WhenAvailable()
     {
         var jdfPath = ResolveSamplePathOrSkip("Metrix_Samples", "jdf", $"{SampleAId}.jdf");
@@ -57,6 +60,7 @@ public sealed class ParsingTests
     }
 
     [Fact]
+    [Trait("Category", "PrivateSamples")]
     public void Transform_UsesSurfaceDimensions_WhenConfigured()
     {
         var jdfPath = ResolveSamplePathOrSkip("Metrix_Samples", "jdf", $"{SampleBId}.jdf");
