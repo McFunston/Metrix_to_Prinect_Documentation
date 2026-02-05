@@ -67,6 +67,8 @@ public sealed class MetrixToSignaTransformer
         var documentPageCount = ResolveDocumentPageCount(jdf);
         var uniformWorkStyle = ResolveUniformWorkStyle(layout, mxml);
         var signaJobPartNames = ResolveSignaJobPartNames(mxml);
+        var resolvedWorkStyle = uniformWorkStyle ?? MapWorkStyle(firstSheet?.WorkStyle, mxml);
+        var includeBackSide = ResolveIncludeBackSide(signatures, resolvedWorkStyle, contentStats.IncludeBackContentPlacement);
 
         // GeneratorOptions defaults favor cockpit importability over completeness.
         var generatorOptions = new GeneratorOptions
@@ -74,7 +76,8 @@ public sealed class MetrixToSignaTransformer
             JobId = jdf.Root.JobId ?? options.FallbackJobId,
             JobPartId = jdf.Root.JobPartId ?? options.FallbackJobPartId,
             DescriptiveName = jdf.Root.DescriptiveName ?? options.FallbackDescription,
-            WorkStyle = uniformWorkStyle ?? MapWorkStyle(firstSheet?.WorkStyle, mxml),
+            WorkStyle = resolvedWorkStyle,
+            IncludeBackSide = includeBackSide,
             PlateWidth = plateWidth,
             PlateHeight = plateHeight,
             PaperWidth = paperWidth,
@@ -261,6 +264,42 @@ public sealed class MetrixToSignaTransformer
             .ToList();
 
         return workStyles.Count == 1 ? workStyles[0] : null;
+    }
+
+    private static bool ResolveIncludeBackSide(
+        IReadOnlyList<SignatureDefinition> signatures,
+        string defaultWorkStyle,
+        bool includeBackFromGeometry)
+    {
+        if (includeBackFromGeometry)
+        {
+            return true;
+        }
+
+        if (signatures.Count > 0)
+        {
+            return signatures.Any(signature =>
+                !IsSingleSideWorkStyle(signature.WorkStyle ?? defaultWorkStyle));
+        }
+
+        return !IsSingleSideWorkStyle(defaultWorkStyle);
+    }
+
+    private static bool IsSingleSideWorkStyle(string? workStyle)
+    {
+        if (string.IsNullOrWhiteSpace(workStyle))
+        {
+            return false;
+        }
+
+        return string.Equals(workStyle, "SS", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "SF", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "Simplex", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "SingleSided", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "TN", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "TO", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "WorkAndTurn", StringComparison.OrdinalIgnoreCase)
+               || string.Equals(workStyle, "WorkAndTumble", StringComparison.OrdinalIgnoreCase);
     }
 
 
